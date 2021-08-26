@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>My Astro Site</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" href="/_astro/index-Z1RDKuB.css" type="text/css"><style type="text/css">header.astro-ldKR6c5M {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            max-width: min(100%, 68ch);
+        }
+    </style><style type="text/css">astro-root, astro-fragment { display: contents; }</style></head><body><main class="astro-ldKR6c5M"><header class="astro-ldKR6c5M"><div class="astro-ldKR6c5M"><img width="60" height="80" src="/assets/logo.svg" alt="Astro logo" class="astro-ldKR6c5M"><h1 class="astro-ldKR6c5M">Welcome to <a href="https://astro.build/" class="astro-ldKR6c5M">Astro</a></h1></div></header><article class="astro-JoEeJJFy"><div class="banner astro-JoEeJJFy"><p class="astro-JoEeJJFy"><strong class="astro-JoEeJJFy">🧑‍🚀 Seasoned astronaut?</strong> Delete this file. Have fun!</p></div><section class="astro-JoEeJJFy"><h2 id="-project-structure">🚀 Project Structure</h2><p>Inside of your Astro project, you’ll see the following folders and files:</p><pre class=" language-html"><code class="language-html">/
+├── public/
+│   ├── robots.txt
+│   └── favicon.ico
+├── src/
+│   ├── components/
+│   │   └── Tour.astro
+│   └── pages/
+│       └── index.astro
+└── package.json
+</code></pre><p>Astro looks for <code>.astro</code> or <code>.md</code> files in the <code>src/pages/</code> directory.
+Each page is exposed as a route based on its file name.</p><p>There’s nothing special about <code>src/components/</code>, but that’s where we like to put any Astro/React/Vue/Svelte/Preact components.</p><p>Any static assets, like images, can be placed in the <code>public/</code> directory.</p></section><section class="astro-JoEeJJFy"><h2 class="astro-JoEeJJFy">👀 Want to learn more?</h2><p class="astro-JoEeJJFy">Feel free to check <a href="https://github.com/snowpackjs/astro" class="astro-JoEeJJFy">our documentation</a> or jump into our <a href="https://astro.build/chat" class="astro-JoEeJJFy">Discord server</a>.</p></section></article><astro-root uid="1JVRG"><div id="svelte" class="counter"><button>-</button>
+  <pre>0</pre>
+  <button>+</button></div></astro-root>
+<script type="module">
+import setup from '/_astro_frontend/hydrate/visible.js';
+setup("1JVRG", {}, async () => {
+  
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("/_astro/src/components/SvelteCounter.svelte.js"), import("/_snowpack/pkg/@astrojs.renderer-svelte.client.v0.1.1.js")]);
+  return (el, children) => hydrate(el)(Component, {}, children);
+
+});
+</script></main></body></html>
