@@ -1,0 +1,28 @@
+---
+const nav = [
+	{ name: 'About', link: '/about'},
+	{ name: 'Text', link: '/text'},
+	{ name: 'Image', link: '/image'},
+	{ name: 'jcha0713.github.io', link: '/'},
+]
+---
+
+<nav>
+	{nav.map(({ name, link}) => {
+		return <a href={link}>{name}</a>
+	})}
+</nav>
+
+<style lang="scss">
+	nav {
+		display: flex;
+		justify-content: space-between;
+		a {
+			color: black;
+			text-decoration: none;
+			font-size: 1.8rem;
+			font-weight: 500;
+			padding-right: 10px;
+		}
+	}
+</style>

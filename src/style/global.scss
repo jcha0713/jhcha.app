@@ -1,0 +1,30 @@
+@font-face {
+  font-family: PhantomSans;
+  src: url('/fonts/PhantomSans0.8-Regular.woff2') format('woff2'),
+    url('/fonts/PhantomSans0.8-Regular.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: PhantomSans;
+  src: url('/fonts/PhantomSans0.8-Medium.woff2') format('woff2'),
+    url('/fonts/PhantomSans0.8-Medium.woff') format('woff');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: PhantomSans;
+  src: url('/fonts/PhantomSans0.8-Semibold.woff2') format('woff2'),
+    url('/fonts/PhantomSans0.8-Semibold.woff') format('woff');
+  font-weight: 600;
+}
+
+// $sans-serif: PhantomSans, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
+//   Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+
+// $black: #2a2329;
+// $primary-color: #ffc148;
+
+// :root {
+//   font-family: $sans-serif;
+// }

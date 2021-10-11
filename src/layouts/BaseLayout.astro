@@ -1,0 +1,14 @@
+---
+import Head from '../components/Head.astro';
+import Nav from '../components/Nav.astro';
+---
+<html>
+	<head>
+    <Head />
+		<link rel="stylesheet" href="{Astro.resolve('../style/global.css')}">
+	</head>
+  <body>
+    <Nav />
+    <slot />
+  </body>
+</html>
