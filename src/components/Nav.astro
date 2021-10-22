@@ -6,7 +6,6 @@ const nav = [
 	{ name: 'jcha0713.github.io', link: '/'},
 ]
 ---
-
 <nav>
 	{nav.map(({ name, link}) => {
 		return <a href={link}>{name}</a>
@@ -23,6 +22,9 @@ const nav = [
 			font-size: 1.8rem;
 			font-weight: 500;
 			padding-right: 10px;
+			&:last-child {
+				color: #8257a2;
+			}
 		}
 	}
 </style>
