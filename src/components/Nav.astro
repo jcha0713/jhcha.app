@@ -6,25 +6,9 @@ const nav = [
 	{ name: 'jcha0713.github.io', link: '/'},
 ]
 ---
-<nav>
-	{nav.map(({ name, link}) => {
-		return <a href={link}>{name}</a>
+<nav class="m-2 flex justify-between font-sans">
+	{nav.map(({ name, link }) => {
+		return <a class="text-3xl font-medium last:text-yellow-400" href={link}>{name}</a>
 	})}
 </nav>
 
-<style lang="scss">
-	nav {
-		display: flex;
-		justify-content: space-between;
-		a {
-			color: black;
-			text-decoration: none;
-			font-size: 1.8rem;
-			font-weight: 500;
-			padding-right: 10px;
-			&:last-child {
-				color: #8257a2;
-			}
-		}
-	}
-</style>
