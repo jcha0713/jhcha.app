@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary-darker: hsl(274, 30%, 29%);
+    --color-primary-dark: hsl(274, 30%, 39%);
+    --color-primary: hsl(274, 30%, 49%);
+    --color-primary-light: hsl(274, 30%, 59%);
+    --color-primary-lighter: hsl(274, 30%, 69%);
+    --color-accent-lighter: hsl(39, 89%, 68%);
+    --color-accent-light: hsl(39, 89%, 58%);
+    --color-accent: hsl(39, 89%, 48%);
+    --color-accent-dark: hsl(39, 89%, 38%);
+    --color-accent-darker: hsl(39, 89%, 28%);
+    --color-blog-white: hsl(0, 20%, 98%);
+    --color-text-black: hsl(0, 4%, 19%)
+    --color-warning: hsl(46, 100%, 61%)
+    --color-error: hsl(342, 89%, 48%);
+    --color-success: hsl(122, 50%, 60%);
+  }
+
+  @font-face {
+    font-family: PhantomSans;
+    src: url('/fonts/PhantomSans0.8-Regular.woff2') format('woff2'),
+      url('/fonts/PhantomSans0.8-Regular.woff') format('woff');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: PhantomSans;
+    src: url('/fonts/PhantomSans0.8-Medium.woff2') format('woff2'),
+      url('/fonts/PhantomSans0.8-Medium.woff') format('woff');
+    font-weight: 500;
+  }
+
+  @font-face {
+    font-family: PhantomSans;
+    src: url('/fonts/PhantomSans0.8-Semibold.woff2') format('woff2'),
+      url('/fonts/PhantomSans0.8-Semibold.woff') format('woff');
+    font-weight: 600;
+  }
+}
