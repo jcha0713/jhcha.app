@@ -1,13 +1,15 @@
 ---
 const nav = [
-	{ name: 'About', link: '/about'},
-	{ name: 'Text', link: '/text'},
-	{ name: 'Image', link: '/image'},
-	{ name: 'jcha0713.github.io', link: '/'},
+	{ name: 'text', link: '/text'},
+	{ name: 'image', link: '/image'},
+	{ name: 'info', link: '/info'},
 ]
 ---
-<nav class="m-2 flex justify-between font-sans">
-	{nav.map(({ name, link }) => {
-		return <a class="text-black text-3xl last:text-primary-default" href={link}>{name}</a>
-	})}
+<nav class="mx-2 mt-2 grid grid-cols-10 gap-x-2 text-lg font-sans sticky z-10">
+	<h1 class="col-span-2 cursor-default">Joohoon Cha</h1>
+	<div class="col-start-3 col-end-5">
+		{nav.map(({ name, link }) => {
+			return <a class="mr-2 text-black hover:text-primary-default transition-colors ease-in-out duration-75" href={link}>{name}</a>
+		})}
+	</div>
 </nav>

@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['PhantomSans', 'sans-serif'],
+        kor: ['Article'],
       },
     },
     colors: {
@@ -13,16 +14,16 @@ module.exports = {
       'primary-dark': 'var(--color-primary-dark)',
       'primary-default': 'var(--color-primary)',
       'primary-light': 'var(--color-primary-light)',
-      'primary-lighter': 'var(--color-primary-lighter)', 
+      'primary-lighter': 'var(--color-primary-lighter)',
       // accent colors
       'accent-darker': 'var(--color-accent-darker)',
       'accent-dark': 'var(--color-accent-dark)',
       'accent-default': 'var(--color-accent)',
       'accent-light': 'var(--color-accent-light)',
-      'accent-lighter': 'var(--color-accent-lighter)', 
+      'accent-lighter': 'var(--color-accent-lighter)',
       // black and white
-      'white': 'var(--color-white)',
-      'black': 'var(--color-black)',
+      white: 'var(--color-white)',
+      black: 'var(--color-black)',
     },
   },
-}
+};

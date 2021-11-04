@@ -6,6 +6,10 @@
   /*
    * Custom fonts
    */
+
+  /*
+   * Sans-serif
+   */
   @font-face {
     font-family: PhantomSans;
     src: url('/fonts/PhantomSans0.8-Regular.woff2') format('woff2'),
@@ -25,6 +29,16 @@
     src: url('/fonts/PhantomSans0.8-Semibold.woff2') format('woff2'),
       url('/fonts/PhantomSans0.8-Semibold.woff') format('woff');
     font-weight: 600;
+  }
+
+  /*
+   * Korean
+   */
+
+  @font-face {
+    font-family: Article;
+    src: url('/fonts/FSArticleBuri-Text.woff2') format('woff2'),
+      url('/fonts/FSArticleBuri-Text.woff') format('woff');
   }
 
   :root {
