@@ -1,8 +1,8 @@
 ---
-title: Blog Post 3
-category: web
-date: 1/24
-year: 2022
+title: loooooooooooooooooooooooooooooooooooooooooooong title
+category: loooooooooooooooooooooooooooooooooooooooooooong type
+date: 11/25
+year: 2025
 layout: ../../layouts/PostLayout.astro
 ---
 
