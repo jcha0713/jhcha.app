@@ -1,29 +1,32 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   mode: 'jit',
-  purge: ['./public/**/*.html', './src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}'],
+  content: [
+    './public/**/*.html',
+    './src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}',
+  ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['PhantomSans', 'sans-serif'],
-        kor: ['Article'],
+        sans: ['ObjectSans', ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        // Theme colors
+        primary: 'var(--primary-color)',
+        'light-bg': 'var(--light-bg)',
+        'dark-bg': 'var(--dark-bg)',
+
+        // Text colors
+        'light-text': 'var(--light-text)',
+        'dark-text': 'var(--dark-text)',
+      },
+      gridTemplateRows: {
+        tableRows: '50px minmax(0, 1fr)',
+      },
+      gridTemplateColumns: {
+        nav: '1fr 2fr 1fr',
       },
     },
-    colors: {
-      // primary colors
-      'primary-darker': 'var(--color-primary-darker)',
-      'primary-dark': 'var(--color-primary-dark)',
-      'primary-default': 'var(--color-primary)',
-      'primary-light': 'var(--color-primary-light)',
-      'primary-lighter': 'var(--color-primary-lighter)',
-      // accent colors
-      'accent-darker': 'var(--color-accent-darker)',
-      'accent-dark': 'var(--color-accent-dark)',
-      'accent-default': 'var(--color-accent)',
-      'accent-light': 'var(--color-accent-light)',
-      'accent-lighter': 'var(--color-accent-lighter)',
-      // black and white
-      white: 'var(--color-white)',
-      black: 'var(--color-black)',
-    },
   },
-};
+}

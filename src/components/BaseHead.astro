@@ -1,0 +1,37 @@
+---
+export interface Props {
+  title: string
+  description?: string
+  image?: string
+  next?: string
+  prev?: string
+  canonicalURL?: string | URL
+}
+
+const { title, description, next, prev, image, canonicalURL } =
+  Astro.props as Props
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="stylesheet" href={Astro.resolve('../styles/global.css')} />
+
+<!-- SEO -->
+<link rel="canonical" href={canonicalURL} />
+{next && <link rel="next" aria-label="Previous Page" href={new URL(next, canonicalURL).href}>}
+{prev && <link rel="prev" aria-label="Next Page" href={new URL(prev, canonicalURL).href}>}
+
+<!-- OpenGraph -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+{image && (<meta property="og:image" content={new URL(image, canonicalURL)}>)}
+
+<!-- Twitter -->
+<meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+<meta name="twitter:site" content="@astro" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{image && (<meta name="twitter:image" content={image}>)}

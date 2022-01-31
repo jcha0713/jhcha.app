@@ -1,15 +1,22 @@
----
-const nav = [
-	{ name: 'text', link: '/text'},
-	{ name: 'image', link: '/image'},
-	{ name: 'info', link: '/info'},
-]
----
-<nav class="mx-2 mt-2 grid grid-cols-10 gap-x-2 text-lg font-sans sticky z-10">
-	<h1 class="col-span-2 cursor-default">Joohoon Cha</h1>
-	<div class="col-start-3 col-end-5">
-		{nav.map(({ name, link }) => {
-			return <a class="mr-2 text-black hover:text-primary-default transition-colors ease-in-out duration-75" href={link}>{name}</a>
-		})}
-	</div>
+<nav
+  class="font-sans py-4 px-4 mb-6 grid grid-cols-2
+  items-end z-10"
+>
+  <div class=" cursor-default">
+    <a
+      href="/"
+      class="hover:text-primary transition-colors ease-in-out duration-75
+      text-lg"
+    >
+      parkingspace.app
+    </a>
+  </div>
+  <div class="flex justify-end">
+    <small
+      class="cursor-pointer hover:text-primary transition-colors ease-in-out
+      duration-75 underline"
+    >
+      info
+    </small>
+  </div>
 </nav>

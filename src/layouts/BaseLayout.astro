@@ -1,14 +1,17 @@
 ---
-import Head from '../components/Head.astro';
-import Nav from '../components/Nav.astro';
-import Content from '../components/Content.astro';
+import BaseHead from '../components/BaseHead.astro'
+import Nav from '../components/Nav.astro'
+import Table from '../components/Table.astro'
+
+const title = 'parkingspace.app'
 ---
-<html>
-	<head>
-    <Head />
-	</head>
-  <body class="bg-white">
+
+<html class="min-h-full flex flex-col">
+  <head>
+    <BaseHead {title} />
+  </head>
+  <body class="bg-light-bg text-light-text flex-grow flex flex-col">
     <Nav />
-    <Content />
+    <Table />
   </body>
 </html>
