@@ -5,11 +5,11 @@ const { content } = Astro.props
 const { title } = content
 ---
 
-<html lang="en">
+<html class="min-h-full flex flex-col">
   <head>
     <BaseHead {title} />
   </head>
-  <body>
+  <body class="bg-light-bg text-light-text flex-grow flex flex-col">
     <Nav />
     <slot>{content}</slot>
   </body>
