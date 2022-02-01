@@ -1,8 +1,7 @@
 ---
 title: Blog Post 4
 category: web
-date: 11/25
-year: 2019
+date: 11/25/19
 layout: ../../layouts/PostLayout.astro
 ---
 

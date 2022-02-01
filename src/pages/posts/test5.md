@@ -1,8 +1,7 @@
 ---
 title: loooooooooooooooooooooooooooooooooooooooooooong title
 category: loooooooooooooooooooooooooooooooooooooooooooong type
-date: 11/25
-year: 2025
+date: 11/25/20
 layout: ../../layouts/PostLayout.astro
 ---
 

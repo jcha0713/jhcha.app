@@ -1,5 +1,13 @@
 ---
 const posts = Astro.fetchContent('../pages/posts/*.md')
+
+const sortedPosts = posts.sort(
+  (a, b) => new Date(a.date).getDate() - new Date(b.date).getDate()
+)
+
+const getYear = (date) => {
+  return new Date(date).getFullYear()
+}
 ---
 
 <div class="px-4">
@@ -11,34 +19,32 @@ const posts = Astro.fetchContent('../pages/posts/*.md')
     </div>
   </div>
   <div class="border-b border-light-text">
-    {posts
-      .sort((a, b) => b.year - a.year)
-      .map(({ title, category, date, year, url }, index, posts) => {
-        let newYear = false
-        if (index && posts[index - 1].year !== year) {
-          newYear = true
-        } else if (!index) {
-          newYear = true
-          year = posts[index].year
-        }
-        return (
-          <div>
-            {newYear &&
-              `<div class="border-t border-light-text bg-slate-100 text-right
+    {sortedPosts.map(({ title, category, date, url }, index, posts) => {
+      let newYear = false
+      let year = 0
+      if (index && getYear(posts[index - 1].date) !== getYear(date)) {
+        newYear = true
+        year = getYear(date)
+      } else if (!index) {
+        newYear = true
+        year = getYear(posts[0].date)
+      }
+      return (
+        <div>
+          {newYear &&
+            `<div class="border-t border-light-text bg-slate-100 text-right
               text-sm  py-2 cursor-default">${year}</div>`}
-            <a class="hover:text-primary" href={url}>
-              <div class="grid grid-cols-12 border-t border-light-text py-3 gap-2">
-                <div class="col-span-7 break-all md:break-words">{title}</div>
-                <div class="col-span-3 break-all md:break-words">
-                  {category}
-                </div>
-                <div class="col-span-2 break-all md:break-words">
-                  <div class="flex justify-end">{date}</div>
-                </div>
+          <a class="hover:text-primary" href={url}>
+            <div class="grid grid-cols-12 border-t border-light-text py-3 gap-2">
+              <div class="col-span-7 break-all md:break-words">{title}</div>
+              <div class="col-span-3 break-all md:break-words">{category}</div>
+              <div class="col-span-2 break-all md:break-words">
+                <div class="flex justify-end">{date}</div>
               </div>
-            </a>
-          </div>
-        )
-      })}
+            </div>
+          </a>
+        </div>
+      )
+    })}
   </div>
 </div>

@@ -1,8 +1,7 @@
 ---
 title: Blog Post 2
 category: web
-date: 1/4
-year: 2022
+date: 1/4/22
 layout: ../../layouts/PostLayout.astro
 ---
 
