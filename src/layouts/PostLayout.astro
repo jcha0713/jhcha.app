@@ -11,6 +11,9 @@ const { title } = content
   </head>
   <body class="bg-light-bg text-light-text flex-grow flex flex-col">
     <Nav />
-    <slot>{content}</slot>
+    <article class="prose lg:prose-xl mx-auto my-12">
+      <h1>{title}</h1>
+      <slot>{content}</slot>
+    </article>
   </body>
 </html>
