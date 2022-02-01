@@ -11,6 +11,21 @@
     font-family: ObjectSans;
     src: url('/fonts/PPObjectSans-Regular.woff2') format('woff2'),
       url('/fonts/PPObjectSans-Regular.woff') format('woff');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: ObjectSans;
+    src: url('/fonts/PPObjectSans-Bold.woff2') format('woff2'),
+      url('/fonts/PPObjectSans-Bold.woff') format('woff');
+    font-weight: 700;
+  }
+
+  @font-face {
+    font-family: ObjectSans;
+    src: url('/fonts/PPObjectSans-Heavy.woff2') format('woff2'),
+      url('/fonts/PPObjectSans-Heavy.woff') format('woff');
+    font-weight: 900;
   }
 
   :root {
@@ -26,5 +41,27 @@
     /* Text Colors*/
     --light-text: #2f3330;
     --dark-text: #ebddb2;
+  }
+}
+
+@layer components {
+  .title {
+    @apply col-span-7;
+  }
+
+  .type {
+    @apply col-span-3;
+  }
+
+  .date {
+    @apply col-span-2;
+  }
+
+  .row {
+    @apply grid grid-cols-12 border-t border-light-text py-2 lg:py-4 px-1 gap-2;
+  }
+
+  .hover-animation {
+    @apply hover:text-primary transition-colors ease-in-out duration-500;
   }
 }

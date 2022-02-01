@@ -22,10 +22,10 @@ const getYear = (date) => {
 ---
 
 <div class="px-4">
-  <div class="grid grid-cols-12 py-2 text-xs gap-2">
-    <div class="col-span-7">title</div>
-    <div class="col-span-3">type</div>
-    <div class="col-span-2">
+  <div class="grid grid-cols-12 py-2 px-1 text-xs gap-2 font-bold">
+    <div class="title">title</div>
+    <div class="type">type</div>
+    <div class="date">
       <div class="flex justify-end">date</div>
     </div>
   </div>
@@ -45,16 +45,15 @@ const getYear = (date) => {
         <div>
           {newYear &&
             `<div class="border-t border-light-text bg-slate-100 text-right
-              text-sm  py-2 cursor-default">${year}</div>`}
-          <a class="hover:text-primary" href={url}>
-            <div class="grid grid-cols-12 border-t border-light-text py-3 gap-2">
-              <div class="col-span-7 break-all md:break-words">{title}</div>
-              <div class="col-span-3 break-all md:break-words">{category}</div>
-              <div class="col-span-2 break-all md:break-words">
-                <div
-                  class="flex
-                justify-end"
-                >{`${date.getMonth() + 1}/${date.getDate()}`}</div>
+              text-sm py-2 pr-1 cursor-default">${year}</div>`}
+          <a class="hover-animation" href={url}>
+            <div class="row">
+              <div class="title break-all md:break-words">{title}</div>
+              <div class="type break-all md:break-words">{category}</div>
+              <div class="date break-all md:break-words">
+                <div class="flex justify-end">{`${
+                  date.getMonth() + 1
+                }/${date.getDate()}`}</div>
               </div>
             </div>
           </a>
