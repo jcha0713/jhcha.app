@@ -1,9 +1,20 @@
 ---
 const posts = Astro.fetchContent('../pages/posts/*.md')
 
-const sortedPosts = posts.sort(
-  (a, b) => new Date(a.date).getDate() - new Date(b.date).getDate()
-)
+const sortedPosts = posts.sort((a, b) => {
+  const dateA = new Date(a.date)
+  const dateB = new Date(b.date)
+  let order = dateB.getFullYear() - dateA.getFullYear()
+  if (order === 0) {
+    order = dateB.getMonth() - dateA.getMonth()
+  }
+  if (order === 0) {
+    order = dateB.getDate() - dateA.getDate()
+  }
+  return order
+})
+
+sortedPosts.map((post) => console.log(post.title, post.date))
 
 const getYear = (date) => {
   return new Date(date).getFullYear()
@@ -29,6 +40,7 @@ const getYear = (date) => {
         newYear = true
         year = getYear(posts[0].date)
       }
+      date = new Date(date)
       return (
         <div>
           {newYear &&
@@ -39,7 +51,10 @@ const getYear = (date) => {
               <div class="col-span-7 break-all md:break-words">{title}</div>
               <div class="col-span-3 break-all md:break-words">{category}</div>
               <div class="col-span-2 break-all md:break-words">
-                <div class="flex justify-end">{date}</div>
+                <div
+                  class="flex
+                justify-end"
+                >{`${date.getMonth() + 1}/${date.getDate()}`}</div>
               </div>
             </div>
           </a>
