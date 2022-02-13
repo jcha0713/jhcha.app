@@ -1,7 +1,5 @@
 ---
 import BaseHead from '../components/BaseHead.astro'
-import Nav from '../components/Nav.astro'
-import Table from '../components/Table.astro'
 
 const title = 'parkingspace.app'
 ---
@@ -11,7 +9,7 @@ const title = 'parkingspace.app'
     <BaseHead {title} />
   </head>
   <body class="bg-light-bg text-light-text flex-grow flex flex-col">
-    <Nav />
-    <Table />
+    <slot name="blog" />
+    <slot name="post" />
   </body>
 </html>

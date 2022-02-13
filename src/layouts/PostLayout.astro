@@ -1,23 +1,15 @@
 ---
-import BaseHead from '../components/BaseHead.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
 import Nav from '../components/Nav.astro'
 const { content } = Astro.props
 const { title } = content
 ---
 
-<html class="min-h-full flex flex-col">
-  <head>
-    <BaseHead {title} />
-  </head>
-  <body class="bg-light-bg text-light-text flex-grow flex flex-col">
+<BaseLayout>
+  <div slot="post">
     <Nav />
-    <div
-      class="px-4 py-10 max-w-3xl mx-auto sm:px-6 sm:py-12 lg:max-w-4xl lg:py-16 lg:px-8 xl:max-w-6xl"
-    >
-      <article class="prose lg:prose-xl ">
-        <h1>{title}</h1>
-        <slot>{content}</slot>
-      </article>
-    </div>
-  </body>
-</html>
+    <article class="prose">
+      <slot>{content}</slot>
+    </article>
+  </div>
+</BaseLayout>
