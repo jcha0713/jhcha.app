@@ -14,15 +14,13 @@ const sortedPosts = posts.sort((a, b) => {
   return order
 })
 
-sortedPosts.map((post) => console.log(post.title, post.date))
-
 const getYear = (date) => {
   return new Date(date).getFullYear()
 }
 ---
 
-<div class="px-4">
-  <div class="grid grid-cols-12 py-2 px-1 text-xs gap-2 font-bold">
+<div class="">
+  <div class="grid grid-cols-12 py-2 px-row text-sm row-gap">
     <div class="title">title</div>
     <div class="type">type</div>
     <div class="date">
@@ -44,11 +42,11 @@ const getYear = (date) => {
       return (
         <div>
           {newYear &&
-            `<div class="border-t border-light-text bg-slate-100 text-right
-              text-sm py-2 pr-1 cursor-default">${year}</div>`}
+            `<div class="bg-primary-300 border-t border-light-text text-right
+            text-sm py-2 pr-4 cursor-default">${year}</div>`}
           <a class="hover-animation" href={url}>
             <div class="row">
-              <div class="title break-all md:break-words">{title}</div>
+              <div class="title break-words md:break-words">{title}</div>
               <div class="type break-all md:break-words">{category}</div>
               <div class="date break-all md:break-words">
                 <div class="flex justify-end">{`${
