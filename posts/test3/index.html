@@ -2,10 +2,10 @@
     
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<title>Svelte bind directive explained in-depth</title>
+<title>parkingspace.app</title>
 <meta name="description">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="stylesheet" href="../../assets/global.dc30c72b.css"><link rel="stylesheet" href="../../assets/test4.8adf36d5.css">
+<link rel="stylesheet" href="../../assets/global.1b7eb4af.css"><link rel="stylesheet" href="../../assets/image.48f6624e.css">
 
 <!-- SEO -->
 <link rel="canonical">
@@ -13,33 +13,38 @@
 
 
 <!-- OpenGraph -->
-<meta property="og:title" content="Svelte bind directive explained in-depth">
+<meta property="og:title" content="parkingspace.app">
 <meta property="og:description">
 
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@astro">
-<meta name="twitter:title" content="Svelte bind directive explained in-depth">
+<meta name="twitter:title" content="parkingspace.app">
 <meta name="twitter:description">
 
 
   </head>
   <body class="bg-light-bg text-light-text flex-grow flex flex-col">
-    <nav class="font-sans py-4 mx-4 mb-6 grid grid-cols-2
-  items-end z-10">
+    
+    <div>
+    <nav class="z-10 mx-4 mb-6 grid grid-cols-2 items-end
+  py-4 font-sans">
   <div id="logo">
-    <a href="/" class="hover-animation text-lg"> parkingspace.app </a>
+    <a href="/" class="hover-animation text-lg"> jhcha.blog() </a>
   </div>
-  <div class="flex justify-end">
-    <small class="hover-animation cursor-pointer underline"> info </small>
+  <div class="flex flex-row justify-end gap-4">
+    <a href="/blog">
+      <span class="hover-animation cursor-pointer"> blog </span>
+    </a>
+    <a href="/blog">
+      <span class="hover-animation cursor-pointer"> info </span>
+    </a>
   </div>
 </nav>
 
-    <div class="px-4 py-10 max-w-3xl mx-auto sm:px-6 sm:py-12 lg:max-w-4xl lg:py-16 lg:px-8 xl:max-w-6xl">
-      <article class="prose lg:prose-xl ">
-        <h1>Svelte bind directive explained in-depth</h1>
-        <p>I spent a few hours digging into Svelte’s bind directive statement with focus on forms. Read on if you want to want to learn more!</p><p>In this article you will learn how to:</p><ul>
+    <article class="prose">
+      <p>I spent a few hours digging into Svelte’s bind directive statement with focus on forms. Read on if you want to want to learn more!</p><p>In this article you will learn how to:</p><ul>
 <li>Bind input values to variables</li>
 <li>B ind to objects instead of variables</li>
 <li>Manipulate text input values dynamically</li>
@@ -68,8 +73,7 @@
     <span class="token operator">&lt;</span>button on<span class="token operator">:</span>click<span class="token operator">|</span>preventDefault<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>username <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>reset<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
   <span class="token operator">&lt;</span><span class="token operator">/</span>form<span class="token operator">&gt;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span></code></pre><p>In the code about we bind one variable to two text input fields. Nothing spectacular. It’s very straight-forward and just works.</p><p>If you change one field, the value in another changes too.</p><p>If you need to bind a textarea element to a variable, it works exactly the same was as with text inputs.</p><h2 id="binding-svelte-child-components">Binding Svelte child components</h2><p>Last thing I want to talk about is how to bind Svelte components to local variables. Or more precisely, how to bind child component properties to local variables.</p><p>If you have read some of my earlier articles such as 3 different ways of cross-component communication in Svelte or Accessible switch toggle button with svelte.js and tailwind.css, you have seen this type of bind in action.</p><p>As the saying goes, “Repetition is the mother of learning,” so let’s repeat this with another example.</p><p>Start by creating a component named Hotdog.svelte in the src directory, because you know, who doesn’t like hot dogs?</p><h2 id="summary">Summary</h2><p>That’s all there is to it! Svelte bindings works just like you expect them too, or want them to. With very little code we can build pretty sophisticated forms in Svelte.</p><p>Form handling is hard in any framework and I will explore this topic more in-depth in the near future. Stay tuned and subscribe on the main page when I publish a new article!</p><p>As usual, here is the code <a href="https://github.com/codechips/svelte-bind-directive-examples">https://github.com/codechips/svelte-bind-directive-examples</a></p>
-      </article>
-    </div>
+    </article>
+  </div>
   
-
 </body></html>
