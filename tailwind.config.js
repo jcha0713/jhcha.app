@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['ObjectSans', ...defaultTheme.fontFamily.sans],
+        mono: ['FraktionMono', ...defaultTheme.fontFamily.mono],
       },
       colors: {
         // Theme colors
@@ -47,6 +48,21 @@ module.exports = {
       },
       gridTemplateColumns: {
         nav: '1fr 2fr 1fr',
+      },
+      boxShadow: {
+        1: '0 1px 2px -1px hsl(var(--shadow-color) / calc(var(--shadow-strength); + 9%))',
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            a: {
+              'word-break': 'break-all',
+            },
+            pre: {
+              'overflow-x': 'auto',
+            },
+          },
+        },
       },
     },
   },
