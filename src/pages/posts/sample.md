@@ -1,7 +1,7 @@
 ---
 title: Sample Post
 category: test
-date: 02/13/21
+date: 02/13/22
 layout: ../../layouts/PostLayout.astro
 ---
 
