@@ -8,7 +8,11 @@ const { title } = content
 <BaseLayout>
   <div slot="post">
     <Nav />
-    <article class="prose">
+    <article
+      class="prose prose-neutral prose-sm sm:prose-base lg:prose-lg lg:max-w-4xl max-w-xl mx-auto px-4"
+    >
+      <div class="text-4xl mb-0">{title}</div>
+      <div class="mb-10 font-mono">{content.date}</div>
       <slot>{content}</slot>
     </article>
   </div>
