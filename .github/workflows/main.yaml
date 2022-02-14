@@ -35,7 +35,7 @@ jobs:
         run: |
           npm run build
           touch ./dist/.nojekyll
-          touch ./dist/.well-known/brave-rewards-verification.txt
+          mkdir ./dist/.well-known/
           cd .well-known
           echo printf "This is a Brave Rewards publisher verification file.\n\nDomain: jcha0713.github.io\nToken: 2d82d051b1cdb2b90b4c8c77725445be8283a69f77fd66a30e7c0b0b3133a6fe\n" > brave-rewards-verification.txt
 
