@@ -5,8 +5,6 @@ date: 02/13/22
 layout: ../../layouts/PostLayout.astro
 ---
 
-# Hello World
-
 ## Hi! I'm Joohoon
 
 ```js
@@ -15,6 +13,8 @@ const name = 'Joohoon'
 const wave = (waver) => {
   return `${waver}: 👋🏻`
 }
+
+wave(name)
 ```
 
 1. Hi
