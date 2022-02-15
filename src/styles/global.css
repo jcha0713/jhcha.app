@@ -46,7 +46,7 @@
 
   :root {
     /* background color */
-    --light-bg: #fdfdfd;
+    --light-bg: #f9fafb;
     --dark-bg: #080808;
 
     /* Text Colors*/
@@ -85,7 +85,7 @@
   }
 
   .nav-btn {
-    @apply rounded-md py-3 px-5 shadow-1 transition-colors duration-500 ease-in-out hover:bg-primary-300 active:bg-primary-200;
+    @apply rounded-md py-2 px-3 transition-all duration-300 ease-in-out hover:bg-primary-300 hover:shadow-md active:bg-primary-200;
   }
 
   .hover-animation {
