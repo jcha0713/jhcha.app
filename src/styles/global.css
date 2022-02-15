@@ -72,8 +72,8 @@
     @apply col-span-2;
   }
 
-  .px-row {
-    @apply px-2 md:px-4;
+  .px-main {
+    @apply px-6;
   }
 
   .row-gap {
@@ -81,7 +81,7 @@
   }
 
   .row {
-    @apply px-row row-gap grid grid-cols-12 border-t border-light-text py-3 md:py-5;
+    @apply px-main row-gap grid grid-cols-12 border-t border-light-text py-3 md:py-5;
   }
 
   .nav-btn {

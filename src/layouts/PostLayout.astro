@@ -9,10 +9,12 @@ const { title } = content
   <div slot="post">
     <Nav />
     <article
-      class="prose prose-neutral prose-sm sm:prose-base lg:prose-lg lg:max-w-4xl max-w-xl mx-auto px-4"
+      class="prose prose-neutral prose-sm sm:prose-base lg:prose-lg lg:max-w-4xl max-w-xl mx-auto px-main prose-p:leading-relazed"
     >
-      <div class="text-4xl mb-0">{title}</div>
-      <div class="mb-10 font-mono">{content.date}</div>
+      <div class="border-y py-4">
+        <div class="mb-0 break-all text-xl md:text-2xl">{title}</div>
+        <div class="font-mono text-sm md:text-lg">{content.date}</div>
+      </div>
       <slot>{content}</slot>
     </article>
   </div>
