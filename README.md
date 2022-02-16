@@ -9,9 +9,9 @@ I am building this using the following libraries / frameworks
 - Astro
 - Tailwindcss
 
-Astro is a static site builder which aims to send 0kb javascript to the client side. It has its own syntax that is similar to `jsx` and handles routing out of the box. The project is in beta as of now, but it is growing fast everyday! If this sounds intereting, check the [documentation](https://github.com/snowpackjs/astro).
+Astro is a static site builder which aims to send 0kb javascript to the client side. It has its own syntax that is similar to `jsx` and handles the routing work out of the box. The project is in beta as of now, but it is growing fast! If this sounds intereting, check the [documentation](https://docs.astro.build/).
 
-Tailwindcss is my favorite utility based `CSS` framework. My favorite part of Tailwindcss is that it cuts out all the concerns about naming the classes in `HTML`.
+Tailwindcss is my favorite utility based `CSS` framework. The best part of Tailwindcss is that it cuts out all the concerns about naming the classes in `HTML`.
 
 ## WIP
 
