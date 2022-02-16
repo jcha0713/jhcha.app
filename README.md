@@ -1,40 +1,33 @@
-# Welcome to [Astro](https://astro.build)
+# _jhcha_.blog(\*)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This is my home where all my texts will be living in. I will be posting (hopefully) lots of dev-related posts, but it is not just a dev blog meaning that I will write things that aren't directly related to programming. The primary purpose of making this blog is to have a place where I can archive my own writings and to share with others.
 
-## 🚀 Project Structure
+## Dev stack
 
-Inside of your Astro project, you'll see the following folders and files:
+I am building this using the following libraries / frameworks
 
-```
-/
-├── public/
-│   ├── robots.txt
-│   └── favicon.ico
-├── src/
-│   ├── components/
-│   │   └── Tour.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- Astro
+- Tailwindcss
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Astro is a static site builder which aims to send 0kb javascript to the client side. It has its own syntax that is similar to `jsx` and handles routing out of the box. The project is in beta as of now, but it is growing fast everyday! If this sounds intereting, check the [documentation](https://github.com/snowpackjs/astro).
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Tailwindcss is my favorite utility based `CSS` framework. My favorite part of Tailwindcss is that it cuts out all the concerns about naming the classes in `HTML`.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## WIP
 
-## 🧞 Commands
+I like to mess around with all the design choices I have and because of that, the progress is kinda slow. 🙃 There are plenty of things to be added and improved.
 
-All commands are run from the root of the project, from a terminal:
+### TODO
 
-| Command         | Action                                      |
-|:----------------|:--------------------------------------------|
-| `npm install`   | Installs dependencies                       |
-| `npm run dev`   | Starts local dev server at `localhost:3000` |
-| `npm run build` | Build your production site to `./dist/`     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://github.com/snowpackjs/astro) or jump into our [Discord server](https://astro.build/chat).
+- Add contents to the main landing page
+- Add Footer component
+- Implement pagination
+- Learn how to deal with A11Y issues
+- Make the info page to slide in
+- Support the dark mode
+- Add page transition animation
+- Put up a resume somewhere
+- Search function
+- Improve post layout (Tags, subtitle, etc.)
+- Add a Tip button (eth)
+- Headless CMS?
