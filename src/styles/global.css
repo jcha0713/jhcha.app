@@ -50,6 +50,7 @@
   }
 
   :root {
+    @apply antialiased;
     /* background color */
     --light-bg: #f9fafb;
     --dark-bg: #080808;
@@ -95,5 +96,11 @@
 
   .hover-animation {
     @apply transition-colors duration-500 ease-in-out hover:text-primary-900 active:text-primary-300;
+  }
+}
+
+@layer utilities {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }
