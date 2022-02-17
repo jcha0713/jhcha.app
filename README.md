@@ -21,6 +21,7 @@ I like to mess around with all the design choices I have and because of that, th
 
 - Add contents to the main landing page
 - Add Footer component
+  - add social media links
 - Implement pagination
 - Learn how to deal with A11Y issues
 - Make the info page to slide in
@@ -31,3 +32,4 @@ I like to mess around with all the design choices I have and because of that, th
 - Improve post layout (Tags, subtitle, etc.)
 - Add a Tip button (eth)
 - Headless CMS?
+- ios Reader mode configuration
