@@ -12,7 +12,7 @@
     src: url('/fonts/PPObjectSans-Regular.woff2') format('woff2'),
       url('/fonts/PPObjectSans-Regular.woff') format('woff');
     font-weight: 400;
-    font-display: swap;
+    font-display: optional;
   }
 
   @font-face {
@@ -21,7 +21,7 @@
       url('/fonts/PPObjectSans-Slanted.woff') format('woff');
     font-weight: 400;
     font-style: italic;
-    font-display: swap;
+    font-display: optional;
   }
 
   @font-face {
@@ -29,7 +29,7 @@
     src: url('/fonts/PPObjectSans-Bold.woff2') format('woff2'),
       url('/fonts/PPObjectSans-Bold.woff') format('woff');
     font-weight: 700;
-    font-display: swap;
+    font-display: optional;
   }
 
   @font-face {
@@ -37,7 +37,7 @@
     src: url('/fonts/PPObjectSans-Heavy.woff2') format('woff2'),
       url('/fonts/PPObjectSans-Heavy.woff') format('woff');
     font-weight: 900;
-    font-display: swap;
+    font-display: optional;
   }
 
   /* Mono */
@@ -46,7 +46,7 @@
     src: url('/fonts/PPFraktionMono-Regular.woff2') format('woff2'),
       url('/fonts/PPFraktionMono-Regular.woff') format('woff');
     font-weight: 400;
-    font-display: swap;
+    font-display: optional;
   }
 
   :root {

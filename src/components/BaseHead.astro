@@ -14,11 +14,11 @@ const { title, description, next, prev, image, canonicalURL } =
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
+<link rel="preload" href={Astro.resolve('../styles/global.css')} as="style" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <meta name="theme-color" content="#ced8e4" />
 <title>{title}</title>
 <meta name="description" content={description} />
-<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-<link rel="stylesheet" href={Astro.resolve('../styles/global.css')} />
 
 <!-- SEO -->
 <link rel="canonical" href={canonicalURL} />
@@ -36,3 +36,5 @@ const { title, description, next, prev, image, canonicalURL } =
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 {image && (<meta name="twitter:image" content={image}>)}
+
+<link rel="stylesheet" href={Astro.resolve('../styles/global.css')} />
