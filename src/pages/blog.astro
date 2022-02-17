@@ -1,8 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Blog from '../components/Blog.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
 ---
 
 <BaseLayout>
+  <Nav slot="nav" />
   <Blog slot="blog" />
+  <Footer slot="footer" />
 </BaseLayout>

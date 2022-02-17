@@ -1,21 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
 const { content } = Astro.props
 const { title } = content
 ---
 
 <BaseLayout>
-  <div slot="post">
-    <Nav />
+  <Nav slot="nav" />
+  <div slot="post" class="flex-1">
     <article
       class="prose prose-neutral prose-sm sm:prose-base lg:prose-lg lg:max-w-4xl max-w-xl mx-auto px-main prose-p:leading-relazed"
     >
-      <div class="border-y py-4">
+      <div class="border-b py-4">
         <div class="mb-0 break-all text-xl md:text-2xl">{title}</div>
         <div class="font-mono text-sm md:text-lg">{content.date}</div>
       </div>
       <slot>{content}</slot>
     </article>
   </div>
+  <Footer slot="footer" />
 </BaseLayout>

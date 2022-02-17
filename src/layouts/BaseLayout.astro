@@ -9,7 +9,9 @@ const title = 'jhcha.blog()'
     <BaseHead {title} />
   </head>
   <body class="bg-light-bg text-light-text flex-grow flex flex-col">
+    <slot name="nav" />
     <slot name="blog" />
     <slot name="post" />
+    <slot name="footer" />
   </body>
 </html>
