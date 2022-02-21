@@ -1,7 +1,0 @@
-{
-  "build": {
-    "image": "node:latest",
-    "command": "npm install && npm run build",
-    "publicDir": "dist"
-  }
-}
