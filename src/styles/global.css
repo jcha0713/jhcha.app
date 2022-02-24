@@ -50,7 +50,7 @@
   }
 
   :root {
-    @apply antialiased;
+    @apply flex min-h-full flex-col antialiased;
     /* background color */
     --light-bg: #f9fafb;
     --dark-bg: #080808;
@@ -66,6 +66,10 @@
 }
 
 @layer components {
+  .bodyStyle {
+    @apply flex flex-grow flex-col bg-light-bg text-light-text selection:bg-secondary-300;
+  }
+
   .title {
     @apply col-span-7;
   }

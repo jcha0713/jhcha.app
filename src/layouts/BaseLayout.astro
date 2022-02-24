@@ -1,19 +1,21 @@
 ---
 import BaseHead from '../components/BaseHead.astro'
+import Nav from '../components/Nav.astro'
+import Table from '../components/Table.astro'
+import Footer from '../components/Footer.astro'
+
+const year = '2022'
 
 const title = 'jhcha.blog()'
 ---
 
-<html class="min-h-full flex flex-col">
+<html class="">
   <head>
     <BaseHead {title} />
   </head>
-  <body
-    class="bg-light-bg text-light-text flex-grow flex flex-col selection:bg-secondary-300"
-  >
-    <slot name="nav" />
-    <slot name="blog" />
-    <slot name="post" />
-    <slot name="footer" />
+  <body class="bodyStyle">
+    <Nav />
+    <slot />
+    <Footer {year} />
   </body>
 </html>

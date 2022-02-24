@@ -4,7 +4,7 @@ export default {
   // dist: './dist',       // When running `astro build`, path to final static output
   // public: './public',   // A folder of static files Astro will copy to the root. Useful for favicons, images, and other files that don’t need processing.
   buildOptions: {
-    site: 'https://jcha0713.github.io',
+    site: 'https://jhcha.app',
     sitemap: true, // Generate sitemap (set to "false" to disable)
   },
   devOptions: {

@@ -1,10 +1,18 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseHead from '../components/BaseHead.astro'
+const title = 'jhcha.blog()'
 ---
 
-<BaseLayout />
-<div class="m-4">
-  <p>WIP</p>
-  <p>🚧 🧱 🏗</p>
-  <a href="/blog" class="underline underline-offset-1">To the blog</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead {title} />
+  </head>
+  <body>
+    <div class="m-4">
+      <p>WIP</p>
+      <p>🚧 🧱 🏗</p>
+      <a href="/blog" class="underline underline-offset-1">To the blog</a>
+    </div>
+  </body>
+</html>
