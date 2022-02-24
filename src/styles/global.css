@@ -52,6 +52,7 @@
 
   :root {
     @apply flex min-h-full flex-col antialiased;
+
     /* background color */
     --light-bg: #f9fafb;
     --dark-bg: #080808;
