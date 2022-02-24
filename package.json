@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --experimental-static-build",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build --experimental-static-build",
     "check": "astro check"
   },
   "devDependencies": {
