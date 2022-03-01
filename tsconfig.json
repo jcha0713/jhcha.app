@@ -1,3 +1,9 @@
 {
-  "moduleResolution": "node"
+  "moduleResolution": "node",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@fonts/*": ["public/fonts/*"]
+    }
+  }
 }
