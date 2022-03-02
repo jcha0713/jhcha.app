@@ -53,11 +53,11 @@
   :root {
     @apply flex min-h-full flex-col antialiased;
 
-    /* background color */
+    /* Background Colors */
     --light-bg: #f9fafb;
     --dark-bg: #080808;
 
-    /* Text Colors*/
+    /* Text Colors */
     --light-text: #2f3330;
     --dark-text: #ebddb2;
 

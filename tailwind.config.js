@@ -37,10 +37,11 @@ module.exports = {
 
         hl: '#92d850',
 
+        // Background color
         'light-bg': 'var(--light-bg)',
         'dark-bg': 'var(--dark-bg)',
 
-        // Text colors
+        // Text color
         'light-text': 'var(--light-text)',
         'dark-text': 'var(--dark-text)',
 
