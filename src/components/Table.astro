@@ -41,9 +41,11 @@ const getYear = (date) => {
       date = new Date(date)
       return (
         <div>
-          {newYear &&
-            `<div class="bg-primary-300 border-t border-light-text text-right
-            text-sm py-2 px-main cursor-default">${year}</div>`}
+          {newYear && (
+            <div class="px-main cursor-default border-t border-light-text bg-primary-300 py-2 text-right text-sm">
+              {year}
+            </div>
+          )}
           <a class="hover-animation" href={url}>
             <div class="row">
               <div class="title break-words">{title}</div>
