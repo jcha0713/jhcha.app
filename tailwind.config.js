@@ -42,6 +42,10 @@ module.exports = {
         // Text colors
         'light-text': 'var(--light-text)',
         'dark-text': 'var(--dark-text)',
+
+        // Border color
+        'light-border': 'var(--light-border)',
+        'dark-border': 'var(--dar-border)',
       },
       gridTemplateRows: {
         tableRows: '50px minmax(0, 1fr)',

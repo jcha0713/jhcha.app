@@ -62,6 +62,10 @@
     /* Box Shadow default */
     --shadow-color: 220 3% 15%;
     --shadow-strength: 1%;
+
+    /* Border Colors */
+    --light-border: rgba(0, 0, 0, 0.5);
+    --dark-border: rgba(244, 244, 244, 0.5);
   }
 }
 
