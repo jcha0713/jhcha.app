@@ -8,40 +8,13 @@ export interface Props {
   canonicalURL?: string | URL
 }
 
-const { title, description, next, prev, image, canonicalURL } =
-  Astro.props as Props
+const { title, description } = Astro.props as Props
 ---
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <link rel="preload" as="style" href="/src/styles/global.css" />
-<link
-  rel="preload"
-  href="../../public/fonts/PPObjectSans-Regular.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
 <meta name="theme-color" content="#ced8e4" />
 <title>{title}</title>
 <meta name="description" content={description} />
-
-<!-- SEO -->
-<link rel="canonical" href={canonicalURL} />
-{next && <link rel="next" aria-label="Previous Page" href={new URL(next, canonicalURL).href}>}
-{prev && <link rel="prev" aria-label="Next Page" href={new URL(prev, canonicalURL).href}>}
-
-<!-- OpenGraph -->
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-{image && (<meta property="og:image" content={new URL(image, canonicalURL)}>)}
-
-<!-- Twitter -->
-<meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
-<meta name="twitter:site" content="@astro" />
-<meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
-{image && (<meta name="twitter:image" content={image}>)}
-
 <link rel="stylesheet" href="/src/styles/global.css" />
