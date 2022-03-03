@@ -32,14 +32,6 @@
     font-display: swap;
   }
 
-  @font-face {
-    font-family: ObjectSans;
-    src: url('/fonts/PPObjectSans-Heavy.woff2') format('woff2'),
-      url('/fonts/PPObjectSans-Heavy.woff') format('woff');
-    font-weight: 900;
-    font-display: swap;
-  }
-
   /* Mono */
   @font-face {
     font-family: FraktionMono;
