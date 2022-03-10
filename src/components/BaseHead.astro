@@ -9,14 +9,14 @@ export interface Props {
 }
 
 const { title, description } = Astro.props as Props
-const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-const iosHeader = systemTheme ? '#080808' : '#ced8e4'
 ---
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
 <link rel="preload" as="style" href="/src/styles/global.css" />
-<meta name="theme-color" content={iosHeader} />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#080808"
+/>
+<meta name="theme-color" content="#ced8e4" />
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="stylesheet" href="/src/styles/global.css" />
