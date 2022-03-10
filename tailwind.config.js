@@ -2,6 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   mode: 'jit',
+  // darkMode: 'class',
   content: [
     './public/**/*.html',
     './src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}',
@@ -45,7 +46,7 @@ module.exports = {
 
         // Border color
         'light-border': 'var(--light-border)',
-        'dark-border': 'var(--dar-border)',
+        'dark-border': 'var(--dark-border)',
       },
       gridTemplateRows: {
         tableRows: '50px minmax(0, 1fr)',
@@ -56,18 +57,44 @@ module.exports = {
       boxShadow: {
         1: '0 1px 2px -1px hsl(var(--shadow-color) / calc(var(--shadow-strength); + 9%))',
       },
-      typography: {
-        DEFAULT: {
+      typography: ({ theme }) => ({
+        light: {
           css: {
-            a: {
-              'word-break': 'break-all',
-            },
-            pre: {
-              'overflow-x': 'auto',
-            },
+            '--tw-prose-body': theme('colors.light-text'),
+            '--tw-prose-headings': theme('colors.light-text'),
+            '--tw-prose-lead': theme('colors.light-text'),
+            '--tw-prose-links': theme('colors.light-text'),
+            '--tw-prose-bold': theme('colors.light-text'),
+            '--tw-prose-counters': theme('colors.light-text'),
+            '--tw-prose-bullets': theme('colors.light-text'),
+            '--tw-prose-hr': theme('colors.light-border'),
+            '--tw-prose-quotes': theme('colors.light-text'),
+            '--tw-prose-quote-borders': theme('colors.light-text'),
+            '--tw-prose-captions': theme('colors.light-text'),
+            '--tw-prose-code': theme('colors.light-text'),
+            '--tw-prose-pre-code': theme('colors.light-text'),
+            '--tw-prose-pre-bg': theme('colors.neutral[300]'),
+            '--tw-prose-th-borders': theme('colors.light-border'),
+            '--tw-prose-td-borders': theme('colors.light-border'),
+            '--tw-prose-invert-body': theme('colors.dark-text'),
+            '--tw-prose-invert-headings': theme('colors.dark-text'),
+            '--tw-prose-invert-lead': theme('colors.dark-text'),
+            '--tw-prose-invert-links': theme('colors.dark-text'),
+            '--tw-prose-invert-bold': theme('colors.dark-text'),
+            '--tw-prose-invert-counters': theme('colors.dark-text'),
+            '--tw-prose-invert-bullets': theme('colors.dark-text'),
+            '--tw-prose-invert-hr': theme('colors-dark-border'),
+            '--tw-prose-invert-quotes': theme('colors.dark-text'),
+            '--tw-prose-invert-quote-borders': theme('colors.dark-text'),
+            '--tw-prose-invert-captions': theme('colors.dark-text'),
+            '--tw-prose-invert-code': theme('colors.dark-text'),
+            '--tw-prose-invert-pre-code': theme('colors.dark-text'),
+            '--tw-prose-invert-pre-bg': theme('colors.neutral[900]'),
+            '--tw-prose-invert-th-borders': theme('colors.dark-border'),
+            '--tw-prose-invert-td-borders': theme('colors.dark-border'),
           },
         },
-      },
+      }),
     },
   },
   plugins: [require('@tailwindcss/typography')],

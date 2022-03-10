@@ -57,13 +57,13 @@
 
     /* Border Colors */
     --light-border: rgba(0, 0, 0, 0.5);
-    --dark-border: rgba(244, 244, 244, 0.5);
+    --dark-border: rgba(244, 244, 244, 0.2);
   }
 }
 
 @layer components {
   .bodyStyle {
-    @apply flex flex-grow flex-col bg-light-bg text-light-text selection:bg-secondary-300;
+    @apply flex flex-grow flex-col bg-light-bg text-light-text selection:bg-secondary-300 dark:bg-dark-bg dark:text-dark-text;
   }
 
   .title {
@@ -87,7 +87,7 @@
   }
 
   .row {
-    @apply px-main row-gap grid grid-cols-12 border-t border-light-text py-3 md:py-5;
+    @apply px-main row-gap grid grid-cols-12 border-t border-light-text py-3 dark:border-dark-border md:py-5;
   }
 
   .nav-btn {

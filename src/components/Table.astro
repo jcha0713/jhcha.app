@@ -27,7 +27,7 @@ const getYear = (date) => {
       <div class="flex justify-end">date</div>
     </div>
   </div>
-  <div class="border-b border-light-text">
+  <div class="border-b border-light-text dark:border-dark-border">
     {sortedPosts.map(({ title, category, date, url }, index, posts) => {
       let newYear = false
       let year = 0
@@ -42,7 +42,7 @@ const getYear = (date) => {
       return (
         <div>
           {newYear && (
-            <div class="px-main cursor-default border-t border-light-text bg-primary-300 py-2 text-right text-sm">
+            <div class="px-main cursor-default border-t border-light-text bg-primary-300 py-2 text-right text-sm dark:border-dark-border dark:bg-neutral-800">
               {year}
             </div>
           )}
