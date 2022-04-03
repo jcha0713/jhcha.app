@@ -1,16 +1,25 @@
-export default {
-  // projectRoot: '.',     // Where to resolve all URLs relative to. Useful if you have a monorepo project.
-  // pages: './src/pages', // Path to Astro components, pages, and data
-  // dist: './dist',       // When running `astro build`, path to final static output
-  // public: './public',   // A folder of static files Astro will copy to the root. Useful for favicons, images, and other files that don’t need processing.
-  buildOptions: {
-    site: 'https://jhcha.app',
-    sitemap: true, // Generate sitemap (set to "false" to disable)
+import { defineConfig } from 'astro/config'
+import tailwind from '@astrojs/tailwind'
+
+export default defineConfig({
+  publicDir: './public',
+  outDir: './dist',
+  site: 'https://jhcha.app',
+  integrations: [tailwind()],
+  build: {
+    format: 'directory',
   },
-  devOptions: {
-    // hostname: 'localhost',  // The hostname to run the dev server on.
-    // port: 3000, // The port to run the dev server on.
-    tailwindConfig: './tailwind.config.js', // Path to tailwind.config.js if used, e.g. './tailwind.config.js'
+  markdown: {
+    render: ['@astrojs/markdown-remark'],
+    shikiConfig: {
+      // Choose from Shiki's built-in themes
+      // https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes
+      theme: 'nord',
+      // Manually specify langs
+      // Note: Shiki has countless langs built-in, including .astro!
+      langs: ['astro', 'javascript'],
+      // Enable word wrap to prevent horizontal scrolling
+      wrap: true,
+    },
   },
-  renderers: ['@astrojs/renderer-svelte'],
-}
+})
