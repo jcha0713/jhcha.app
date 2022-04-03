@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['ObjectSans', ...defaultTheme.fontFamily.sans],
+        sans: ['Suit', 'ObjectSans', ...defaultTheme.fontFamily.sans],
         mono: ['FraktionMono', ...defaultTheme.fontFamily.mono],
       },
       colors: {

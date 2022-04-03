@@ -41,6 +41,15 @@
     font-display: swap;
   }
 
+  /* Korean */
+  @font-face {
+    font-family: Suit;
+    src: url('/fonts/SUIT-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+    unicode-range: U+AC00-D7A3;
+  }
+
   :root {
     @apply flex min-h-full flex-col antialiased;
     /* background color */
