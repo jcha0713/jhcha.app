@@ -25,18 +25,6 @@ module.exports = {
         'primary-800': '#7b97b7',
         'primary-900': '#6b8aae',
 
-        'secondary-100': '#cbe1d7',
-        'secondary-200': '#deede6',
-        'secondary-300': '#deede6',
-        'secondary-400': '#bddbcc',
-        'secondary-500': '#add2bf',
-        'secondary-600': '#9cc9b2',
-        'secondary-700': '#8cc0a5',
-        'secondary-800': '#7bb798',
-        'secondary-900': '#6bae8b',
-
-        hl: '#92d850',
-
         // Background color
         'light-bg': 'var(--light-bg)',
         'dark-bg': 'var(--dark-bg)',
@@ -48,6 +36,7 @@ module.exports = {
         // Border color
         'light-border': 'var(--light-border)',
         'dark-border': 'var(--dark-border)',
+
         // selection color
         'light-selection': 'var(--light-selection)',
         'dark-selection': 'var(--dark-selection)',
