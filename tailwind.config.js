@@ -48,6 +48,9 @@ module.exports = {
         // Border color
         'light-border': 'var(--light-border)',
         'dark-border': 'var(--dark-border)',
+        // selection color
+        'light-selection': 'var(--light-selection)',
+        'dark-selection': 'var(--dark-selection)',
       },
       gridTemplateRows: {
         tableRows: '50px minmax(0, 1fr)',

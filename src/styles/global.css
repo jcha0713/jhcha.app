@@ -68,12 +68,16 @@
     /* Border Colors */
     --light-border: rgba(0, 0, 0, 0.5);
     --dark-border: rgba(244, 244, 244, 0.2);
+
+    /* selection Colors */
+    --light-selection: #deede6;
+    --dark-selection: #78aadb;
   }
 }
 
 @layer components {
   .bodyStyle {
-    @apply flex flex-grow flex-col bg-light-bg text-light-text selection:bg-secondary-300 dark:bg-dark-bg dark:text-dark-text;
+    @apply flex flex-grow flex-col bg-light-bg text-light-text selection:bg-light-selection dark:bg-dark-bg dark:text-dark-text;
   }
 
   .title {
