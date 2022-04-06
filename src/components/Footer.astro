@@ -3,14 +3,14 @@ const { inPost } = Astro.props
 ---
 
 <footer
-  class="px-main flex w-full items-center justify-between pt-20 pb-2 font-mono"
+  class="px-main flex w-full items-center justify-between pt-20 pb-4 font-mono"
 >
-  <p>Joohoon Cha © 2022</p>
   {inPost ? (
-    <a href="/blog" class="hover-animation font-bold">
+    <a href="/blog" class="btn">
       &lt; Go Back
     </a>
   ) : (
+    <p>Joohoon Cha © 2022</p>
     <p class="cursor-default">*</p>
   )}
 </footer>
