@@ -4,7 +4,7 @@ const { content } = Astro.props
 const { title } = content
 ---
 
-<BaseLayout>
+<BaseLayout inPost={true}>
   <div class="flex-1">
     <article
       class="prose prose-light prose-base md:prose-lg lg:max-w-4xl max-w-xl mx-auto px-main prose-p:leading-relazed dark:prose-invert"
