@@ -111,7 +111,7 @@
 
   /* effects for mouseover on text element */
   .hover-animation {
-    @apply transition-colors duration-500 ease-in-out hover:text-primary-900 active:text-primary-300 hover:dark:text-red-500;
+    @apply transition-colors duration-500 ease-in-out hover:text-primary-main active:text-primary-light-60 hover:dark:text-red-500;
   }
 }
 
