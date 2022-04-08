@@ -5,7 +5,13 @@ export default defineConfig({
   publicDir: './public',
   outDir: './dist',
   site: 'https://jhcha.app',
-  integrations: [tailwind()],
+  integrations: [
+    tailwind({
+      config: {
+        applyBaseStyles: false,
+      },
+    }),
+  ],
   build: {
     format: 'directory',
   },
