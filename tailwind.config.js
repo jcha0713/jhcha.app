@@ -9,6 +9,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      padding: {
+        btn: '0.4rem',
+      },
       fontFamily: {
         sans: ['Suit', 'ObjectSans', ...defaultTheme.fontFamily.sans],
         mono: ['FraktionMono', ...defaultTheme.fontFamily.mono],
