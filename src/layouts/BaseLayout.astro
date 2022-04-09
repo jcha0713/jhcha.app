@@ -12,8 +12,8 @@ const { inPost } = Astro.props
     <BaseHead {title} />
   </head>
   <body class="bodyStyle">
-    <Nav />
+    <Nav {inPost} />
     <slot />
-    <Footer {inPost} />
+    <Footer />
   </body>
 </html>
