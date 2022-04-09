@@ -1,16 +1,10 @@
 ---
-const { inPost } = Astro.props
+const year = new Date().getFullYear()
 ---
 
 <footer
   class="px-main flex w-full items-center justify-between pt-20 pb-4 font-mono"
 >
-  {inPost ? (
-    <a href="/blog" class="btn">
-      &lt; Go Back
-    </a>
-  ) : (
-    <p>Joohoon Cha © 2022</p>
-    <p class="cursor-default">*</p>
-  )}
+  <p>Joohoon Cha © {year}</p>
+  <p class="cursor-default">*</p>
 </footer>
