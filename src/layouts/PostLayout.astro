@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-const { content } = Astro.props
-const { title } = content
+
+const { post } = Astro.props
 ---
 
 <BaseLayout inPost={true}>
@@ -10,10 +10,12 @@ const { title } = content
       class="prose prose-light prose-base md:prose-lg lg:max-w-4xl max-w-xl mx-auto px-main prose-p:leading-relazed dark:prose-invert"
     >
       <div class="border-b border-light-border py-4 dark:border-dark-border">
-        <div class="mb-0 break-all text-xl md:text-2xl">{title}</div>
-        <div class="font-mono text-sm md:text-lg">{content.date}</div>
+        <div class="mb-0 break-all text-xl md:text-2xl">
+          {post.frontmatter.title}
+        </div>
+        <div class="font-mono text-sm md:text-lg">{post.frontmatter.date}</div>
       </div>
-      <slot>{content}</slot>
+      <slot />
     </article>
   </div>
 </BaseLayout>
