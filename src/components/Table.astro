@@ -1,22 +1,9 @@
 ---
-const posts = await Astro.glob('../pages/posts/*.md')
-
-const sortedPosts = posts.sort((a, b) => {
-  const dateA = new Date(a.frontmatter.date)
-  const dateB = new Date(b.frontmatter.date)
-  let order = dateB.getFullYear() - dateA.getFullYear()
-  if (order === 0) {
-    order = dateB.getMonth() - dateA.getMonth()
-  }
-  if (order === 0) {
-    order = dateB.getDate() - dateA.getDate()
-  }
-  return order
-})
-
 const getYear = (date) => {
   return new Date(date).getFullYear()
 }
+const { url, page } = Astro.props
+const data = page.data
 ---
 
 <div class="flex-1">
@@ -28,7 +15,7 @@ const getYear = (date) => {
     </div>
   </div>
   <div class="border-b border-light-text dark:border-dark-border">
-    {sortedPosts.map((post, index, sortedPosts) => {
+    {data.map((post, index, data) => {
       const title = post.frontmatter.title
       const category = post.frontmatter.category
       let date = post.frontmatter.date
@@ -38,13 +25,13 @@ const getYear = (date) => {
       let year = 0
       if (
         index &&
-        getYear(sortedPosts[index - 1].frontmatter.date) !== getYear(date)
+        getYear(data[index - 1].frontmatter.date) !== getYear(date)
       ) {
         newYear = true
         year = getYear(date)
       } else if (!index) {
         newYear = true
-        year = getYear(sortedPosts[0].frontmatter.date)
+        year = getYear(data[0].frontmatter.date)
       }
       date = new Date(date)
       return (
