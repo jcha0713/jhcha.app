@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Table from '../../components/Table.astro'
+
+export async function getStaticPaths({ paginate }) {
+  const posts = await Astro.glob('../../data/*.md')
+  const sortedPosts = posts.sort(
+    (a, b) =>
+      new Date(b.frontmatter.date).valueOf() -
+      new Date(a.frontmatter.date).valueOf()
+  )
+
+  return paginate(sortedPosts)
+}
+
+const { canonicalURL } = Astro
+const { page } = Astro.props
+const url = Astro.request.url
+---
+
+<BaseLayout {page} {canonicalURL}>
+  <Table {url} {page} />
+</BaseLayout>
