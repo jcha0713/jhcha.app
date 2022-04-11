@@ -1,5 +1,5 @@
 ---
-slug: mid
+path: mid
 title: I'm in the middle
 category: test
 date: 02/14/22

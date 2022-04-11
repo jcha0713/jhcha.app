@@ -1,5 +1,5 @@
 ---
-slug: sample
+path: sample
 title: Sample Post
 category: test
 date: 02/13/22

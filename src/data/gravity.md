@@ -1,5 +1,5 @@
 ---
-slug: gravity
+path: gravity
 title: 강력한 이끌림을 느끼는 대상
 category: novel
 date: 02/15/22
