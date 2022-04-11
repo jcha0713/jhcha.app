@@ -2,6 +2,7 @@
 const getYear = (date) => {
   return new Date(date).getFullYear()
 }
+
 const { url, page } = Astro.props
 const data = page.data
 ---
@@ -19,7 +20,7 @@ const data = page.data
       const title = post.frontmatter.title
       const category = post.frontmatter.category
       let date = post.frontmatter.date
-      const url = post.url
+      const postUrl = `${url}/posts/${post.frontmatter.path}`
 
       let newYear = false
       let year = 0
@@ -41,7 +42,7 @@ const data = page.data
               {year}
             </div>
           )}
-          <a class="hover-animation" href={url}>
+          <a class="hover-animation" href={postUrl}>
             <div class="row">
               <div class="title break-words">{title}</div>
               <div class="type break-words">{category}</div>
