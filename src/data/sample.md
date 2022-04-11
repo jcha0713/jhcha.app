@@ -1,8 +1,8 @@
 ---
+slug: sample
 title: Sample Post
 category: test
 date: 02/13/22
-layout: ../../layouts/PostLayout.astro
 ---
 
 ## Hi! I'm Joohoon
