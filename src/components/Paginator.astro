@@ -1,0 +1,20 @@
+---
+const { prevUrl, nextUrl } = Astro.props
+---
+
+<div class={`grid ${prevUrl ? 'grid-cols-2' : 'grid-cols-1'} pt-24`}>
+  {prevUrl && (
+    <a class="font-mono underline-offset-1 hover:text-gray-400" href={prevUrl}>
+      <span>&larr; prev</span>
+    </a>
+  )}
+
+  {nextUrl && (
+    <a
+      class="ml-auto mr-0 font-mono underline-offset-1 hover:text-gray-400"
+      href={nextUrl}
+    >
+      <span>next &rarr;</span>
+    </a>
+  )}
+</div>
