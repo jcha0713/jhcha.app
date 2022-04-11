@@ -1,0 +1,42 @@
+---
+import PostLayout from '../../../layouts/PostLayout.astro'
+import Paginator from '../../../components/Paginator.astro'
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob('../../../data/*.md')
+  const sortedPosts = posts.sort(
+    (a, b) =>
+      new Date(b.frontmatter.date).valueOf() -
+      new Date(a.frontmatter.date).valueOf()
+  )
+
+  const allPosts = sortedPosts.map((post, i, arr) => {
+    return {
+      params: { page: post.frontmatter.path },
+      props: {
+        post: post,
+        data: arr,
+        total: arr.length,
+        curr: i,
+      },
+    }
+  })
+
+  return allPosts
+}
+
+const { post, data, total, curr } = Astro.props
+const url = Astro.request.url
+
+const next = curr === 0 ? null : curr - 1
+const prev = curr === data.length - 1 ? null : curr + 1
+const nextPost = data[next]?.frontmatter.path
+const prevPost = data[prev]?.frontmatter.path
+const nextUrl = nextPost && url.replace(post.frontmatter.path, nextPost)
+const prevUrl = prevPost && url.replace(post.frontmatter.path, prevPost)
+---
+
+<PostLayout {post}>
+  <post.Content></post.Content>
+  <Paginator {prevUrl} {nextUrl} />
+</PostLayout>
