@@ -3,12 +3,44 @@ const { inPost } = Astro.props
 ---
 
 <nav
-  class="sticky top-0 px-main z-10 mb-10 box-border grid grid-cols-2 items-center pt-4 pb-5
+  class="sticky top-0 px-main z-10 mb-10 box-border flex  justify-between items-center pt-4 pb-5
   font-sans dark:border-dark-border bg-light-bg"
 >
   <div id="logo">
-    <a href="/" class="md:tracking-wide text-lg items-center">
-      <span>
+    <a href="/" class="text-lg items-center flex gap-3">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 367.6 367.6"
+        class="w-7"
+      >
+        <style>
+          @media (prefers-color-scheme: dark) {
+            .ec {
+              fill: #fff;
+            }
+          }
+        </style>
+        <ellipse class="ec" cx="183.8" cy="183.8" rx="53.02" ry="183.8"
+        ></ellipse><ellipse
+          class="ec"
+          cx="183.8"
+          cy="183.8"
+          rx="53.02"
+          ry="183.8"
+          transform="translate(-76.13 183.8) rotate(-45)"></ellipse><ellipse
+          class="ec"
+          cx="183.8"
+          cy="183.8"
+          rx="183.8"
+          ry="53.02"></ellipse><ellipse
+          class="ec"
+          cx="183.8"
+          cy="183.8"
+          rx="183.8"
+          ry="53.02"
+          transform="translate(-76.13 183.8) rotate(-45)"></ellipse></svg
+      >
+      <span class="hidden md:block">
         jhcha.app<span class="font-mono ">(*)</span>
       </span>
     </a>
@@ -21,7 +53,7 @@ const { inPost } = Astro.props
       </a>
     )}
     <a href="/blog">
-      <span class="btn cursor-pointer bg-zinc-400"> blog </span>
+      <span class="btn cursor-pointer bg-zinc-300"> blog </span>
     </a>
     <a href="/blog">
       <span class="btn cursor-pointer bg-zinc-800 text-dark-text font-mono">
