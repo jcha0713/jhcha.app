@@ -5,15 +5,17 @@ const { post } = Astro.props
 ---
 
 <BaseLayout inPost={true}>
-  <div class="flex-1">
+  <div class="flex flex-1">
     <article
-      class="prose prose-light prose-base md:prose-lg lg:max-w-4xl max-w-xl mx-auto px-main prose-p:leading-relazed dark:prose-invert"
+      class="flex flex-1 flex-col prose prose-light prose-base md:prose-lg lg:prose-xl lg:max-w-4xl max-w-2xl md:max-w-3xl mx-auto px-main prose-p:leading-relazed dark:prose-invert"
     >
       <div class="border-b border-light-border py-4 dark:border-dark-border">
         <div class="mb-0 break-all text-xl md:text-2xl">
           {post.frontmatter.title}
         </div>
-        <div class="font-mono text-sm md:text-lg">{post.frontmatter.date}</div>
+        <div class="font-mono text-sm md:text-lg">
+          {post.frontmatter.date}
+        </div>
       </div>
       <slot />
     </article>

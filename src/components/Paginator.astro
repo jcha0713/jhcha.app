@@ -2,7 +2,7 @@
 const { prevUrl, nextUrl } = Astro.props
 ---
 
-<div class={`grid ${prevUrl ? 'grid-cols-2' : 'grid-cols-1'} pt-24`}>
+<div class={`grid ${prevUrl ? 'grid-cols-2' : 'grid-cols-1'} pt-24 mt-auto`}>
   {prevUrl && (
     <a
       class="ml-0 mr-auto font-mono underline-offset-1 hover:text-gray-400"
