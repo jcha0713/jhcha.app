@@ -4,18 +4,20 @@ const { inPost } = Astro.props
 
 <nav
   class="sticky top-0 px-main z-10 mb-10 box-border grid grid-cols-2 items-center pt-4 pb-5
-  font-sans dark:border-dark-border md:items-end"
+  font-sans dark:border-dark-border bg-light-bg"
 >
   <div id="logo">
-    <a href="/" class="md:tracking-wide">
-      <span class="italic">jhcha</span><span class="font-mono">.blog(*)</span>
+    <a href="/" class="md:tracking-wide text-lg items-center">
+      <span>
+        jhcha.app<span class="font-mono ">(*)</span>
+      </span>
     </a>
   </div>
 
   <div class="flex flex-row justify-end gap-1 font-mono">
     {inPost && (
       <a href="/blog">
-        <span class="btn cursor-pointer bg-zinc-200"> &lt; cd .. </span>
+        <span class="btn cursor-pointer bg-zinc-200"> cd .. </span>
       </a>
     )}
     <a href="/blog">
@@ -23,7 +25,7 @@ const { inPost } = Astro.props
     </a>
     <a href="/blog">
       <span class="btn cursor-pointer bg-zinc-800 text-dark-text font-mono">
-        info
+        ?
       </span>
     </a>
   </div>
