@@ -4,7 +4,8 @@ import Paginator from '../../../components/Paginator.astro'
 
 export async function getStaticPaths() {
   const posts = await Astro.glob('../../../data/*.md')
-  const sortedPosts = posts.sort(
+  const filtered = posts.filter((post) => post.frontmatter.draft !== true)
+  const sortedPosts = filtered.sort(
     (a, b) =>
       new Date(b.frontmatter.date).valueOf() -
       new Date(a.frontmatter.date).valueOf()
