@@ -3,6 +3,7 @@ path: sample
 title: Sample Post
 category: test
 date: 02/13/22
+draft: false
 ---
 
 ## Hi! I'm Joohoon
