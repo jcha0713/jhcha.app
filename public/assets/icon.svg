@@ -1,13 +1,12 @@
-<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><defs>
+<svg  xmlns="http://www.w3.org/2000/svg" width="500" height="500">
 <style>
 .bg{fill:#fff;}
+ellipse{fill:#000;}
+
 @media (prefers-color-scheme: dark) {
-  .bg {
-    fill:#000;
-  }
-  ellipse {
-    fill:#fff;
-  }
+.bg{fill:#000;}
+ellipse{fill:#fff;}
 }
 </style>
-</defs><rect class='bg' width="500" height="500" rx="53.99"/><ellipse cx="250" cy="250" rx="53.02" ry="183.8"/><ellipse cx="250" cy="250" rx="53.02" ry="183.8" transform="translate(-103.55 250) rotate(-45)"/><ellipse cx="250" cy="250" rx="183.8" ry="53.02"/><ellipse cx="250" cy="250" rx="183.8" ry="53.02" transform="translate(-103.55 250) rotate(-45)"/></svg>
+<rect class='bg' width="500" height="500" rx="53.99"/><ellipse cx="250" cy="250" rx="53.02" ry="183.8"/><ellipse cx="250" cy="250" rx="53.02" ry="183.8" transform="translate(-103.55 250) rotate(-45)"/><ellipse cx="250" cy="250" rx="183.8" ry="53.02"/><ellipse cx="250" cy="250" rx="183.8" ry="53.02" transform="translate(-103.55 250) rotate(-45)"/>
+</svg>
