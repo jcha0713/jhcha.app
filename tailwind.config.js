@@ -32,6 +32,7 @@ module.exports = {
         // selection color
         'light-selection': 'var(--light-selection)',
         'dark-selection': 'var(--dark-selection)',
+        'code-selection': 'var(--code-selection)',
       },
       gridTemplateRows: {
         tableRows: '50px minmax(0, 1fr)',
