@@ -71,13 +71,14 @@
 
     /* selection Colors */
     --light-selection: #deede6;
-    --dark-selection: #78aadb;
+    --dark-selection: #5c5c5c;
+    --code-selection: rgba(22, 13, 100, 0.3);
   }
 }
 
 @layer components {
   .bodyStyle {
-    @apply flex flex-grow flex-col bg-light-bg text-light-text selection:bg-light-selection dark:bg-dark-bg dark:text-dark-text;
+    @apply flex flex-grow flex-col bg-light-bg text-light-text selection:bg-light-selection dark:bg-dark-bg dark:text-dark-text dark:selection:bg-dark-selection;
   }
 
   .title {
