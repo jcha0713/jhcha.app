@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon'
 const { inPost } = Astro.props
 ---
 
@@ -39,7 +40,7 @@ const { inPost } = Astro.props
     </a>
   </div>
 
-  <div class="flex flex-row justify-end gap-1 font-mono">
+  <div class="flex flex-row items-center justify-end gap-1 font-mono">
     {inPost && (
       <a href="/blog">
         <span class="btn cursor-pointer bg-zinc-200 dark:bg-zinc-800">
@@ -60,5 +61,8 @@ const { inPost } = Astro.props
         ?
       </span>
     </a>
+    <Button class="btn border border-zinc-300 box-border hover:border-zinc-600">
+      <Icon class="w-5" name="carbon:light" />
+    </Button>
   </div>
 </nav>
