@@ -13,75 +13,56 @@ export interface Props {
 const { title, description } = Astro.props as Props
 ---
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width" />
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#080808"
-/>
-<link
-  rel="preload"
-  href="/fonts/PPObjectSans-Regular.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
-<link
-  rel="preload"
-  href="/fonts/SUIT-Regular.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
-<link
-  rel="preload"
-  href="/fonts/PPFraktionMono-Regular.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
-<meta name="theme-color" content="#ced8e4" />
-<title>{title}</title>
-<meta name="description" content={description} />
-<link rel="icon" href="/assets/favicon.ico" sizes="any" />
-<link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-<link rel="manifest" href="/manifest.webmanifest" />
-<script>
-  // Show the body after the DOM is fully loaded
-  window.addEventListener('DOMContentLoaded', (event) => {
-    changeTheme()
-    showBody()
-  })
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta
+    name="theme-color"
+    media="(prefers-color-scheme: dark)"
+    content="#080808"
+  />
+  <link
+    rel="preload"
+    href="/fonts/PPObjectSans-Regular.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  />
+  <link
+    rel="preload"
+    href="/fonts/SUIT-Regular.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  />
+  <link
+    rel="preload"
+    href="/fonts/PPFraktionMono-Regular.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  />
+  <meta name="theme-color" content="#f9fafb" />
+  <meta name="color-scheme" content="dark light" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
-  function changeTheme() {
-    // if the localStorage has 'color-theme' item and 'dark' value pair
-    // or
-    // if there is nothing in localStorage and prefers-color-scheme: dark is present,
-    // add the dark class
-    if (
-      localStorage.getItem('color-theme') === 'dark' ||
-      (!('color-theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-  }
-
-  // This is for avoiding the white flash when loading the page
-  function showBody() {
-    document.body.style.visibility = 'visible'
-    document.body.style.opacity = 1
-  }
-
-  // Handle when the DOMContentLoaded event was already fired
-  if (document.readyState !== 'loading') {
-    changeTheme()
-    showBody()
-  } else {
-    document.addEventListener('DOMContentLoaded', () => {
-      changeTheme()
-      showBody()
-    })
-  }
-</script>
+  <script is:inline>
+    ;(function changeTheme() {
+      const root = document.documentElement
+      if (
+        localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        root.classList.add('dark')
+      } else {
+        root.classList.remove('dark')
+      }
+    })()
+  </script>
+</head>
