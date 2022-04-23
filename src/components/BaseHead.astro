@@ -70,10 +70,8 @@ const { title, description } = Astro.props as Props
 
   // This is for avoiding the white flash when loading the page
   function showBody() {
-    // document.body.style.visibility = 'visible'
-    // document.body.style.opacity = 1
-    document.body.classList.remove('invisible')
-    document.body.classList.remove('opacity-0')
+    document.body.style.visibility = 'visible'
+    document.body.style.opacity = 1
   }
 
   // Handle when the DOMContentLoaded event was already fired

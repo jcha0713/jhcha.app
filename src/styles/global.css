@@ -78,7 +78,7 @@
 
 @layer components {
   .bodyStyle {
-    @apply flex flex-grow flex-col bg-light-bg text-light-text selection:bg-light-selection dark:bg-dark-bg dark:text-dark-text dark:selection:bg-dark-selection;
+    @apply invisible flex flex-grow flex-col bg-light-bg text-light-text opacity-0 selection:bg-light-selection dark:bg-dark-bg dark:text-dark-text dark:selection:bg-dark-selection;
   }
 
   .title {
