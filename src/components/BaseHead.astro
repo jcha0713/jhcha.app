@@ -46,6 +46,12 @@ const { title, description } = Astro.props as Props
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 <link rel="manifest" href="/manifest.webmanifest" />
 <script>
+  // Show the body after the DOM is fully loaded
+  window.addEventListener('DOMContentLoaded', (event) => {
+    changeTheme()
+    showBody()
+  })
+
   function changeTheme() {
     // if the localStorage has 'color-theme' item and 'dark' value pair
     // or
@@ -64,13 +70,20 @@ const { title, description } = Astro.props as Props
 
   // This is for avoiding the white flash when loading the page
   function showBody() {
-    document.body.style.visibility = 'visible'
-    document.body.style.opacity = 1
+    // document.body.style.visibility = 'visible'
+    // document.body.style.opacity = 1
+    document.body.classList.remove('invisible')
+    document.body.classList.remove('opacity-0')
   }
 
-  // Show the body after the DOM is fully loaded
-  window.addEventListener('DOMContentLoaded', (event) => {
+  // Handle when the DOMContentLoaded event was already fired
+  if (document.readyState !== 'loading') {
     changeTheme()
     showBody()
-  })
+  } else {
+    document.addEventListener('DOMContentLoaded', () => {
+      changeTheme()
+      showBody()
+    })
+  }
 </script>
