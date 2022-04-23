@@ -28,4 +28,7 @@ export default defineConfig({
       external: ['svgo'],
     },
   },
+  server: {
+    port: 3002,
+  },
 })
