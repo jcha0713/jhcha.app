@@ -45,3 +45,18 @@ const { title, description } = Astro.props as Props
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 <link rel="manifest" href="/manifest.webmanifest" />
+<script>
+  // if the localStorage has 'color-theme' item and 'dark' value pair
+  // or
+  // if there is nothing in localStorage and prefers-color-scheme: dark is present,
+  // add the dark class
+  if (
+    localStorage.getItem('color-theme') === 'dark' ||
+    (!('color-theme' in localStorage) &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+</script>
