@@ -106,7 +106,7 @@
   }
 
   .btn {
-    @apply rounded-2xl py-btn px-2 transition duration-300 ease-in-out hover:shadow-sm sm:px-3;
+    @apply rounded-2xl py-btn px-2 hover:shadow-sm sm:px-3;
   }
 }
 
