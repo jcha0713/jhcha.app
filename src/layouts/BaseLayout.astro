@@ -8,12 +8,9 @@ const { page, canonicalURL, inPost } = Astro.props
 ---
 
 <html>
-  <head>
-    <BaseHead {title} />
-  </head>
+  <BaseHead {title} />
   <body class="bodyStyle">
     <Nav {inPost} />
-
     <slot />
     <Footer />
   </body>
