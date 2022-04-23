@@ -65,8 +65,33 @@ const { button: Button } = XElement
         info
       </span>
     </a>
-    <Button class="btn border border-zinc-300 box-border hover:border-zinc-600">
-      <Icon class="w-5" name="carbon:light" />
+    <Button
+      class="btn px-2 border border-zinc-300 hover:border-zinc-600 dark:border-dark-border dark:hover:border-zinc-300"
+      @click={(e, store) => {
+        const theme = localStorage.getItem('color-theme')
+
+        if (theme) {
+          // when color-theme key is present in the localStorage
+          if (theme === 'light') {
+            document.documentElement.classList.add('dark')
+            localStorage.setItem('color-theme', 'dark')
+          } else if (theme === 'dark') {
+            document.documentElement.classList.remove('dark')
+            localStorage.setItem('color-theme', 'light')
+          }
+        } else {
+          // if there is no key-value pair in the localStorage
+          if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark')
+            localStorage.setItem('color-theme', 'light')
+          } else {
+            document.documentElement.classList.add('dark')
+            localStorage.setItem('color-theme', 'dark')
+          }
+        }
+      }}
+    >
+      <Icon class="w-5" name="radix-icons:shadow-inner" />
     </Button>
   </div>
 </nav>
