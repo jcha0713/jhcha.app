@@ -5,16 +5,26 @@ const { post } = Astro.props
 ---
 
 <BaseLayout inPost={true}>
-  <div class="flex flex-1">
+  <div class="flex flex-1 mt-14 sm:mt-20">
     <article
-      class="flex flex-1 flex-col prose prose-light prose-base md:prose-lg lg:max-w-4xl max-w-2xl md:max-w-3xl mx-auto px-main prose-p:leading-relazed dark:prose-invert selection:prose-code:bg-code-selection"
+      class="flex flex-1 flex-col prose prose-light prose-base md:prose-lg lg:max-w-4xl max-w-2xl md:max-w-3xl mx-auto px-main prose-p:leading-relazed dark:prose-invert selection:prose-code:bg-code-selection prose-headings:text-center prose-headings:font-normal md:prose-headings:mb-8 prose-pre:text-lg prose-headings:font-heading"
     >
-      <div class="border-b border-light-border py-4 dark:border-dark-border">
-        <div class="mb-0 break-all text-xl md:text-2xl">
+      <div class="py-4">
+        <div
+          class="mb-2 sm:mb-4 break-normal text-2xl md:text-4xl text-center text-black dark:text-dark-text font-heading"
+        >
           {post.frontmatter.title}
         </div>
-        <div class="font-mono text-sm md:text-lg">
+        <div class="font-mono text-base md:text-lg text-center">
           {post.frontmatter.date}
+        </div>
+        <div class="flex flex-row justify-center gap-2 mt-2 sm:mt-4">
+          {post.frontmatter.tags &&
+            post.frontmatter.tags.map((tag) => (
+              <p class="cursor-default rounded-2xl border border-light-border px-3 py-1 font-mono text-xs dark:border-dark-border dark:bg-zinc-800 dark:text-dark-text sm:text-sm">
+                {tag}
+              </p>
+            ))}
         </div>
       </div>
       <slot />
