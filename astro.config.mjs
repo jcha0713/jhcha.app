@@ -19,7 +19,7 @@ export default defineConfig({
     render: ['@astrojs/markdown-remark'],
     shikiConfig: {
       theme: 'slack-dark',
-      langs: ['astro', 'javascript'],
+      langs: ['astro', 'javascript', 'html'],
       wrap: true,
     },
   },
