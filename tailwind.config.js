@@ -61,7 +61,14 @@ module.exports = {
             '--tw-prose-code': theme('colors.light-text'),
             'code:not(.astro-code > code)': {
               'border-radius': '5px',
+              padding: '2px',
               'background-color': 'beige',
+              '&:before': {
+                content: 'none',
+              },
+              '&:after': {
+                content: 'none',
+              },
             },
             '--tw-prose-pre-code': theme('colors.light-text'),
             '--tw-prose-pre-bg': theme('colors.neutral[300]'),
