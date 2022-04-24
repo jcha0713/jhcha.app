@@ -14,6 +14,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Suit', 'ObjectSans', ...defaultTheme.fontFamily.sans],
+        heading: ['Suit', 'Telegraf', ...defaultTheme.fontFamily.sans],
         mono: ['FraktionMono', ...defaultTheme.fontFamily.mono],
       },
       colors: {

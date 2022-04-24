@@ -8,6 +8,14 @@
    */
 
   @font-face {
+    font-family: Telegraf;
+    src: url('/fonts/PPTelegraf-Regular.woff2') format('woff2'),
+      url('/fonts/PPTelegraf-Regular.woff') format('woff');
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @font-face {
     font-family: ObjectSans;
     src: url('/fonts/PPObjectSans-Regular.woff2') format('woff2'),
       url('/fonts/PPObjectSans-Regular.woff') format('woff');
