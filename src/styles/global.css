@@ -86,7 +86,11 @@
 
 @layer components {
   .bodyStyle {
-    @apply flex flex-grow flex-col bg-light-bg text-light-text selection:bg-light-selection dark:bg-dark-bg dark:text-dark-text dark:selection:bg-dark-selection;
+    @apply darkTransition flex flex-grow flex-col bg-light-bg text-light-text selection:bg-light-selection dark:bg-dark-bg dark:text-dark-text dark:selection:bg-dark-selection;
+  }
+
+  .darkTransition {
+    @apply transition-[background-color] duration-150;
   }
 
   .title {
