@@ -1,7 +1,8 @@
 ---
 path: rebuild-with-pug
 title: Rebuilding my first website ... with pug!
-category: webdev
+category: web
+tags: ['pug', 'html']
 date: 04/20/22
 <!-- draft: true -->
 ---
