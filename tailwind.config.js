@@ -9,6 +9,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: '375px',
+        ...defaultTheme.screens,
+      },
       padding: {
         btn: '0.4rem',
       },
