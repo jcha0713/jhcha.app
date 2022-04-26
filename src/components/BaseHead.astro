@@ -28,7 +28,7 @@ const extendMeta = {
   meta: [
     {
       name: 'twitter:image',
-      content: meta.image.url,
+      content: Astro.site + meta.image.url,
     },
     { name: 'twitter:title', content: title },
     { name: 'twitter:description', content: description },
