@@ -11,6 +11,12 @@ export interface Props {
   canonicalURL?: string | URL
 }
 
+const meta = {
+  title: 'jhcha.app(*)',
+  description:
+    "Hi! I'm Joohoon Cha, and this is my personal website where I share my thoughts on various topics mostly related to programming and things that I'm interested in.",
+}
+
 const { title, description } = Astro.props as Props
 ---
 
@@ -52,8 +58,8 @@ const { title, description } = Astro.props as Props
   />
   <meta name="theme-color" content="#f9fafb" />
   <meta name="color-scheme" content="dark light" />
-  <title>{title}</title>
-  <meta name="description" content={description} />
+  <SEO title={title || meta.title} description={description || meta.description}
+  />
   <link rel="icon" href="/assets/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
