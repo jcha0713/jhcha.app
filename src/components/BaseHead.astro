@@ -5,19 +5,34 @@ import { SEO } from 'astro-seo'
 export interface Props {
   title: string
   description?: string
-  image?: string
-  next?: string
-  prev?: string
   canonicalURL?: string | URL
+  inPost?: boolean
 }
+
+const { title, description, inPost } = Astro.props as Props
 
 const meta = {
   title: 'jhcha.app(*)',
   description:
     "Hi! I'm Joohoon Cha, and this is my personal website where I share my thoughts on various topics mostly related to programming and things that I'm interested in.",
+  image: {
+    url: '/assets/og/og-image.png',
+    alt: "Joohoon Cha's blog",
+    width: 1280,
+    height: 720,
+  },
 }
 
-const { title, description } = Astro.props as Props
+const extendMeta = {
+  meta: [
+    {
+      name: 'twitter:image',
+      content: meta.image.url,
+    },
+    { name: 'twitter:title', content: title },
+    { name: 'twitter:description', content: description },
+  ],
+}
 ---
 
 <head lang="en">
@@ -58,7 +73,30 @@ const { title, description } = Astro.props as Props
   />
   <meta name="theme-color" content="#f9fafb" />
   <meta name="color-scheme" content="dark light" />
-  <SEO title={title || meta.title} description={description || meta.description}
+  <SEO
+    title={meta.title}
+    description={description || meta.description}
+    openGraph={{
+      basic: {
+        title: title || meta.title,
+        type: inPost ? 'article' : 'website',
+        image: `${Astro.site}${meta.image.url}`,
+      },
+      optional: {
+        description: description || meta.description,
+      },
+      image: {
+        width: meta.image.width,
+        height: meta.image.height,
+        alt: meta.image.alt,
+      },
+    }}
+    twitter={{
+      card: 'summary_large_image',
+      site: 'jcha0713',
+      creator: 'jcha0713',
+    }}
+    extend={extendMeta}
   />
   <link rel="icon" href="/assets/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
