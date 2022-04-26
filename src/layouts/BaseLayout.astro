@@ -3,12 +3,12 @@ import BaseHead from '../components/BaseHead.astro'
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 
-const title = 'jhcha.blog()'
-const { page, canonicalURL, inPost } = Astro.props
+const title = 'jhcha.blog(*)'
+const { post, page, canonicalURL, inPost } = Astro.props
 ---
 
 <html>
-  <BaseHead {title} />
+  <BaseHead title={post.frontmatter.title || title} />
   <body class="bodyStyle">
     <Nav {inPost} />
     <slot />
