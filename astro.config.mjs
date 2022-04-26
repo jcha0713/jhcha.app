@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
 import turbolinks from '@astrojs/turbolinks'
+import sitemap from '@astrojs/sitemap'
 
 export default defineConfig({
   publicDir: './public',
@@ -13,6 +14,7 @@ export default defineConfig({
       },
     }),
     turbolinks(),
+    sitemap(),
   ],
   build: {
     format: 'directory',
