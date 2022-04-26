@@ -15,6 +15,7 @@ const meta = {
   title: 'jhcha.app(*)',
   description:
     "Hi! I'm Joohoon Cha, and this is my personal website where I share my thoughts on various topics mostly related to programming and things that I'm interested in.",
+  author: 'Joohoon Cha',
   image: {
     url: '/assets/og/og-image.png',
     alt: "Joohoon Cha's blog",
@@ -71,8 +72,11 @@ const extendMeta = {
     type="font/woff2"
     crossorigin
   />
+
   <meta name="theme-color" content="#f9fafb" />
   <meta name="color-scheme" content="dark light" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content={meta.author} />
   <SEO
     title={meta.title}
     description={description || meta.description}

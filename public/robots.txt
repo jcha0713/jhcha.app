@@ -1,2 +1,2 @@
+Sitemap: https://jhcha.app/sitemap.xml
 User-agent: *
-Disallow: /
