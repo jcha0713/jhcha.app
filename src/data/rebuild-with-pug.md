@@ -10,7 +10,7 @@ date: 04/20/22
 
 ## Intro
 
-I was cleaning up some old files in my macbook the other day and found the first website I've ever built. I was into book design and typography by that time, so I self-published some books with one of my friends and we needed a nice website to show off our books. I did not know much about web development and all I had was some basic HTML, CSS, and JS skills. I created a bunch of `.html` files that contain all the text chunks for each page and one single `.css` file that handles the style of the whole website. After putting hours of hard work, I was able to build a static site that introduces our projects.
+I was cleaning up some old files in my macbook the other day and found the first website I've ever built. I was into book design and typography by that time, so I self-published some books with one of my friends and we needed a nice website to show off our books. I did not know much about web development and all I had was some basic HTML, CSS, and JS skills. I created a bunch of `.html` files that contain all the text chunks for each page and one single `.css` file that handles the style of the whole website. After putting in hours of hard work, I was able to build a static site that introduces our projects.
 
 However, even though I was very proud of my work, something just did not feel right. I was taught to avoid code repetition from my first programming class at my university, but I was repeating the same code again and again throughout the website because I could not find any other way. For example, when I tried to add a navigation bar to the website, I had to repeat the same code for generating the nav bar in `index.html`, `book1.html`, `book2.html`, `about.html`, and so on. I only had to repeat seven times because there were a total of seven `.html` files, but obviously it was not the best way to build a website in terms of scalability. And this was not only for the nav bar. I had to include the same `<head></head>` section for each page so that I can inject the style to each page. It would have been much easier if I had used some kind of template to generate the basic structure of the website.
 
@@ -159,6 +159,8 @@ block right-display
 
 ```pug
 // index.pug
+
+extends layout.pug
 
 // ...
 block right-display
