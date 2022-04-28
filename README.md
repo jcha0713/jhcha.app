@@ -7,6 +7,9 @@ This is my home where all my texts will be living in. I will be posting (hopeful
 I am building this using the following libraries / frameworks
 
 - Astro
+  - XElement
+  - astro-icon
+  - astro-seo
 - Tailwindcss
 
 Astro is a static site builder which aims to send 0kb javascript to the client side. It has its own syntax that is similar to `jsx` and handles the routing work out of the box. The project is in beta as of now, but it is growing fast! If this sounds intereting, check the [documentation](https://docs.astro.build/).
@@ -19,17 +22,16 @@ I like to mess around with all the design choices I have and because of that, th
 
 ### TODO
 
-- Add contents to the main landing page
-- Add Footer component
-  - add social media links
-- Implement pagination
-- Learn how to deal with A11Y issues
-- Make the info page to slide in
-- Support the dark mode
-- Add page transition animation
-- Put up a resume somewhere
-- Search function
-- Improve post layout (Tags, subtitle, etc.)
-- Add a Tip button (eth)
-- Headless CMS?
-- ios Reader mode configuration
+- [ ] Add contents to the main landing page
+- [x] Add Footer component
+  - [x] add social media links
+- [x] Implement pagination
+- [ ] Accessibility
+- [ ] Add contents to the info page
+- [x] Support the dark mode
+- [ ] Add page transition animation
+- [ ] Add resume
+- [x] Improve post layout (Tags, subtitle, etc.)
+- [ ] Mobile-friendly navigation bar
+- [ ] ios Reader mode configuration
+- [ ] Search function
