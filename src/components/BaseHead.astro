@@ -12,7 +12,7 @@ export interface Props {
 const { title, description, inPost } = Astro.props as Props
 
 const meta = {
-  title: 'jhcha.app(*)',
+  title: 'jhcha.app',
   description:
     "Hi! I'm Joohoon Cha, and this is my personal website where I share my thoughts on various topics mostly related to programming and things that I'm interested in.",
   author: 'Joohoon Cha',
@@ -82,7 +82,7 @@ const extendMeta = {
     description={description || meta.description}
     openGraph={{
       basic: {
-        title: title || meta.title,
+        title: title || `${meta.title}(*)`,
         type: inPost ? 'article' : 'website',
         image: `${Astro.site}${meta.image.url}`,
       },
