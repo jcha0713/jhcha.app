@@ -6,7 +6,6 @@
   /*
    * Custom fonts
    */
-
   @font-face {
     font-family: Telegraf;
     src: url('/fonts/PPTelegraf-Regular.woff2') format('woff2'),
@@ -124,12 +123,23 @@
   .btn {
     @apply rounded-2xl py-btn px-2 hover:shadow-sm sm:px-3;
   }
+
+  .link-main {
+    @apply transition-[color] hover:text-zinc-400;
+  }
 }
 
 @layer utilities {
   .pb-safe {
     padding-bottom: env(safe-area-inset-bottom);
   }
+
+  .bg-main {
+    background-image: radial-gradient(#313131 1px, transparent 0),
+      radial-gradient(#313131 1px, transparent 0);
+    background-position: 0 0, 25px 25px;
+  }
+
   .transition-fade {
     transition: 0.4s;
     opacity: 1;
