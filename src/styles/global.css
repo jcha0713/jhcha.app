@@ -89,6 +89,10 @@
     @apply darkTransition flex flex-grow flex-col bg-light-bg text-light-text selection:bg-light-selection dark:bg-dark-bg dark:text-dark-text dark:selection:bg-dark-selection;
   }
 
+  .mainBodyStyle {
+    @apply bg-main flex flex-grow flex-col items-center justify-center bg-dark-bg bg-[length:50px_50px];
+  }
+
   .darkTransition {
     @apply transition-[background-color] duration-150;
   }
@@ -125,5 +129,13 @@
 @layer utilities {
   .pb-safe {
     padding-bottom: env(safe-area-inset-bottom);
+  }
+  .transition-fade {
+    transition: 0.4s;
+    opacity: 1;
+  }
+
+  html.is-animating .transition-fade {
+    opacity: 0;
   }
 }
