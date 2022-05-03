@@ -1,16 +1,79 @@
 ---
 import BaseHead from '../components/BaseHead.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
 <html lang="en">
   <head>
     <BaseHead />
   </head>
-  <body class="bodyStyle">
-    <div class="m-4">
-      <p>WIP</p>
-      <p>🚧 🧱 🏗</p>
-      <a href="/blog" class="underline underline-offset-1">To the blog</a>
-    </div>
+  <body class="mainBodyStyle">
+    <main class="max-w-sm md:max-w-[52ch] px-main py-8">
+      <div>
+        <div class="mb-16">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 367.6 367.6"
+            class="w-7 fill-light-bg dark:brightness-90"
+          >
+            <ellipse class="ec" cx="183.8" cy="183.8" rx="53.02" ry="183.8"
+            ></ellipse><ellipse
+              class="ec"
+              cx="183.8"
+              cy="183.8"
+              rx="53.02"
+              ry="183.8"
+              transform="translate(-76.13 183.8) rotate(-45)"></ellipse><ellipse
+              class="ec"
+              cx="183.8"
+              cy="183.8"
+              rx="183.8"
+              ry="53.02"></ellipse><ellipse
+              class="ec"
+              cx="183.8"
+              cy="183.8"
+              rx="183.8"
+              ry="53.02"
+              transform="translate(-76.13 183.8) rotate(-45)"></ellipse></svg
+          >
+        </div>
+        <div class="mb-12 text-white">
+          <p class="text-3xl font-bold tracking-wide">Joohoon Cha</p>
+        </div>
+        <div class="leading-7 text-[#b3b3b3]">
+          <div class="space-y-8">
+            <p>
+              Hi! I'm a <span class="text-zinc-50 font-bold"
+                >front-end engineer</span
+              > based in Seattle and Seoul. Currently, I study Geography and data
+              science at the UW Seattle and I like to build websites using Astro.
+            </p>
+            <p>
+              I'm mostly interested in <span class="text-zinc-50 font-bold"
+                >UI design, front-end architecture, JavaScript ecosystem, and
+                Neovim</span
+              >, but I love to learn and try new things✨.
+            </p>
+            <p>If you have any question, feel free to reach out to me!</p>
+          </div>
+          <div class="text-zinc-50 font-bold mt-10 flex flex-col gap-1">
+            <a class="link-main" href="mailto:joocha0713@gmail.com">‣ e-mail</a>
+            <a class="link-main" href="https://twitter.com/jcha0713"
+              >‣ twitter</a
+            >
+            <a class="link-main" href="https://github.com/jcha0713">‣ github</a>
+            <a class="link-main" href="https://www.linkedin.com/in/jcha0713/"
+              >‣ linkedin</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="mt-24">
+        <a
+          class="text-center text-zinc-50 btn py-4 border border-zinc-50 hover:bg-zinc-900 transition-[color] justify-center"
+          href="/blog">Go to the blog</a
+        >
+      </div>
+    </main>
   </body>
 </html>
