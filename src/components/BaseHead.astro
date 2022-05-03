@@ -7,9 +7,10 @@ export interface Props {
   description?: string
   canonicalURL?: string | URL
   inPost?: boolean
+  ios_header_theme?: string
 }
 
-const { title, description, inPost } = Astro.props as Props
+const { title, description, inPost, ios_header_theme } = Astro.props as Props
 
 const meta = {
   title: 'jhcha.app',
@@ -39,11 +40,6 @@ const extendMeta = {
 <head lang="en">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
-  <meta
-    name="theme-color"
-    media="(prefers-color-scheme: dark)"
-    content="#080808"
-  />
   <link
     rel="preload"
     href="/fonts/PPObjectSans-Regular.woff2"
@@ -73,7 +69,12 @@ const extendMeta = {
     crossorigin
   />
 
-  <meta name="theme-color" content="#f9fafb" />
+  <meta name="theme-color" content={ios_header_theme ? '#080808' : '#f9fafb'} />
+  <meta
+    name="theme-color"
+    media="(prefers-color-scheme: dark)"
+    content="#080808"
+  />
   <meta name="color-scheme" content="dark light" />
   <meta name="robots" content="index,follow" />
   <meta name="author" content={meta.author} />
