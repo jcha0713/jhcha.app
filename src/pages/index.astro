@@ -10,7 +10,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
   <body class="mainBodyStyle">
     <main class="max-w-sm md:max-w-[52ch] px-main py-8">
       <div>
-        <div class="mb-16">
+        <div class="mb-8 xl:mb-16">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 367.6 367.6"
@@ -37,11 +37,13 @@ import BaseLayout from '../layouts/BaseLayout.astro'
               transform="translate(-76.13 183.8) rotate(-45)"></ellipse></svg
           >
         </div>
-        <div class="mb-12 text-white">
-          <p class="text-3xl font-bold tracking-wide">Joohoon Cha</p>
+        <div class="mb-6 mb:mb-12 text-white">
+          <p class="text-2xl md:text-3xl font-bold tracking-wide">
+            Joohoon Cha
+          </p>
         </div>
         <div class="leading-7 text-[#b3b3b3]">
-          <div class="space-y-8">
+          <div class="space-y-4 md:space-y-8">
             <p>
               Hi! I'm a <span class="text-zinc-50 font-bold"
                 >front-end engineer</span
@@ -56,7 +58,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
             </p>
             <p>If you have any question, feel free to reach out to me!</p>
           </div>
-          <div class="text-zinc-50 font-bold mt-10 flex flex-col gap-1">
+          <div class="text-zinc-50 font-bold mt-4 md:mt-10 flex flex-col gap-1">
             <a class="link-main" href="mailto:joocha0713@gmail.com">‣ e-mail</a>
             <a class="link-main" href="https://twitter.com/jcha0713"
               >‣ twitter</a
@@ -68,7 +70,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
           </div>
         </div>
       </div>
-      <div class="mt-24">
+      <div class="mt-12 mb-8 xl:mt-20">
         <a
           class="text-center text-zinc-50 btn py-4 border border-zinc-50 hover:bg-zinc-900 transition-[color] justify-center"
           href="/blog">Go to the blog</a
