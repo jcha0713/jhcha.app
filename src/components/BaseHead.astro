@@ -76,7 +76,10 @@ const extendMeta = {
     content="#080808"
   />
   <meta name="color-scheme" content="dark light" />
-  <meta name="robots" content="index,follow" />
+  <meta
+    name="robots"
+    content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+  />
   <meta name="author" content={meta.author} />
   <SEO
     title={title ? title + ' - ' + meta.author : meta.author}

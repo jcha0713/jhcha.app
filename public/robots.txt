@@ -1,3 +1,4 @@
-Sitemap: https://jhcha.app/sitemap.xml
 User-agent: *
 Allow: /
+
+Sitemap: https://jhcha.app/sitemap.xml
