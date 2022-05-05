@@ -44,23 +44,25 @@ const { button: Button } = XElement
     </a>
   </div>
 
-  <div class="flex flex-row items-center justify-end gap-1 font-mono">
+  <div class="flex flex-row items-center justify-end gap-1 md:gap-2 font-mono">
     {inPost && (
       <a href="/blog">
-        <span class="btn cursor-pointer bg-zinc-200 dark:bg-zinc-800">
+        <span class="btn cursor-pointer bg-zinc-200 transition-[font] hover:text-xl dark:bg-zinc-800">
           {' '}
           cd ..{' '}
         </span>
       </a>
     )}
     <a href="/blog">
-      <span class="btn cursor-pointer bg-zinc-300 dark:bg-zinc-700">
+      <span
+        class="btn cursor-pointer bg-zinc-300 dark:bg-zinc-700 hover:text-xl transition-[font]"
+      >
         blog
       </span>
     </a>
     <a href="/blog">
       <span
-        class="btn cursor-pointer bg-zinc-800 dark:bg-zinc-200 dark:text-light-text text-dark-text font-mono"
+        class="btn cursor-pointer bg-zinc-800 dark:bg-zinc-200 dark:text-light-text text-dark-text font-mono hover:text-xl transition-[font]"
       >
         info
       </span>

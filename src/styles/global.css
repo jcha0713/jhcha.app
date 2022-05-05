@@ -122,7 +122,7 @@
   }
 
   .btn {
-    @apply rounded-2xl py-btn px-2 hover:shadow-sm sm:px-3;
+    @apply rounded-2xl py-btn px-2 transition-[box-shadow] hover:shadow-md sm:px-3;
   }
 
   .link-main {
