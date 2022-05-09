@@ -90,7 +90,7 @@
   }
 
   .mainBodyStyle {
-    @apply bg-main flex flex-grow flex-col items-center justify-center bg-dark-bg bg-[length:50px_50px];
+    @apply bg-main flex flex-grow flex-col items-center justify-center bg-dark-bg bg-[length:50px_50px] selection:bg-dark-selection;
   }
 
   .darkTransition {
