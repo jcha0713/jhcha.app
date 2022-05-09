@@ -30,6 +30,7 @@
     "@swup/scripts-plugin": "^1.1.0",
     "astro-icon": "^0.7.1",
     "astro-seo": "^0.5.0",
-    "swup": "^2.0.14"
+    "swup": "^2.0.14",
+    "zdog": "^1.1.3"
   }
 }
