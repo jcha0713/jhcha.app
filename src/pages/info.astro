@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const { canonicalURL } = Astro
+const { page } = Astro.props
+---
+
+<BaseLayout {page} {canonicalURL}>info</BaseLayout>
