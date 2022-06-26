@@ -12,6 +12,8 @@ export interface Props {
 
 const { title, description, inPost, ios_header_theme } = Astro.props as Props
 
+console.log(ios_header_theme)
+
 const meta = {
   title: 'jhcha.app',
   description:
@@ -69,13 +71,11 @@ const extendMeta = {
     crossorigin
   />
 
-  <meta name="theme-color" content={ios_header_theme ? '#080808' : '#f9fafb'} />
   <meta
     name="theme-color"
     media="(prefers-color-scheme: dark)"
     content="#080808"
   />
-  <meta name="color-scheme" content="dark light" />
   <meta
     name="robots"
     content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
