@@ -1,8 +1,103 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import TimelineCard from '../components/TimelineCard.astro'
 
 const { canonicalURL } = Astro
 const { page } = Astro.props
+
+const timelineContents = [
+  { title: 'Entered the world', date: 'Nov.1994', location: 'Seoul, Korea' },
+  {
+    title: 'Went to Jecheon Gandhi School',
+    date: 'Mar.2007 - June.2011',
+    location: 'Jecheon, Korea',
+  },
+  {
+    title: 'Went to Konrad-Heresbach-Gymnasium',
+    date: 'Aug.2011 - June.2012',
+    location: 'Mettmann, Germany',
+  },
+  {
+    title: "Moved to US, graduated from Cardinal O'Hara High School",
+    date: 'Aug.2012 - June.2014',
+    location: 'Springfield, PA, USA',
+  },
+  {
+    title: 'Finished the first year at UW, Seattle',
+    date: 'June, 2015',
+    location: 'Seattle, WA, USA',
+  },
+  {
+    title: 'Served in the military',
+    date: 'Oct.2015 - Oct.2017',
+    location: 'Seoul, Korea',
+  },
+  {
+    title: 'Graduated from UW',
+    date: 'Aug.2022',
+    location: 'Seattle, WA, USA',
+  },
+]
 ---
 
-<BaseLayout {page} {canonicalURL}>info</BaseLayout>
+<BaseLayout {page} {canonicalURL}>
+  <div class="flex-1">
+    <div class="px-main grid md:grid-rows-2 grid-cols-1 md:grid-cols-2 gap-12">
+      <section class="md:row-span-1">
+        <h2 class="text-3xl pb-8">About me</h2>
+        <div class="space-y-6 max-w-lg leading-relaxed text-lg">
+          <p>
+            I started my journey as a web programmer around 2018 when I first
+            discovered languages like HTML, CSS, and JavaScript. It took me a
+            lot to start my career as a developer because I found so many other
+            valuable things to do in my life. I wanted to be a traveler when I
+            was a kid, started cooking in high school, played the guitar in a
+            band, and worked as a book designer.
+          </p>
+          <p>
+            I have been mostly self-teaching myself, but it is time to move on.
+            I'm currently seeking for Front-End engineer positions and excited
+            to find out what the next chapter would look like.
+          </p>
+          <p>
+            As a developer, I translate the design components in my head into
+            actual codes and build consistent systems for them, and optimize
+            them. I care all types of users and devices they use, and strive to
+            provide the right solution for everyone. Most importantly, I am
+            always open to feedback from other developers because I truly
+            believe that is the fastest way to learn and grow.
+          </p>
+        </div>
+      </section>
+
+      <section class="md:row-span-2">
+        <h2 class="text-3xl pb-8">Timeline</h2>
+        <TimelineCard {timelineContents} />
+      </section>
+
+      <section class="md:row-span-1">
+        <h2 class="text-3xl pb-8">Contact</h2>
+        <div class="flex flex-col gap-4 md:gap-6 text-lg md:text-xl">
+          <span>
+            <a class="link-main" href="mailto:joocha0713@gmail.com">‣ e-mail</a>
+          </span>
+          <span>
+            <a class="link-main" href="https://twitter.com/jcha0713"
+              ><span aria-hidden="true">‣</span> twitter</a
+            >
+          </span>
+          <span>
+            <a class="link-main" href="https://github.com/jcha0713"
+              ><span aria-hidden="true">‣</span> github</a
+            >
+          </span>
+          <span>
+            <a class="link-main" href="https://www.linkedin.com/in/jcha0713/"
+              ><span aria-hidden="true">‣</span> linkedin</a
+            >
+          </span>
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

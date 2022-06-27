@@ -1,0 +1,30 @@
+---
+import { Icon } from 'astro-icon'
+
+const { timelineContents } = Astro.props
+---
+
+<div class="max-w-xl space-y-5">
+  {timelineContents.map((card, i) => {
+    const { title, date, location } = card
+    return (
+      <div
+        class={`rounded-lg ${
+          i % 2 === 0 ? 'bg-stone-200' : 'bg-zinc-200'
+        } px-4 py-5 dark:bg-zinc-800 dark:text-dark-text`}
+      >
+        <h3 class="pb-1 text-xl">{title}</h3>
+        <p class="font-mono text-sm italic">{date}</p>
+        <div class="flex items-center gap-1 pt-6">
+          <Icon
+            class="w-5"
+            name="ic:baseline-place"
+            aria-hidden="true"
+            focusable="false"
+          />
+          <p>{location}</p>
+        </div>
+      </div>
+    )
+  })}
+</div>
