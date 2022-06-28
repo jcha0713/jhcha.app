@@ -22,12 +22,12 @@ I like to mess around with all the design choices I have and because of that, th
 
 ### TODO
 
-- [ ] Add contents to the main landing page
+- [x] Add contents to the main landing page
 - [x] Add Footer component
   - [x] add social media links
 - [x] Implement pagination
-- [ ] Accessibility
-- [ ] Add contents to the info page
+- [x] Accessibility
+- [x] Add contents to the info page
 - [x] Support the dark mode
 - [ ] Add page transition animation
 - [ ] Add resume
