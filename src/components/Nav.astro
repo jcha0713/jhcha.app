@@ -4,13 +4,42 @@ import XElement from 'astro-xelement'
 
 const { inPost } = Astro.props
 
-const { button: Button } = XElement
+const { button: Button, nav: Nav } = XElement
 ---
 
-<nav
-  class="sticky top-0 px-main z-10 mb-3 sm:mb-8 box-border flex justify-between items-center pt-4 pb-5
-  font-sans dark:border-dark-border bg-light-bg dark:bg-dark-bg darkTransition"
+<Nav
+  class="sticky top-0 px-main z-10 mb-3 sm:mb-8 box-border flex justify-between items-center pt-4 pb-5 font-sans dark:border-dark-border bg-light-bg dark:bg-dark-bg darkTransition transition-[opacity] duration-300"
   role="navigation"
+  @do={(el) => {
+    let lastScroll = 0
+    window.addEventListener('scroll', () => {
+      const scroll = window.scrollY
+      if (scroll > 200) {
+        el.classList.add('opacity-0')
+      } else {
+        el.classList.remove('opacity-0')
+      }
+
+      if (lastScroll > scroll) {
+        el.classList.remove('opacity-0')
+      }
+
+      if (window.innerHeight + scroll >= document.body.offsetHeight) {
+        el.classList.remove('opacity-0')
+      }
+
+      lastScroll = scroll
+    })
+  }}
+  @mouseover={(e, store) => {
+    store.isMouseOn = this.classList.contains('opacity-0')
+    this.classList.remove('opacity-0')
+  }}
+  @mouseout={(e, store) => {
+    if (store.isMouseOn) {
+      this.classList.add('opacity-0')
+    }
+  }}
 >
   <div id="logo" role="banner">
     <a href="/" class="text-lg items-center flex gap-3" aria-label="Go to home">
@@ -105,4 +134,4 @@ const { button: Button } = XElement
       />
     </Button>
   </div>
-</nav>
+</Nav>
