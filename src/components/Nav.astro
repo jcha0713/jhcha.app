@@ -10,22 +10,36 @@ const { button: Button, nav: Nav } = XElement
 <Nav
   class="sticky top-0 px-main z-10 mb-3 sm:mb-8 box-border flex justify-between items-center pt-4 pb-5 font-sans dark:border-dark-border bg-light-bg dark:bg-dark-bg darkTransition transition-[opacity] duration-300"
   role="navigation"
-  @do={(el) => {
+  @do={(el, store) => {
+    store.hide = (el) => {
+      if (store.isMobile) {
+        el.classList.add('pointer-events-none')
+      }
+      el.classList.add('opacity-0')
+    }
+
+    store.show = (el) => {
+      if (store.isMobile) {
+        el.classList.remove('pointer-events-none')
+      }
+      el.classList.remove('opacity-0')
+    }
+
     let lastScroll = 0
     window.addEventListener('scroll', () => {
       const scroll = window.scrollY
       if (scroll > 200) {
-        el.classList.add('opacity-0')
+        store.hide(el)
       } else {
-        el.classList.remove('opacity-0')
+        store.show(el)
       }
 
       if (lastScroll > scroll) {
-        el.classList.remove('opacity-0')
+        store.show(el)
       }
 
       if (window.innerHeight + scroll >= document.body.offsetHeight) {
-        el.classList.remove('opacity-0')
+        store.show(el)
       }
 
       lastScroll = scroll
@@ -33,11 +47,11 @@ const { button: Button, nav: Nav } = XElement
   }}
   @mouseover={(e, store) => {
     store.isMouseOn = this.classList.contains('opacity-0')
-    this.classList.remove('opacity-0')
+    store.show(this)
   }}
   @mouseout={(e, store) => {
     if (store.isMouseOn) {
-      this.classList.add('opacity-0')
+      store.hide(this)
     }
   }}
 >
