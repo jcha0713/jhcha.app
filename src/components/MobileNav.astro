@@ -1,0 +1,58 @@
+---
+import { Icon } from 'astro-icon'
+import XElement from 'astro-xelement'
+
+const { button: Button, nav: Nav } = XElement
+
+// const { title } = Astro.props
+
+const title = 'blog page - main'
+---
+
+<Nav
+  class="sticky bottom-0 flex-row bg-light-bg outline outline-zinc-500 hover:outline-zinc-600 dark:outline-dark-border dark:hover:outline-zinc-300 darkTransition transition-[opacity] duration-300 hidden"
+  @do={(el) => {
+    const isMobile = window.matchMedia(
+      'only screen and (max-width: 768px)'
+    ).matches
+
+    if (isMobile) {
+      el.classList.remove('hidden')
+      el.classList.add('flex')
+    }
+
+    let lastScroll = 0
+    window.addEventListener('scroll', () => {
+      const scroll = window.scrollY
+      if (scroll > 200) {
+        el.classList.add('opacity-0')
+      } else {
+        el.classList.remove('opacity-0')
+      }
+
+      if (lastScroll > scroll) {
+        el.classList.remove('opacity-0')
+      }
+
+      if (window.innerHeight + scroll >= document.body.offsetHeight) {
+        el.classList.remove('opacity-0')
+      }
+
+      lastScroll = scroll
+    })
+  }}
+>
+  <div class="flex-grow flex justify-center items-center">
+    <p class="text-xl">{title}</p>
+  </div>
+  <Button
+    class="p-3 bg-zinc-200 dark:bg-zinc-800 darkTransition transition-[opacity] duration-300 w-min ml-auto outline outline-zinc-500 hover:outline-zinc-600 dark:outline-dark-border dark:hover:outline-zinc-300"
+  >
+    <Icon
+      class="w-5 text-black dark:text-white"
+      name="ic:twotone-menu"
+      aria-hidden="true"
+      focusable="false"
+    />
+  </Button>
+</Nav>
