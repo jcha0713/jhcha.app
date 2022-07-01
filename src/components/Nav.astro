@@ -44,15 +44,17 @@ const { button: Button, nav: Nav } = XElement
 
       lastScroll = scroll
     })
-  }}
-  @mouseover={(e, store) => {
-    store.isMouseOn = e.target.classList.contains('opacity-0')
-    store.show(e.target)
-  }}
-  @mouseout={(e, store) => {
-    if (store.isMouseOn) {
-      store.hide(e.target)
-    }
+
+    el.addEventListener('mouseover', () => {
+      store.isMouseOn = el.classList.contains('opacity-0')
+      store.show(el)
+    })
+
+    el.addEventListener('mouseout', (e) => {
+      if (store.isMouseOn) {
+        store.hide(el)
+      }
+    })
   }}
 >
   <div id="logo" role="banner">
