@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
-import turbolinks from '@astrojs/turbolinks'
 import sitemap from '@astrojs/sitemap'
 
 export default defineConfig({
@@ -13,7 +12,6 @@ export default defineConfig({
         applyBaseStyles: false,
       },
     }),
-    turbolinks(),
     sitemap(),
   ],
   build: {
