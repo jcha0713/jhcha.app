@@ -13,7 +13,7 @@
     "@astrojs/renderer-svelte": "^0.5.2",
     "@astrojs/tailwind": "^0.2.1",
     "@tailwindcss/typography": "^0.5.2",
-    "astro": "^1.0.0-beta.20",
+    "astro": "^1.0.0-beta.60",
     "astro-xelement": "^3.2.0",
     "autoprefixer": "^10.4.5",
     "postcss": "^8.4.13",
@@ -21,11 +21,10 @@
     "prettier-plugin-astro": "^0.0.12",
     "prettier-plugin-svelte": "^2.7.0",
     "prettier-plugin-tailwindcss": "^0.1.10",
-    "tailwindcss": "^3.0.24"
+    "tailwindcss": "^3.1.4"
   },
   "dependencies": {
     "@astrojs/sitemap": "^0.1.0",
-    "@astrojs/turbolinks": "^0.1.1",
     "@swup/body-class-plugin": "^1.0.2",
     "@swup/scripts-plugin": "^1.1.0",
     "astro-icon": "^0.7.1",
