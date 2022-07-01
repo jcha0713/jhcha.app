@@ -46,12 +46,12 @@ const { button: Button, nav: Nav } = XElement
     })
   }}
   @mouseover={(e, store) => {
-    store.isMouseOn = this.classList.contains('opacity-0')
-    store.show(this)
+    store.isMouseOn = e.target.classList.contains('opacity-0')
+    store.show(e.target)
   }}
   @mouseout={(e, store) => {
     if (store.isMouseOn) {
-      store.hide(this)
+      store.hide(e.target)
     }
   }}
 >

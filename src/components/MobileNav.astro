@@ -2,28 +2,25 @@
 import { Icon } from 'astro-icon'
 import XElement from 'astro-xelement'
 
-const { button: Button, nav: Nav } = XElement
-
-// const { title } = Astro.props
-
-const title = 'blog page - main'
+const { button: Button } = XElement
 ---
 
-<Nav
-  class="sticky bottom-0 flex-row bg-light-bg border-y border-y-zinc-500 dark:border-y-dark-border darkTransition transition-[opacity] duration-300 hidden dark:bg-dark-bg"
+<Button
+  class="fixed left-1/2 translate-x-[-50%] bottom-4 p-3 bg-zinc-800 dark:bg-zinc-200 darkTransition transition-[opacity] duration-300 btn hidden"
   @do={(el, store) => {
+    const mobileNav = document.querySelector('#mobile-nav')
     store.isMobile = window.matchMedia(
       'only screen and (max-width: 768px)'
     ).matches
 
     if (store.isMobile) {
       el.classList.remove('hidden')
-      el.classList.add('flex')
     }
 
     let lastScroll = 0
     window.addEventListener('scroll', () => {
       const scroll = window.scrollY
+
       if (scroll > 200) {
         store.hide(el)
       } else {
@@ -41,55 +38,22 @@ const title = 'blog page - main'
       lastScroll = scroll
     })
   }}
->
-  <div class="flex flex-col flex-1">
-    <div class="flex">
-      <div class="flex-grow flex justify-center items-center">
-        <p class="text-xl dark:text-dark-text">{title}</p>
-      </div>
-      <Button
-        class="p-3 bg-zinc-200 dark:bg-zinc-800 darkTransition transition-[opacity] duration-300 w-min ml-auto border-l border-l-zinc-500 dark:border-l-dark-border"
-        @click={(e) => {
-          const mobileNav = document.querySelector('#mobile-nav')
+  @click={() => {
+    const mobileNav = document.querySelector('#mobile-nav')
 
-          if (mobileNav.classList.contains('hidden')) {
-            mobileNav.classList.add('flex')
-            mobileNav.classList.remove('hidden')
-          } else if (mobileNav.classList.contains('flex')) {
-            mobileNav.classList.add('hidden')
-            mobileNav.classList.remove('flex')
-          }
-        }}
-      >
-        <Icon
-          class="w-5 text-black dark:text-white"
-          name="ic:twotone-menu"
-          aria-hidden="true"
-          focusable="false"
-        />
-      </Button>
-    </div>
-    <div
-      id="mobile-nav"
-      class="flex-col border-t border-t-zinc-500 dark:border-t-dark-border flex-1 hidden"
-    >
-      <a href="/">
-        <div
-          class="flex justify-center border-b border-zinc-500 dark:border-dark-border py-3"
-        >
-          home
-        </div>
-      </a>
-      <a href="/blog">
-        <div
-          class="flex justify-center border-b border-zinc-500 dark:border-dark-border py-3"
-        >
-          blog
-        </div>
-      </a>
-      <a href="/info">
-        <div class="flex justify-center py-3">info</div>
-      </a>
-    </div>
-  </div>
-</Nav>
+    if (mobileNav.classList.contains('hidden')) {
+      mobileNav.classList.add('flex')
+      mobileNav.classList.remove('hidden')
+    } else if (mobileNav.classList.contains('flex')) {
+      mobileNav.classList.add('hidden')
+      mobileNav.classList.remove('flex')
+    }
+  }}
+>
+  <Icon
+    class="w-5 text-white dark:text-black"
+    name="ic:twotone-menu"
+    aria-hidden="true"
+    focusable="false"
+  />
+</Button>
