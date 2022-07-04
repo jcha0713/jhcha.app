@@ -18,7 +18,7 @@ const meta = {
     "Hi! I'm Joohoon Cha, and this is my personal website where I share my thoughts on various topics mostly related to programming and things that I'm interested in.",
   author: 'Joohoon Cha',
   image: {
-    url: 'assets/og/og-image.png',
+    url: 'assets/og/og-image.webp',
     alt: "Joohoon Cha's blog",
     width: 1280,
     height: 720,
@@ -29,7 +29,7 @@ const extendMeta = {
   meta: [
     {
       name: 'twitter:image',
-      content: Astro.site + meta.image.url,
+      content: Astro.site.href + meta.image.url,
     },
     { name: 'twitter:title', content: title },
     { name: 'twitter:description', content: description },
@@ -91,7 +91,7 @@ const extendMeta = {
       basic: {
         title: title || meta.title,
         type: inPost ? 'article' : 'website',
-        image: `${Astro.site}${meta.image.url}`,
+        image: `${Astro.site.href}${meta.image.url}`,
       },
       optional: {
         description: description || meta.description,
