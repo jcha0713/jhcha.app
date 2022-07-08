@@ -22,15 +22,14 @@
     "prettier-plugin-astro": "^0.0.12",
     "prettier-plugin-svelte": "^2.7.0",
     "prettier-plugin-tailwindcss": "^0.1.10",
+    "sass": "^1.53.0",
     "tailwindcss": "^3.1.4"
   },
   "dependencies": {
     "@astrojs/sitemap": "^0.1.0",
-    "@swup/body-class-plugin": "^1.0.2",
-    "@swup/scripts-plugin": "^1.1.0",
+    "@julian_cataldo/astro-tooltips": "^0.10.12",
     "astro-icon": "^0.7.1",
     "astro-seo": "^0.5.0",
-    "swup": "^2.0.14",
     "zdog": "^1.1.3"
   }
 }

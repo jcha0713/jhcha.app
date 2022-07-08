@@ -1,4 +1,4 @@
-# _jhcha_.blog(\*)
+# _jhcha_.app
 
 This is my home where all my texts will be living in. I will be posting (hopefully) lots of dev-related posts, but it is not just a dev blog meaning that I will write things that aren't directly related to programming. The primary purpose of making this blog is to have a place where I can archive my own writings and to share with others.
 
@@ -29,9 +29,9 @@ I like to mess around with all the design choices I have and because of that, th
 - [x] Accessibility
 - [x] Add contents to the info page
 - [x] Support the dark mode
+- [x] Improve post layout (Tags, subtitle, etc.)
+- [x] Mobile-friendly navigation bar
 - [ ] Add page transition animation
 - [ ] Add resume
-- [x] Improve post layout (Tags, subtitle, etc.)
-- [ ] Mobile-friendly navigation bar
 - [ ] ios Reader mode configuration
 - [ ] Search function
