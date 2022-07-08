@@ -85,11 +85,11 @@ const extendMeta = {
   />
   <meta name="author" content={meta.author} />
   <SEO
-    title={title ? title + ' - ' + meta.author : meta.author}
+    title={meta.title}
     description={description || meta.description}
     openGraph={{
       basic: {
-        title: title || meta.title,
+        title: title,
         type: inPost ? 'article' : 'website',
         image: `${Astro.site.href}${meta.image.url}`,
       },

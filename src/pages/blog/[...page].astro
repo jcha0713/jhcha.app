@@ -17,8 +17,9 @@ export async function getStaticPaths({ paginate }) {
 const { canonicalURL } = Astro
 const { page } = Astro.props
 const url = Astro.request.url
+const title = 'Blog'
 ---
 
-<BaseLayout {page} {canonicalURL}>
+<BaseLayout {title} {page} {canonicalURL}>
   <Table {url} {page} />
 </BaseLayout>

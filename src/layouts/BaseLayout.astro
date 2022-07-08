@@ -4,12 +4,12 @@ import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 import MobileNav from '../components/MobileNav.astro'
 
-const { post, page, canonicalURL, inPost } = Astro.props
+const { post, page, canonicalURL, inPost, title } = Astro.props
 ---
 
 <html lang="en">
   <BaseHead
-    title={post?.frontmatter.title}
+    title={title || post?.frontmatter.title}
     description={post?.frontmatter.description}
     {inPost}
   />
