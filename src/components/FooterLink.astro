@@ -1,0 +1,21 @@
+---
+import { Icon } from 'astro-icon'
+
+const { url, media } = Astro.props
+---
+
+<a
+  href={url}
+  class="p-2 btn"
+  target="_blank"
+  aria-label={media}
+  title={media}
+  data-tooltip-placement="top"
+  data-tippy-touch="false"
+>
+  <Icon
+    class="w-6 sm:w-5 text-zinc-500"
+    name={`mdi:${media}`}
+    aria-hidden="true"
+  />
+</a>
