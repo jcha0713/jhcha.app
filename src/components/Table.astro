@@ -20,7 +20,7 @@ const data = page.data
       const title = post.frontmatter.title
       const category = post.frontmatter.category
       let date = post.frontmatter.date
-      const postUrl = `${url}${import.meta.env.PROD ? '' : '/'}posts/${
+      const postUrl = `${url}${import.meta.env.PROD ? '' : '/'}${
         post.frontmatter.path
       }`
 
