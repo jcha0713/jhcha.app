@@ -6,9 +6,14 @@ const { button: Button } = XElement
 ---
 
 <Button
+  id="mobilenav-btn"
   class="fixed z-50 left-1/2 translate-x-[-50%] bottom-6 py-2 px-5 bg-zinc-800 dark:bg-zinc-200 darkTransition transition-[opacity] duration-300 btn hidden"
+  role="button"
+  aria-label="Open up the mobile navigation menu"
+  aria-haspopup="true"
+  aria-controls="mobilenav-menu"
   @do={(el, store) => {
-    const mobileNav = document.querySelector('#mobile-nav')
+    const mobileNavMenu = document.querySelector('#mobilenav-menu')
 
     store.isMobile = window.matchMedia(
       'only screen and (max-width: 768px)'
@@ -22,7 +27,7 @@ const { button: Button } = XElement
     window.addEventListener('scroll', () => {
       const scroll = window.scrollY
 
-      if (scroll > 200 && !store.mobileNavIsOpen) {
+      if (scroll > 200 && !store.mobileNavMenuIsOpen) {
         store.hide(el)
       } else {
         store.show(el)
@@ -40,14 +45,16 @@ const { button: Button } = XElement
     })
 
     el.addEventListener('click', () => {
-      if (mobileNav.classList.contains('hidden')) {
-        mobileNav.classList.add('flex')
-        mobileNav.classList.remove('hidden')
-        store.mobileNavIsOpen = true
-      } else if (mobileNav.classList.contains('flex')) {
-        mobileNav.classList.add('hidden')
-        mobileNav.classList.remove('flex')
-        store.mobileNavIsOpen = false
+      if (mobileNavMenu.classList.contains('hidden')) {
+        mobileNavMenu.classList.add('flex')
+        mobileNavMenu.classList.remove('hidden')
+        mobileNavMenu.removeAttribute('aria-expanded')
+        store.mobileNavMenuIsOpen = true
+      } else if (mobileNavMenu.classList.contains('flex')) {
+        mobileNavMenu.classList.add('hidden')
+        mobileNavMenu.classList.remove('flex')
+        mobileNavMenu.setAttribute('aria-expanded', 'true')
+        store.mobileNavMenuIsOpen = false
       }
     })
   }}
@@ -62,17 +69,22 @@ const { button: Button } = XElement
 
 <div
   class="fixed bottom-0 bg-zinc-300 dark:bg-zinc-700 dark:text-dark-text justify-center w-screen rounded-t-3xl pt-8 pb-24 px-16 hidden"
-  id="mobile-nav"
+  id="mobilenav-menu"
+  role="menu"
+  aria-labelledby="menubutton"
 >
-  <nav class="flex flex-col items-center justify-center gap-y-6 text-2xl">
+  <nav
+    role="navigation"
+    class="flex flex-col items-center justify-center gap-y-6 text-2xl"
+  >
     <div>
-      <a href="/">home</a>
+      <a role="menuitem" href="/">home</a>
     </div>
     <div>
-      <a href="/info">info</a>
+      <a role="menuitem" href="/info">info</a>
     </div>
     <div>
-      <a href="/blog">blog</a>
+      <a role="menuitem" href="/blog">blog</a>
     </div>
   </nav>
 </div>
