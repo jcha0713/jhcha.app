@@ -10,7 +10,6 @@
     "check": "astro check"
   },
   "devDependencies": {
-    "@astrojs/partytown": "^0.1.6",
     "@astrojs/renderer-svelte": "^0.5.2",
     "@astrojs/tailwind": "^0.2.2",
     "@tailwindcss/typography": "^0.5.3",
