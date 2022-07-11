@@ -9,12 +9,12 @@ const { post } = Astro.props
     <article
       class="flex flex-1 flex-col prose prose-light prose-lg 2xl:prose-xl mx-auto px-main prose-p:leading-relazed dark:prose-invert selection:prose-code:bg-code-selection prose-headings:text-center prose-headings:font-normal prose-headings:mb-10 prose-pre:text-base prose-headings:font-heading prose-headings:text-xl md:prose-headings:text-3xl prose-pre:break-all xs:prose-pre:break-normal"
     >
-      <div class="py-4">
-        <div
+      <div class="not-prose py-4">
+        <h1
           class="mb-2 sm:mb-4 break-normal text-4xl sm:text-5xl md:text-7xl xs:leading-tight text-center text-black dark:text-dark-text font-heading"
         >
           {post.frontmatter.title}
-        </div>
+        </h1>
         <div class="font-mono text-base md:text-lg text-center">
           {post.frontmatter.date}
         </div>
