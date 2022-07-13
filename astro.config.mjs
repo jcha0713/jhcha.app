@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
+import prefetch from '@astrojs/prefetch'
 
 export default defineConfig({
   publicDir: './public',
@@ -13,6 +14,7 @@ export default defineConfig({
       },
     }),
     sitemap(),
+    prefetch(),
   ],
   build: {
     format: 'directory',
