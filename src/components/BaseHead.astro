@@ -1,12 +1,10 @@
 ---
 import '../styles/global.css'
 import { SEO } from 'astro-seo'
-import Tooltips from '@julian_cataldo/astro-tooltips/Tooltips.astro'
 
 export interface Props {
   title: string
   description?: string
-  canonicalURL?: string | URL
   inPost?: boolean
   ios_header_theme?: string
 }
@@ -94,9 +92,7 @@ const extendMeta = {
         type: inPost ? 'article' : 'website',
         image: `${Astro.site.href}${meta.image.url}`,
       },
-      optional: {
-        description: description || meta.description,
-      },
+      optional: { description: description || meta.description },
       image: {
         width: meta.image.width,
         height: meta.image.height,
@@ -114,8 +110,6 @@ const extendMeta = {
   <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
-
-  <Tooltips />
 
   <script is:inline>
     ;(function changeTheme() {

@@ -14,12 +14,11 @@ export async function getStaticPaths({ paginate }) {
   return paginate(sortedPosts)
 }
 
-const { canonicalURL } = Astro
 const { page } = Astro.props
 const url = Astro.request.url
 const title = 'Blog'
 ---
 
-<BaseLayout {title} {page} {canonicalURL}>
+<BaseLayout {title} {page}>
   <Table {url} {page} />
 </BaseLayout>

@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 import TimelineCard from '../components/TimelineCard.astro'
 
-const { canonicalURL } = Astro
 const { page } = Astro.props
 
 const timelineContents = [
@@ -42,7 +41,7 @@ const timelineContents = [
 const title = 'Info'
 ---
 
-<BaseLayout {title} {page} {canonicalURL}>
+<BaseLayout {title} {page}>
   <div class="flex-1">
     <div class="px-main grid md:grid-rows-2 grid-cols-1 md:grid-cols-2 gap-12">
       <section class="md:row-span-1">
@@ -85,18 +84,18 @@ const title = 'Info'
           </span>
           <span>
             <a class="link-main" href="https://twitter.com/jcha0713"
-              ><span aria-hidden="true">‣</span> twitter</a
-            >
+              ><span aria-hidden="true">‣</span> twitter
+            </a>
           </span>
           <span>
             <a class="link-main" href="https://github.com/jcha0713"
-              ><span aria-hidden="true">‣</span> github</a
-            >
+              ><span aria-hidden="true">‣</span> github
+            </a>
           </span>
           <span>
             <a class="link-main" href="https://www.linkedin.com/in/jcha0713/"
-              ><span aria-hidden="true">‣</span> linkedin</a
-            >
+              ><span aria-hidden="true">‣</span> linkedin
+            </a>
           </span>
         </div>
       </section>
