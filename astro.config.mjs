@@ -16,6 +16,7 @@ export default defineConfig({
     sitemap(),
     prefetch(),
   ],
+  app: {},
   build: {
     format: 'directory',
   },
