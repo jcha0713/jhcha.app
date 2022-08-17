@@ -38,6 +38,6 @@ const prevUrl = prevPost && url.replace(post.frontmatter.path, prevPost)
 ---
 
 <PostLayout {post}>
-  <post.Content></post.Content>
+  <post.Content />
   <Paginator {prevUrl} {nextUrl} />
 </PostLayout>
