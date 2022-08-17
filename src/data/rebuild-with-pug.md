@@ -1,7 +1,7 @@
 ---
 path: rebuild-with-pug
 title: Rebuilding my first website ... with pug!
-description: Have you ever thought you're just repeating the same code when you are using HTML? This is an article about how I deal with this issue using Pug.
+description: A short guide on how I remade my first website in Pug and removed all the repeating parts.
 category: web
 tags: ['pug', 'html']
 date: 04/20/22
