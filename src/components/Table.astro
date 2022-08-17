@@ -20,10 +20,8 @@ const data = page.data
       const title = post.frontmatter.title
       const category = post.frontmatter.category
       let date = post.frontmatter.date
-      const postUrl = `${url}${import.meta.env.PROD ? '' : '/'}${
-        post.frontmatter.path
-      }`
-
+      const postUrl = `${url}${'/'}${post.frontmatter.path}`
+      console.log(postUrl)
       let newYear = false
       let year = 0
       if (
@@ -40,7 +38,7 @@ const data = page.data
       return (
         <div>
           {newYear && (
-            <div class="px-main cursor-default border-t border-light-text bg-zinc-300 py-2 text-right text-sm dark:border-dark-border dark:bg-zinc-800">
+            <div class="px-main border-light-text bg-zinc-300 dark:border-dark-border dark:bg-zinc-800 cursor-default border-t py-2 text-right text-sm">
               {year}
             </div>
           )}
