@@ -19,9 +19,7 @@ const { canvas: Zdog } = XElement
         @do={async () => {
           const Zdog = await import('https://cdn.skypack.dev/zdog')
           const TAU = Zdog.TAU
-
           let isSpinning = true
-
           let illo = new Zdog.Illustration({
             element: '.zdog-canvas',
             resize: true,
@@ -31,64 +29,36 @@ const { canvas: Zdog } = XElement
               isSpinning = false
             },
           })
-
-          // add face
-          let head = new Zdog.Shape({
-            addTo: illo,
-            stroke: 12,
-            color: 'snow',
-          })
-
+          let head = new Zdog.Shape({ addTo: illo, stroke: 12, color: 'snow' })
           let leftEye = new Zdog.Shape({
             addTo: head,
-            path: [
-              { x: -0.8 }, // start at 1st point
-              { x: 0.8 }, // line to 2nd point
-            ],
+            path: [{ x: -0.8 }, { x: 0.8 }],
             rotate: { z: TAU / 8 },
             translate: { x: -2, y: -2, z: 7 },
             stroke: 1,
             color: '#000',
           })
-
-          leftEye.copy({
-            // overwrite original options
-            rotate: { z: TAU / -8 },
-          })
-
-          let rightEye = leftEye.copy({
-            translate: { x: 2, y: -2, z: 7 },
-          })
-
-          rightEye.copy({
-            rotate: { z: TAU / -8 },
-          })
-
+          leftEye.copy({ rotate: { z: TAU / -8 } })
+          let rightEye = leftEye.copy({ translate: { x: 2, y: -2, z: 7 } })
+          rightEye.copy({ rotate: { z: TAU / -8 } })
           let mouth = new Zdog.Ellipse({
             addTo: head,
             diameter: 2,
-            quarters: 2, // semi-circle
+            quarters: 2,
             translate: { x: 0, y: 2.5, z: 7 },
-            // rotate semi-circle to point up
             rotate: { z: -TAU / 4 },
             color: '#000',
             stroke: 1,
-            // hide when front-side is facing back
             backface: false,
           })
-
           function animate() {
-            // rotate illo each frame
             if (isSpinning) {
               illo.rotate.y += 0.03
             }
             illo.updateRenderGraph()
-            // animate next frame
             requestAnimationFrame(animate)
           }
-          // start animation
           animate()
-
           illo.updateRenderGraph()
         }}
       />
@@ -96,18 +66,29 @@ const { canvas: Zdog } = XElement
         <h1 class="font-bold break-words text-xl sm:text-4xl my-8">
           You've reached to a page that doesn't exist...
         </h1>
-        <p class="text-base sm:text-lg mt-12">
+        <p class="text-base sm:text-lg mt-12 px-3">
           The page you are looking for is not here. Please go back to home and
-          try again.
+          try again. If you think this is an error, please submit an issue on
+          Github.
         </p>
       </div>
 
-      <div class="mt-20 mb-8 xl:mt-32">
+      <div class="mt-20 mb-8 xl:mt-32 flex flex-col sm:flex-row gap-6">
         <a
           class="text-center text-zinc-50 btn py-4 border border-zinc-50 hover:bg-zinc-100 hover:text-light-text transition-[background-color] duration-200 justify-center"
           href="/"
-          role="button">Back to Home</a
-        >
+          role="button"
+          >Back to Home
+        </a>
+
+        <a
+          class="text-center text-light-text btn py-4 bg-zinc-50 hover:bg-dark-bg hover:border hover:border-zinc-50 hover:text-dark-text transition-[background-color] duration-200 justify-center"
+          href="https://github.com/jcha0713/jhcha.app/issues/new?labels=404"
+          role="button"
+          target="_blank"
+          rel="noreferrer"
+          >✍️ File an issue
+        </a>
       </div>
     </main>
   </body>
