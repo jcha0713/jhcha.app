@@ -1,4 +1,5 @@
 ---
+import Logo from '../components/Logo.astro'
 import BaseHead from '../components/BaseHead.astro'
 
 const ios_header_theme = '#080808'
@@ -13,31 +14,7 @@ const title = `Joohoon Cha's Blog`
     <main class="max-w-sm md:max-w-[52ch] px-main py-8">
       <div>
         <div class="mb-8 xl:mb-16">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 367.6 367.6"
-            class="w-7 fill-light-bg dark:brightness-90"
-          >
-            <ellipse class="ec" cx="183.8" cy="183.8" rx="53.02" ry="183.8"
-            ></ellipse><ellipse
-              class="ec"
-              cx="183.8"
-              cy="183.8"
-              rx="53.02"
-              ry="183.8"
-              transform="translate(-76.13 183.8) rotate(-45)"></ellipse><ellipse
-              class="ec"
-              cx="183.8"
-              cy="183.8"
-              rx="183.8"
-              ry="53.02"></ellipse><ellipse
-              class="ec"
-              cx="183.8"
-              cy="183.8"
-              rx="183.8"
-              ry="53.02"
-              transform="translate(-76.13 183.8) rotate(-45)"></ellipse>
-          </svg>
+          <Logo />
         </div>
         <div class="mb-6 mb:mb-12 text-white">
           <span class="text-2xl md:text-3xl font-bold tracking-wide">
