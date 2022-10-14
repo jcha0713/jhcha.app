@@ -1,6 +1,18 @@
 {
+  "extends": "astro/tsconfigs/base",
   "moduleResolution": "node",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "types": ["vite/client"],
+    "importsNotUsedAsValues": "error",
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@data/*": ["src/data/*"]
+    }
   }
 }

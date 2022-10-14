@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseLayout from '@layouts/BaseLayout.astro'
 
 const { post } = Astro.props
 ---
@@ -19,12 +19,14 @@ const { post } = Astro.props
           {post.frontmatter.date}
         </div>
         <div class="flex flex-row justify-center gap-2 mt-2 sm:mt-4">
-          {post.frontmatter.tags &&
-            post.frontmatter.tags.map((tag) => (
-              <p class="cursor-default rounded-2xl border border-light-border px-4 py-1 font-mono text-sm dark:border-dark-border dark:bg-zinc-800 dark:text-dark-text sm:text-base">
-                {tag}
-              </p>
-            ))}
+          {
+            post.frontmatter.tags &&
+              post.frontmatter.tags.map((tag) => (
+                <p class="border-light-border dark:border-dark-border dark:text-dark-text cursor-default rounded-2xl border px-4 py-1 font-mono text-sm dark:bg-zinc-800 sm:text-base">
+                  {tag}
+                </p>
+              ))
+          }
         </div>
       </div>
       <slot />
