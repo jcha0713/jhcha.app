@@ -16,45 +16,46 @@ const data = page.data
     </div>
   </div>
   <div class="border-b border-light-text dark:border-dark-border">
-    {data.map((post, index, data) => {
-      const title = post.frontmatter.title
-      const category = post.frontmatter.category
-      let date = post.frontmatter.date
-      const postUrl = `${url}${'/'}${post.frontmatter.path}`
-      console.log(postUrl)
-      let newYear = false
-      let year = 0
-      if (
-        index &&
-        getYear(data[index - 1].frontmatter.date) !== getYear(date)
-      ) {
-        newYear = true
-        year = getYear(date)
-      } else if (!index) {
-        newYear = true
-        year = getYear(data[0].frontmatter.date)
-      }
-      date = new Date(date)
-      return (
-        <div>
-          {newYear && (
-            <div class="px-main border-light-text bg-zinc-300 dark:border-dark-border dark:bg-zinc-800 cursor-default border-t py-2 text-right text-sm">
-              {year}
-            </div>
-          )}
-          <a rel="prefetch" href={postUrl}>
-            <div class="row underline-offset-1 hover:underline">
-              <div class="title break-words">{title}</div>
-              <div class="type break-words">{category}</div>
-              <div class="date break-words">
-                <div class="flex justify-end">{`${
-                  date.getMonth() + 1
-                }/${date.getDate()}`}</div>
+    {
+      data.map((post, index, data) => {
+        const title = post.frontmatter.title
+        const category = post.frontmatter.category
+        let date = post.frontmatter.date
+        const postUrl = `${url}${'/'}${post.frontmatter.path}`
+        let newYear = false
+        let year = 0
+        if (
+          index &&
+          getYear(data[index - 1].frontmatter.date) !== getYear(date)
+        ) {
+          newYear = true
+          year = getYear(date)
+        } else if (!index) {
+          newYear = true
+          year = getYear(data[0].frontmatter.date)
+        }
+        date = new Date(date)
+        return (
+          <div>
+            {newYear && (
+              <div class="px-main border-light-text dark:border-dark-border cursor-default border-t bg-zinc-300 py-2 text-right text-sm dark:bg-zinc-800">
+                {year}
               </div>
-            </div>
-          </a>
-        </div>
-      )
-    })}
+            )}
+            <a rel="prefetch" href={postUrl}>
+              <div class="row underline-offset-1 hover:underline">
+                <div class="title break-words">{title}</div>
+                <div class="type break-words">{category}</div>
+                <div class="date break-words">
+                  <div class="flex justify-end">{`${
+                    date.getMonth() + 1
+                  }/${date.getDate()}`}</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        )
+      })
+    }
   </div>
 </div>

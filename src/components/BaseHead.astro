@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'
 import { SEO } from 'astro-seo'
+import { getLanguageFromURL, getPathnameFromLanguage } from '@i18n/util'
 
 export interface Props {
   title: string
@@ -8,6 +9,22 @@ export interface Props {
   inPost?: boolean
   ios_header_theme?: string
 }
+
+const lang = getLanguageFromURL(Astro.url.pathname)
+let koPath = Astro.url.href
+let enPath = Astro.url.href
+
+// console.log(Astro.url)
+
+if (lang === 'en') {
+  koPath = getPathnameFromLanguage('ko', koPath)
+} else if (lang === 'ko') {
+  enPath = getPathnameFromLanguage('en', enPath)
+}
+
+// console.log(lang)
+// console.log('ko: ', koPath)
+// console.log('en: ', enPath)
 
 const { title, description, inPost, ios_header_theme } = Astro.props as Props
 
@@ -67,7 +84,8 @@ const extendMeta = {
     type="font/woff2"
     crossorigin
   />
-
+  <link rel="alternate" href={enPath} hreflang="en" />
+  <link rel="alternate" href={koPath} hreflang="ko" />
   <meta
     name="theme-color"
     media="(prefers-color-scheme: light)"
@@ -116,9 +134,7 @@ const extendMeta = {
     defer
     data-domain="jhcha.app"
     src="https://plausible.io/js/plausible.js"
-  >
-
-  </script>
+  ></script>
 
   <script is:inline>
     ;(function changeTheme() {

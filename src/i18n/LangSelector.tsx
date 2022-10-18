@@ -1,28 +1,26 @@
 import type { FunctionalComponent } from 'preact'
+import { getPathnameFromLanguage } from '@i18n/util'
 
 const LangSelector: FunctionalComponent<{
   translated: boolean
   lang: string
-}> = ({ translated, lang }) => {
-  const langPathRegex = /\/([a-z]{2}-?[A-Z]{0,2})\//
+}> = ({ lang, translated }) => {
   const langs = { English: 'en', 한국어: 'ko' }
   return (
     translated && (
       <div>
         <select
           className="language-select"
-          value={lang}
+          value={lang || 'en'}
           onChange={(e) => {
             const target = e.target as HTMLOptionElement
             const newLang = target.value
-            if (newLang === 'ko') {
-              let pathBySlash = window.location.pathname.split('/')
-              const path = pathBySlash.pop()
-              window.location.pathname = `/blog/${newLang}/${path}`
-            } else if (newLang === 'en') {
-              let newPath = window.location.pathname.replace(langPathRegex, '/')
-              window.location.pathname = newPath
-            }
+            console.log('pathname: ', window.location.pathname)
+            const newPathname = getPathnameFromLanguage(
+              newLang,
+              window.location.pathname
+            )
+            window.location.pathname = newPathname
           }}
         >
           {Object.entries(langs).map(([key, value]) => {
