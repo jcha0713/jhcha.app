@@ -1,5 +1,7 @@
 # _jhcha_.app
 
+[![Built with Astro](https://astro.badg.es/v1/built-with-astro.svg)](https://astro.build)
+
 This is my home where all my texts will be living in. I will be posting (hopefully) lots of dev-related posts, but it is not just a dev blog meaning that I will write things that aren't directly related to programming. The primary purpose of making this blog is to have a place where I can archive my own writings and to share with others.
 
 ## Dev stack
