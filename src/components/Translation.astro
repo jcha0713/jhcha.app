@@ -1,0 +1,34 @@
+---
+import { getPathnameFromLanguage } from '@i18n/util'
+
+interface Props {
+  translated: boolean
+  lang: 'en' | 'ko'
+}
+
+const { pathname } = Astro.url
+const langs = { English: 'en', 한국어: 'ko' }
+const { translated, lang } = Astro.props as Props
+---
+
+{
+  translated && (
+    <div class="post-meta-item">
+      <span class="font-bold">Also available in:</span>
+      {Object.entries(langs)
+        .filter(([_, value]) => value !== lang)
+        .map(([key, value]) => {
+          return (
+            <span>
+              <a
+                class="text-blue-700 underline underline-offset-4 hover:no-underline focus:text-amber-800 dark:text-blue-300"
+                href={getPathnameFromLanguage(value, pathname)}
+              >
+                {key}
+              </a>
+            </span>
+          )
+        })}
+    </div>
+  )
+}

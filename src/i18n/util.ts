@@ -9,6 +9,9 @@ export function getPathnameFromLanguage(
 ): string {
   let newPath = ''
   const langPathRegex = /\/([a-z]{2}-?[A-Z]{0,2})\//
+  if (pathname.endsWith('/')) {
+    pathname = removeTrailingSlash(pathname)
+  }
   if (lang === 'ko') {
     let pathBySlash = pathname.split('/')
     const path = pathBySlash.pop()
@@ -18,5 +21,9 @@ export function getPathnameFromLanguage(
   } else {
     throw new Error('lang value does not match')
   }
-  return newPath
+  return newPath.endsWith('/') ? newPath : newPath + '/'
+}
+
+export function removeTrailingSlash(str) {
+  return str.endsWith('/') ? str.slice(0, -1) : str
 }

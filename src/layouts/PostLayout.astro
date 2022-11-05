@@ -1,32 +1,46 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro'
+import Translation from '@/components/Translation.astro'
 
-const { post } = Astro.props
+const { post, lang, translated } = Astro.props
 ---
 
 <BaseLayout {post} inPost={true}>
-  <div class="flex flex-1 mt-14 sm:mt-20">
+  <div class="flex flex-1 mt-10 sm:mt-12">
     <article
       class="flex flex-1 flex-col prose prose-light prose-lg 2xl:prose-xl mx-auto px-main prose-p:leading-relazed dark:prose-invert selection:prose-code:bg-code-selection prose-headings:text-center prose-headings:font-normal prose-headings:mb-10 prose-pre:text-base prose-headings:font-heading prose-headings:text-xl md:prose-headings:text-3xl prose-pre:break-all xs:prose-pre:break-normal"
     >
       <div class="not-prose py-4">
         <h1
-          class="mb-2 sm:mb-4 break-normal text-4xl sm:text-5xl md:text-7xl xs:leading-tight text-center text-black dark:text-dark-text font-heading"
+          id="title"
+          class="break-normal text-4xl xs:text-5xl md:text-6xl text-center text-light-text dark:text-dark-text font-heading max-w-[12ch] sm:max-w-[16ch] mx-auto"
         >
           {post.frontmatter.title}
         </h1>
-        <div class="font-mono text-base md:text-lg text-center">
-          {post.frontmatter.date}
-        </div>
-        <div class="flex flex-row justify-center gap-2 mt-2 sm:mt-4">
-          {
-            post.frontmatter.tags &&
-              post.frontmatter.tags.map((tag) => (
-                <p class="border-light-border dark:border-dark-border dark:text-dark-text cursor-default rounded-2xl border px-4 py-1 font-mono text-sm dark:bg-zinc-800 sm:text-base">
-                  {tag}
-                </p>
-              ))
-          }
+        <div
+          id="post-meta"
+          class="border-t border-dotted border-light-border mt-32 w-3/4 sm:w-3/5 mx-auto flex flex-col dark:border-dark-border"
+        >
+          <div class="post-meta-item">
+            <span class="font-bold">Published</span>
+            <span>
+              {post.frontmatter.date}
+            </span>
+          </div>
+          <div class="post-meta-item">
+            <div class="font-bold">Tags</div>
+            <div class="flex flex-row justify-center gap-2">
+              {
+                post.frontmatter.tags &&
+                  post.frontmatter.tags.map((tag) => (
+                    <p class="rounded-sm bg-amber-100 px-1 dark:bg-blue-900 dark:text-dark-text">
+                      {tag}
+                    </p>
+                  ))
+              }
+            </div>
+          </div>
+          <Translation lang={lang} translated={translated} />
         </div>
       </div>
       <slot />

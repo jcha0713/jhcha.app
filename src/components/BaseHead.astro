@@ -1,7 +1,11 @@
 ---
 import '../styles/global.css'
 import { SEO } from 'astro-seo'
-import { getLanguageFromURL, getPathnameFromLanguage } from '@i18n/util'
+import {
+  getLanguageFromURL,
+  getPathnameFromLanguage,
+  removeTrailingSlash,
+} from '@i18n/util'
 
 export interface Props {
   title: string
@@ -14,17 +18,11 @@ const lang = getLanguageFromURL(Astro.url.pathname)
 let koPath = Astro.url.href
 let enPath = Astro.url.href
 
-// console.log(Astro.url)
-
 if (lang === 'en') {
   koPath = getPathnameFromLanguage('ko', koPath)
 } else if (lang === 'ko') {
   enPath = getPathnameFromLanguage('en', enPath)
 }
-
-// console.log(lang)
-// console.log('ko: ', koPath)
-// console.log('en: ', enPath)
 
 const { title, description, inPost, ios_header_theme } = Astro.props as Props
 
@@ -79,7 +77,14 @@ const extendMeta = {
   />
   <link
     rel="preload"
-    href="/fonts/PPTelegraf-Regular.woff2"
+    href="/fonts/PPFraktionMono-Regular.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  />
+  <link
+    rel="preload"
+    href="/fonts/ABCWhyte-Medium.woff2"
     as="font"
     type="font/woff2"
     crossorigin

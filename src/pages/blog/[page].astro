@@ -1,7 +1,7 @@
 ---
 import PostLayout from '@layouts/PostLayout.astro'
 import Paginator from '@components/Paginator.astro'
-import LangSelector from '@i18n/LangSelector'
+import Translation from '@/components/Translation.astro'
 
 export async function getStaticPaths() {
   const posts = await Astro.glob('../../data/*.md')
@@ -41,11 +41,10 @@ const prevUrl = prevPost && url.replace(post.frontmatter.path, prevPost)
 
 const isPresent = (koPost) => post.frontmatter.path === koPost.frontmatter.path
 
-const translated = koPosts.some(isPresent)
+const translated = koPosts?.some(isPresent)
 ---
 
-<PostLayout {post}>
-  <LangSelector lang={'en'} translated={translated} client:idle />
+<PostLayout lang="en" translated={translated} {post}>
   <post.Content />
-  <Paginator {prevUrl} {nextUrl} />
+  <Paginator prevUrl={prevUrl} nextUrl={nextUrl} />
 </PostLayout>
