@@ -136,6 +136,10 @@
   .link-main {
     @apply transition-[color] hover:text-zinc-400;
   }
+
+  .post-meta-item {
+    @apply flex items-center justify-between border-b border-gray-200 py-2 font-mono text-base dark:border-gray-800;
+  }
 }
 
 @layer utilities {
