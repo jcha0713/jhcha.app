@@ -90,9 +90,21 @@
     --dark-selection: #5c5c5c;
     --code-selection: rgba(22, 13, 100, 0.3);
   }
+
+  body::-webkit-scrollbar {
+    width: 0.4em;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: rgba(128, 128, 128, 0.6);
+  }
 }
 
 @layer components {
+  .dark {
+    color-scheme: dark;
+  }
+
   .bodyStyle {
     @apply darkTransition flex flex-grow flex-col bg-light-bg text-light-text selection:bg-light-selection dark:bg-dark-bg dark:text-dark-text dark:selection:bg-dark-selection;
   }
