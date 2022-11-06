@@ -1,5 +1,5 @@
 ---
-import Logo from '@components/Logo.astro'
+import Logo from '@components/MainLogo.astro'
 import BaseHead from '@components/BaseHead.astro'
 
 const ios_header_theme = '#080808'
@@ -8,7 +8,7 @@ const title = `Joohoon Cha's Blog`
 
 <html lang="en">
   <head>
-    <BaseHead {title} {ios_header_theme} />
+    <BaseHead title={title} ios_header_theme={ios_header_theme} />
   </head>
   <body class="mainBodyStyle">
     <main class="max-w-sm md:max-w-[52ch] px-main py-8">
