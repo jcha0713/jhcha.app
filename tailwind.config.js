@@ -66,7 +66,9 @@ module.exports = {
             'code:not(.astro-code > code)': {
               'border-radius': '5px',
               padding: '2px',
-              'background-color': 'beige',
+              'background-color': theme('colors.indigo[100]'),
+              color: theme('colors.light-text'),
+              'font-weight': '400',
               '&:before': {
                 content: 'none',
               },
@@ -78,6 +80,10 @@ module.exports = {
             '--tw-prose-pre-bg': theme('colors.neutral[300]'),
             '--tw-prose-th-borders': theme('colors.light-border'),
             '--tw-prose-td-borders': theme('colors.light-border'),
+          },
+        },
+        invert: {
+          css: {
             '--tw-prose-invert-body': theme('colors.dark-text'),
             '--tw-prose-invert-headings': theme('colors.dark-text'),
             '--tw-prose-invert-lead': theme('colors.dark-text'),
@@ -94,6 +100,10 @@ module.exports = {
             '--tw-prose-invert-pre-bg': theme('colors.neutral[900]'),
             '--tw-prose-invert-th-borders': theme('colors.dark-border'),
             '--tw-prose-invert-td-borders': theme('colors.dark-border'),
+            'code:not(.astro-code > code)': {
+              'background-color': 'rgba(255, 255, 255, 0.1)',
+              color: theme('colors.blue[400]'),
+            },
           },
         },
       }),
