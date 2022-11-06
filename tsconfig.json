@@ -5,6 +5,7 @@
     "baseUrl": ".",
     "resolveJsonModule": true,
     "types": ["vite/client"],
+    "typeRoots": ["./node_modules/@types"],
     "importsNotUsedAsValues": "error",
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
@@ -13,7 +14,7 @@
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@data/*": ["src/data/*"],
-      "@i18n/*": ["src/i18n/*"]
+      "@utils/*": ["src/utils/*"]
     }
   }
 }

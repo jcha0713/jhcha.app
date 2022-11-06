@@ -3,7 +3,7 @@ import BaseHead from '@components/BaseHead.astro'
 import Nav from '@components/Nav.astro'
 import Footer from '@components/Footer.astro'
 import MobileNav from '@components/MobileNav.astro'
-import { getLanguageFromURL } from '@/i18n/util'
+import { getLanguageFromURL } from '@utils/i18n'
 
 const { post, inPost, title } = Astro.props
 const url = Astro.url
