@@ -1,7 +1,6 @@
 ---
 import PostLayout from '@layouts/PostLayout.astro'
 import Paginator from '@components/Paginator.astro'
-import Translation from '@/components/Translation.astro'
 
 export async function getStaticPaths() {
   const posts = await Astro.glob('../../../data/ko/*.md')
