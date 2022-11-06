@@ -3,27 +3,31 @@ import PostLayout from '@layouts/PostLayout.astro'
 import Paginator from '@components/Paginator.astro'
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob('../../../data/ko/*.md')
-  const filtered = posts?.filter((post) => post.frontmatter.draft !== true)
-  const sortedPosts = filtered.sort(
-    (a, b) =>
-      new Date(b.frontmatter.date).valueOf() -
-      new Date(a.frontmatter.date).valueOf()
-  )
+  try {
+    const posts = await Astro.glob('../../../data/ko/*.md')
+    const filtered = posts?.filter((post) => post.frontmatter.draft !== true)
+    const sortedPosts = filtered.sort(
+      (a, b) =>
+        new Date(b.frontmatter.date).valueOf() -
+        new Date(a.frontmatter.date).valueOf()
+    )
 
-  const allPosts = sortedPosts.map((post, i, arr) => {
-    return {
-      params: { page: post.frontmatter.path },
-      props: {
-        post: post,
-        data: arr,
-        total: arr.length,
-        curr: i,
-      },
-    }
-  })
+    const allPosts = sortedPosts.map((post, i, arr) => {
+      return {
+        params: { page: post.frontmatter.path },
+        props: {
+          post: post,
+          data: arr,
+          total: arr.length,
+          curr: i,
+        },
+      }
+    })
 
-  return allPosts
+    return allPosts
+  } catch (error) {
+    return []
+  }
 }
 
 const { post, data, total, curr } = Astro.props

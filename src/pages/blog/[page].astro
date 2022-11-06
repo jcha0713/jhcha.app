@@ -1,10 +1,18 @@
 ---
 import PostLayout from '@layouts/PostLayout.astro'
 import Paginator from '@components/Paginator.astro'
-import fs from 'node:fs'
 
 export async function getStaticPaths() {
+  async function checkKoDir() {
+    try {
+      const koPosts = await Astro.glob('../../data/ko/*.md')
+      return koPosts
+    } catch (err) {
+      return []
+    }
+  }
   const posts = await Astro.glob('../../data/*.md')
+  const koPosts = await checkKoDir()
   const filtered = posts.filter((post) => post.frontmatter.draft !== true)
   const sortedPosts = filtered.sort(
     (a, b) =>
@@ -20,6 +28,7 @@ export async function getStaticPaths() {
         data: arr,
         total: arr.length,
         curr: i,
+        koPosts: koPosts,
       },
     }
   })
@@ -27,11 +36,7 @@ export async function getStaticPaths() {
   return allPosts
 }
 
-const koPosts = await fs.promises
-  .readdir('./src/data/ko')
-  .then((files) => files)
-
-const { post, data, total, curr } = Astro.props
+const { post, data, total, curr, koPosts } = Astro.props
 const url = Astro.request.url
 
 const next = curr === 0 ? null : curr - 1
@@ -41,8 +46,7 @@ const prevPost = data[prev]?.frontmatter.path
 const nextUrl = nextPost && url.replace(post.frontmatter.path, nextPost)
 const prevUrl = prevPost && url.replace(post.frontmatter.path, prevPost)
 
-const isPresent = (koPost: string) =>
-  post.frontmatter.path === koPost.replace(/(.md|.mdx)/, '')
+const isPresent = (koPost) => post.frontmatter.path === koPost.frontmatter.path
 
 const translated = koPosts?.some(isPresent)
 ---
