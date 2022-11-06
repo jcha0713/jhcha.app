@@ -26,7 +26,7 @@ export default defineConfig({
   markdown: {
     render: ['@astrojs/markdown-remark'],
     shikiConfig: {
-      theme: 'slack-dark',
+      theme: 'vitesse-dark',
       langs: ['astro', 'javascript', 'html'],
       wrap: true,
     },
