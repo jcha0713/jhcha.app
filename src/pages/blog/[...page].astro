@@ -3,7 +3,7 @@ import BaseLayout from '@layouts/BaseLayout.astro'
 import Table from '@components/Table.astro'
 
 export async function getStaticPaths({ paginate }) {
-  const posts = await Astro.glob('../../data/*.md')
+  const posts = await Astro.glob(`../../data/{*.mdx,*.md}`)
   const filtered = posts.filter((post) => post.frontmatter.draft !== true)
   const sortedPosts = filtered.sort(
     (a, b) =>

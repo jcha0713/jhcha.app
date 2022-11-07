@@ -4,17 +4,32 @@
   "compilerOptions": {
     "baseUrl": ".",
     "resolveJsonModule": true,
-    "types": ["vite/client"],
-    "typeRoots": ["./node_modules/@types"],
+    "types": [
+      "vite/client",
+      "astro/client"
+    ],
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
     "importsNotUsedAsValues": "error",
     "jsx": "react-jsx",
-    "jsxImportSource": "preact",
+    "jsxImportSource": "react",
     "paths": {
-      "@/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@data/*": ["src/data/*"],
-      "@utils/*": ["src/utils/*"]
+      "@/*": [
+        "src/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@data/*": [
+        "src/data/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ]
     }
   }
 }
