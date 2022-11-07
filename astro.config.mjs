@@ -3,8 +3,8 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import prefetch from '@astrojs/prefetch'
 import preact from '@astrojs/preact'
+import { remarkReadingTime } from './src/utils/remark-reading-time.ts'
 
-// https://astro.build/config
 export default defineConfig({
   publicDir: './public',
   outDir: './dist',
@@ -19,11 +19,12 @@ export default defineConfig({
     prefetch(),
     preact(),
   ],
-  app: {},
   build: {
     format: 'directory',
   },
   markdown: {
+    remarkPlugins: [remarkReadingTime],
+    extendDefaultPlugins: true,
     render: ['@astrojs/markdown-remark'],
     shikiConfig: {
       theme: 'vitesse-dark',

@@ -1,4 +1,5 @@
 ---
+// import { Temporal } from '@js-temporal/polyfill'
 import BaseLayout from '@layouts/BaseLayout.astro'
 import Translation from '@/components/Translation.astro'
 
@@ -26,6 +27,14 @@ const { post, lang, translated } = Astro.props
             <span>
               {post.frontmatter.date}
             </span>
+          </div>
+          <div class="post-meta-item">
+            <div class="font-bold">Reading Time</div>
+            <div class="flex flex-row justify-center gap-2">
+              <span>
+                {post.frontmatter.minutesRead}
+              </span>
+            </div>
           </div>
           <div class="post-meta-item">
             <div class="font-bold">Tags</div>
