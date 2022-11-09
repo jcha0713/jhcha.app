@@ -1,0 +1,243 @@
+---
+import { Icon } from 'astro-icon'
+import { getTweet } from '@lib/getTweets'
+import { Temporal } from '@js-temporal/polyfill'
+import { Image } from '@astrojs/image/components'
+import { getLanguageFromURL } from '@utils/i18n'
+
+export interface Props {
+  id: string
+  referenced?: boolean
+  nestedLevel?: number
+}
+
+const { id, referenced = false, nestedLevel = 0 } = Astro.props as Props
+
+const response = await getTweet(id)
+const tweet = response[0]
+
+const url = Astro.url
+const lang = getLanguageFromURL(url.pathname)
+
+const likeUrl = `https://twitter.com/intent/like?tweet_id=${id}`
+const retweetUrl = `https://twitter.com/intent/retweet?tweet_id=${id}`
+const replyUrl = `https://twitter.com/intent/tweet?in_reply_to=${id}`
+const created_at = Temporal.Instant.from(tweet.created_at)
+const formattedText = tweet.text.replace(/https:\/\/[\n\S]+/g, '')
+
+const tweetedTime = created_at.toLocaleString(lang, {
+  timeStyle: 'short',
+})
+
+const tweetedDate = created_at.toLocaleString(lang, {
+  dateStyle: 'long',
+})
+
+const getGridStyle = (totalImg) => {
+  const gap = 'gap-[0.15rem]'
+  const styles = {
+    1: '',
+    2: `grid grid-cols-2 ${gap}`,
+    3: `grid grid-rows-auto grid-cols-2 grid-rows-2 ${gap} max-h-[320px]`,
+    4: `grid grid-rows-auto grid-cols-2 grid-rows-2 ${gap} max-h-[320px]`,
+  }
+  return styles[totalImg] || ''
+}
+
+const getImageStyle = (idx, imgs) => {
+  const length = imgs.length
+  let style = ['h-full', 'object-cover']
+  const styles = {
+    1: () => {
+      if (length === 1) {
+        style.push(`rounded-2xl`)
+      } else if (length !== 4) {
+        style.push(`row-span-full`, `rounded-l-2xl`)
+      } else {
+        style.push(`rounded-tl-2xl`)
+      }
+      return style.join(' ')
+    },
+    2: () => {
+      if (length !== 2) {
+        style.push(`rounded-tr-2xl`)
+      } else {
+        style.push(`rounded-r-2xl`)
+      }
+      return style.join(' ')
+    },
+    3: () => {
+      if (length !== 3) {
+        style.push(`rounded-bl-2xl`)
+      } else {
+        style.push(`rounded-br-2xl`)
+      }
+      return style.join(' ')
+    },
+    4: () => {
+      style.push(`rounded-br-2xl`)
+      return style.join(' ')
+    },
+  }
+  return styles[idx + 1]()
+}
+---
+
+{
+  nestedLevel < 2 && (
+    <div
+      class={`not-prose w-fit rounded-3xl border border-gray-300 px-4 pt-4 pb-2 shadow-sm dark:border-slate-800 sm:mx-auto sm:w-3/4 sm:min-w-0 xs:pb-4 ${
+        referenced
+          ? `mb-4 sm:w-full sm:min-w-fit`
+          : `my-5 xs:px-7 xs:pt-10 xs:pb-4`
+      }`}
+    >
+      <div class="flex items-start">
+        <a
+          href={tweet.author.url}
+          class={`${referenced ? 'mr-1' : 'mr-4'}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            class="rounded-full"
+            src={tweet.author.profile_image_url}
+            width={`${referenced ? '24' : '48'}`}
+            aspectRatio={1}
+            alt=""
+          />
+        </a>
+        <div
+          class={`flex ${
+            referenced ? 'flex-row gap-1' : 'flex-col'
+          } flex-nowrap font-mix text-base`}
+        >
+          <a
+            href={tweet.author.url}
+            class="no-underline hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {tweet.author.name}
+          </a>
+          <span class="font-mono text-sm">@{tweet.author.username}</span>
+        </div>
+
+        {!referenced && (
+          <div class="ml-auto">
+            <a
+              href={`https://twitter.com/${tweet.author.username}/status/${tweet.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon
+                class="w-6 text-sky-500"
+                name={`mdi:twitter`}
+                aria-hidden="true"
+              />
+            </a>
+          </div>
+        )}
+      </div>
+      <div class={`${referenced ? 'my-2' : 'my-8'}`}>{formattedText}</div>
+      {tweet.media.length > 0 && (
+        <div class={getGridStyle(tweet.media.length)}>
+          {tweet.media.map((img, i, imgs) => {
+            return img?.variants?.length > 0 ? (
+              <video
+                controls
+                autoplay
+                loop
+                class="mx-auto mb-4 rounded-2xl border border-gray-100 dark:border-slate-900"
+              >
+                <source src={img.variants[0].url} type="video/mp4" />
+              </video>
+            ) : (
+              <Image
+                class={getImageStyle(i, imgs)}
+                src={img.url}
+                width={img.width}
+                height={img.height}
+                alt=""
+              />
+            )
+          })}
+        </div>
+      )}
+
+      <div
+        class={`font-sans text-sm text-gray-600 ${
+          referenced
+            ? ''
+            : 'mb-4 border-b border-gray-200 py-3 dark:border-slate-700'
+        }`}
+      >
+        {tweet.referenced_tweets[0] &&
+          tweet.referenced_tweets[0].type === 'quoted' && (
+            <Astro.self
+              id={tweet.referenced_tweets[0].id}
+              referenced={true}
+              nestedLevel={nestedLevel + 1}
+            />
+          )}
+        {!referenced && (
+          <div>
+            <span>{tweetedTime}</span>
+            <span> ‧</span>
+            <span>{tweetedDate}</span>
+          </div>
+        )}
+      </div>
+      {!referenced && (
+        <div class="flex flex-row gap-4 font-mono text-base text-gray-500 sm:gap-8">
+          <div>
+            <a
+              class="flex items-center gap-2"
+              href={replyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon
+                class="w-4 text-light-text sm:w-5"
+                name={`system-uicons:speech-bubble`}
+                aria-hidden="true"
+              />
+              <span>{tweet.public_metrics.reply_count}</span>
+            </a>
+          </div>
+
+          <div>
+            <a
+              class="flex items-center gap-2"
+              href={retweetUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon
+                class="w-4 text-light-text sm:w-5"
+                name={`system-uicons:retweet`}
+                aria-hidden="true"
+              />
+              <span>{tweet.public_metrics.retweet_count}</span>
+            </a>
+          </div>
+          <div>
+            <a
+              class="flex items-center gap-2"
+              href={likeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon
+                class="w-4 text-light-text sm:w-5"
+                name={`system-uicons:heart`}
+                aria-hidden="true"
+              />
+              <span>{tweet.public_metrics.like_count}</span>
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}

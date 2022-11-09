@@ -3,8 +3,11 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import prefetch from '@astrojs/prefetch'
 import preact from '@astrojs/preact'
-import { remarkReadingTime } from './src/utils/remark-reading-time.ts'
+import mdx from '@astrojs/mdx'
+import { remarkReadingTime } from './src/lib/remark-reading-time.ts'
+import image from '@astrojs/image'
 
+// https://astro.build/config
 export default defineConfig({
   publicDir: './public',
   outDir: './dist',
@@ -15,9 +18,13 @@ export default defineConfig({
         applyBaseStyles: false,
       },
     }),
+    image({ serviceEntryPoint: '@astrojs/image/sharp' }),
     sitemap(),
     prefetch(),
-    preact(),
+    preact({
+      compat: true,
+    }),
+    mdx(),
   ],
   build: {
     format: 'directory',
