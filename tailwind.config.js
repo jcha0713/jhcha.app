@@ -20,6 +20,7 @@ module.exports = {
         sans: ['Suit', 'ObjectSans', ...defaultTheme.fontFamily.sans],
         heading: ['Suit', 'Whyte', ...defaultTheme.fontFamily.sans],
         mono: ['FraktionMono', ...defaultTheme.fontFamily.mono],
+        mix: ['SuitMix', 'WhyteMix', defaultTheme.fontFamily.sans],
       },
       colors: {
         // Background color

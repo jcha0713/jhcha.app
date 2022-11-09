@@ -15,6 +15,14 @@
   }
 
   @font-face {
+    font-family: WhyteMix;
+    src: url('/fonts/ABCWhyte-Medium.woff2') format('woff2'),
+      url('/fonts/ABCWhyte-Medium.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+  }
+
+  @font-face {
     font-family: ObjectSans;
     src: url('/fonts/PPObjectSans-Regular.woff2') format('woff2'),
       url('/fonts/PPObjectSans-Regular.woff') format('woff');
@@ -59,8 +67,24 @@
   /* Korean */
   @font-face {
     font-family: Suit;
+    src: url('/fonts/SUIT-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+    unicode-range: U+AC00-D7A3;
+  }
+
+  @font-face {
+    font-family: Suit;
     src: url('/fonts/SUIT-Regular.woff2') format('woff2');
     font-weight: 400;
+    font-display: swap;
+    unicode-range: U+AC00-D7A3;
+  }
+
+  @font-face {
+    font-family: SuitMix;
+    src: url('/fonts/SUIT-SemiBold.woff2') format('woff2');
+    font-weight: 600;
     font-display: swap;
     unicode-range: U+AC00-D7A3;
   }
