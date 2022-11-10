@@ -1,0 +1,12 @@
+---
+import { Icon } from 'astro-icon'
+import Link from '@components/mdx/Link.astro'
+
+const { username } = Astro.props
+const href = `https://twitter.com/${username}`
+---
+
+<Link href={href}>
+  <slot />
+  <Icon class="w-5 text-sky-500" name={`mdi:twitter`} aria-hidden="true" />
+</Link>
