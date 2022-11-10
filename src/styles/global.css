@@ -95,6 +95,7 @@
     /* Background Colors */
     --light-bg: #f9fafb;
     --dark-bg: #080808;
+    --tr: rgba(255, 255, 255, 0.1);
 
     /* Text Colors */
     --light-text: #2f3330;
