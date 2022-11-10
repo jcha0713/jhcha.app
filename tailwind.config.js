@@ -7,6 +7,9 @@ module.exports = {
     './public/**/*.html',
     './src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}',
   ],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   theme: {
     extend: {
       screens: {
@@ -26,6 +29,7 @@ module.exports = {
         // Background color
         'light-bg': 'var(--light-bg)',
         'dark-bg': 'var(--dark-bg)',
+        tr: 'var(--tr)',
 
         // Text color
         'light-text': 'var(--light-text)',
