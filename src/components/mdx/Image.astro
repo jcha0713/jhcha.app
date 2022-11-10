@@ -1,0 +1,50 @@
+---
+import { Icon } from 'astro-icon'
+import { getTweet } from '@lib/getTweets'
+import { Image } from '@astrojs/image/components'
+
+export interface Props {
+  id: string
+}
+
+const { id } = Astro.props as Props
+
+const response = await getTweet(id)
+const tweet = response[0]
+
+const authorUrl = `https://twitter.com/${tweet.author.username}`
+const tweetUrl = `https://twitter.com/${tweet.author.username}/status/${id}`
+---
+
+<div
+  class="not-prose border border-gray-300 rounded-lg shadow-md dark:border-slate-800"
+>
+  <div class="flex flex-row items-center px-2 py-1 sm:py-2 sm:px-5">
+    <a href={tweetUrl} target="_blank" rel="noopener noreferrer">
+      <Icon
+        class="w-5 sm:w-6 text-sky-500 mr-2 sm:mr-3 translate-y-[0.3px]"
+        name={`mdi:twitter`}
+        aria-hidden="true"
+      />
+    </a>
+    <a href={authorUrl} target="_blank" rel="noopener noreferrer">
+      <span class="font-mix text-sm sm:text-base">@{tweet.author.username}</span
+      >
+    </a>
+  </div>
+
+  <div class="ml-auto"></div>
+  {
+    tweet.media.map((img) => {
+      return (
+        <Image
+          class="rounded-b-lg transition-all delay-100 ease-out lg:hover:scale-125 lg:hover:rounded-lg"
+          src={img.url}
+          width={img.width}
+          height={img.height}
+          alt=""
+        />
+      )
+    })
+  }
+</div>
