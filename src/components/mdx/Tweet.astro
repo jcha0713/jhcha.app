@@ -19,9 +19,11 @@ const tweet = response[0]
 const url = Astro.url
 const lang = getLanguageFromURL(url.pathname)
 
+const authorUrl = `https://twitter.com/${tweet.author.username}`
 const likeUrl = `https://twitter.com/intent/like?tweet_id=${id}`
 const retweetUrl = `https://twitter.com/intent/retweet?tweet_id=${id}`
 const replyUrl = `https://twitter.com/intent/tweet?in_reply_to=${id}`
+const tweetUrl = `https://twitter.com/${tweet.author.username}/status/${id}`
 const created_at = Temporal.Instant.from(tweet.created_at)
 const formattedText = tweet.text.replace(/https:\/\/[\n\S]+/g, '')
 
@@ -89,12 +91,12 @@ const getImageStyle = (idx, imgs) => {
       class={`not-prose w-fit rounded-3xl border border-gray-300 px-4 pt-4 pb-2 shadow-sm dark:border-slate-800 sm:mx-auto sm:w-3/4 sm:min-w-0 xs:pb-4 ${
         referenced
           ? `mb-4 sm:w-full sm:min-w-fit`
-          : `my-5 xs:px-7 xs:pt-10 xs:pb-4`
+          : `my-5 sm:px-7 xs:px-4 xs:pt-10 xs:pb-4`
       }`}
     >
       <div class="flex items-start">
         <a
-          href={tweet.author.url}
+          href={authorUrl}
           class={`${referenced ? 'mr-1' : 'mr-4'}`}
           target="_blank"
           rel="noopener noreferrer"
@@ -113,7 +115,7 @@ const getImageStyle = (idx, imgs) => {
           } flex-nowrap font-mix text-base`}
         >
           <a
-            href={tweet.author.url}
+            href={authorUrl}
             class="no-underline hover:underline"
             target="_blank"
             rel="noopener noreferrer"
@@ -125,11 +127,7 @@ const getImageStyle = (idx, imgs) => {
 
         {!referenced && (
           <div class="ml-auto">
-            <a
-              href={`https://twitter.com/${tweet.author.username}/status/${tweet.id}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={tweetUrl} target="_blank" rel="noopener noreferrer">
               <Icon
                 class="w-6 text-sky-500"
                 name={`mdi:twitter`}
@@ -139,7 +137,8 @@ const getImageStyle = (idx, imgs) => {
           </div>
         )}
       </div>
-      <div class={`${referenced ? 'my-2' : 'my-8'}`}>{formattedText}</div>
+      {/* prettier-ignore */}
+      <div class={`${referenced ? 'my-2' : 'my-6 whitespace-pre-line'}`}>{formattedText}</div>
       {tweet.media.length > 0 && (
         <div class={getGridStyle(tweet.media.length)}>
           {tweet.media.map((img, i, imgs) => {
@@ -150,16 +149,24 @@ const getImageStyle = (idx, imgs) => {
                 loop
                 class="mx-auto mb-4 rounded-2xl border border-gray-100 dark:border-slate-900"
               >
-                <source src={img.variants[0].url} type="video/mp4" />
+                <source
+                  src={img.variants[0].url}
+                  type={img.variants[0].content_type}
+                />
               </video>
             ) : (
-              <Image
-                class={getImageStyle(i, imgs)}
-                src={img.url}
-                width={img.width}
-                height={img.height}
-                alt=""
-              />
+              <a href={tweetUrl} target="_blank" rel="noopener noreferrer">
+                <Image
+                  class={
+                    getImageStyle(i, imgs) +
+                    ' transition-transform delay-100 hover:scale-150'
+                  }
+                  src={img.url}
+                  width={img.width}
+                  height={img.height}
+                  alt=""
+                />
+              </a>
             )
           })}
         </div>
