@@ -68,6 +68,19 @@ module.exports = {
             '--tw-prose-quote-borders': theme('colors.light-text'),
             '--tw-prose-captions': theme('colors.light-text'),
             '--tw-prose-code': theme('colors.light-text'),
+            'code:is(.astro-code > code)': {
+              'counter-reset': 'step',
+              'counter-increment': 'step 0',
+            },
+            'code:is(.astro-code > code) .line::before': {
+              content: 'counter(step)',
+              'counter-increment': 'step',
+              width: '1rem',
+              'margin-right': '1rem',
+              display: 'inline-block',
+              'text-align': 'right',
+              color: 'rgba(115,138,148,.4)',
+            },
             'code:not(.astro-code > code)': {
               'border-radius': '5px',
               padding: '2px',
