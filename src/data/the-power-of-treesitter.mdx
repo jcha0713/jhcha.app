@@ -326,11 +326,16 @@ So I need to manually check if the row number of the attribute value matches the
 -- it means that the element has no class attribute,
 -- so add a new one
 if
-  -- compare the row numbers
-  (ranges["value"].start_row < ranges["tag"].start_row
-    or ranges["value"].end_row > ranges["tag"].end_row
-    -- compare the col numbers
-  ) or (ranges["value"].start_col > ranges["tag"].end_col)
+  -- compare the row numbers of value and opening tag
+    (
+      ranges["value"].start_row < ranges["tag"].start_row
+      or ranges["value"].end_row > ranges["tag"].end_row
+    )
+    -- or if the two tags are on the same line, compare the column numbers
+    or (
+      utils.is_same_line(ranges["value"].end_row, ranges["tag"].end_row)
+      and ranges["value"].start_col > ranges["tag"].end_col
+    )
 then
   local replace_line = function(line, start_col, end_col, insert_str)
     local new_line = line:sub(0, start_col) .. insert_str .. line:sub(end_col + 1)
