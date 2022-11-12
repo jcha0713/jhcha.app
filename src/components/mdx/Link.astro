@@ -1,12 +1,14 @@
 ---
+import { Icon } from 'astro-icon'
 const { href } = Astro.props
 ---
 
 <a
-  class="inline-flex gap-[0.15rem] items-center bg-sky-100 px-1 rounded-md dark:text-blue-500 dark:bg-tr no-underline hover:bg-sky-200 dark:hover:bg-slate-800 transition-[background] duration-300"
+  class="inline-flex gap-[0.15rem] items-center bg-sky-100 px-1 rounded-md dark:text-blue-400 dark:bg-slate-800 no-underline hover:bg-sky-200 dark:hover:bg-slate-800 transition-[background] duration-300 text-base md:text-lg"
   href={href}
   target="_blank"
   rel="noopener noreferrer"
 >
   <slot />
+  <Icon class="w-4" name={`ei:external-link`} aria-hidden="true" />
 </a>
