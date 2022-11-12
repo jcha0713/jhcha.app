@@ -71,6 +71,8 @@ module.exports = {
             'code:is(.astro-code > code)': {
               'counter-reset': 'step',
               'counter-increment': 'step 0',
+              'font-size': '1rem',
+              'line-height': '1.75rem',
             },
             'code:is(.astro-code > code) .line::before': {
               content: 'counter(step)',
@@ -127,5 +129,8 @@ module.exports = {
       }),
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/line-clamp'),
+  ],
 }
