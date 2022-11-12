@@ -25,7 +25,9 @@ const retweetUrl = `https://twitter.com/intent/retweet?tweet_id=${id}`
 const replyUrl = `https://twitter.com/intent/tweet?in_reply_to=${id}`
 const tweetUrl = `https://twitter.com/${tweet.author.username}/status/${id}`
 const created_at = Temporal.Instant.from(tweet.created_at)
-const formattedText = tweet.text.replace(/https:\/\/[\n\S]+/g, '')
+const formattedText = tweet.text
+  .replace(/https:\/\/[\n\S]+/g, '')
+  .replace('&gt;', '>')
 
 const tweetedTime = created_at.toLocaleString(lang, {
   timeStyle: 'short',
