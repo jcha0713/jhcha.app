@@ -34,6 +34,7 @@ module.exports = {
         // Text color
         'light-text': 'var(--light-text)',
         'dark-text': 'var(--dark-text)',
+        'dark-text-light': 'var(--dark-text-light)',
 
         // Border color
         'light-border': 'var(--light-border)',
