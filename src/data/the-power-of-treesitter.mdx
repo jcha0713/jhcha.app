@@ -7,6 +7,7 @@ tags: ['neovim', 'treesitter']
 date: 11/11/22
 ---
 
+import B from '../components/mdx/B.astro'
 import Link from '../components/mdx/Link.astro'
 import Card from '../components/mdx/Card.astro'
 import Tweet from '../components/mdx/Tweet.astro'
@@ -40,9 +41,9 @@ I have my solutions proposed, and it's time to do some Tree-sitter magic✨.
 
 ## What is Tree-sitter?
 
-Tree-sitter(or treesitter) is a parser generator tool and an <strong>incremental parsing library</strong>. It is important to note that it supports incremental parsing because it means that treesitter does not need to parse the whole document when something has changed, so it's faster than the other traditional parsers. It's good to understand how treesitter works but it's totally fine to use it without mastering the tool thanks to Neovim's built-in treesitter API.
+Tree-sitter(or treesitter) is a parser generator tool and an <B>incremental parsing library</B>. It is important to note that it supports incremental parsing because it means that treesitter does not need to parse the whole document when something has changed, so it's faster than the other traditional parsers. It's good to understand how treesitter works but it's totally fine to use it without mastering the tool thanks to Neovim's built-in treesitter API.
 
-Starting from version 0.5, <strong>Neovim has native treesitter support</strong> with some helpful built-in functions, and it is what makes Neovim so powerful compared to Vim. For example, syntax highlighting and indentation used to be the two most annoying things to set up, but now with Tree-sitter, they work like a charm even for languages with more complicated structures. This is particularly good news for those who write front-end codes in Vim environment as many cutting-edge frameworks are often mixtures of JavaScript / JSX / TypeScript / HTML / CSS.
+Starting from version 0.5, <B>Neovim has native treesitter support</B> with some helpful built-in functions, and it is what makes Neovim so powerful compared to Vim. For example, syntax highlighting and indentation used to be the two most annoying things to set up, but now with Tree-sitter, they work like a charm even for languages with more complicated structures. This is particularly good news for those who write front-end codes in Vim environment as many cutting-edge frameworks are often mixtures of JavaScript / JSX / TypeScript / HTML / CSS.
 
 If you're interested to know more about treesitter, I recommend starting from the <Link href="https://tree-sitter.github.io">official website</Link>.
 
@@ -266,7 +267,7 @@ end
 
 Here, I'm looking for `attr_value` nodes and if it does match, I put the cursor using the row and column information, start the insert mode and manually add a space(`" "`).
 
-The solution above worked well until I tested on an element that has more than one line. This is problematic considering that multi-line element is common in JSX. It would not work as expected because we are <strong>searching only on the line where the cursor is</strong>, and because there is <strong>no appropriate row number to refer to when setting the cursor</strong>.
+The solution above worked well until I tested on an element that has more than one line. This is problematic considering that multi-line element is common in JSX. It would not work as expected because we are <B>searching only on the line where the cursor is</B>, and because there is <B>no appropriate row number to refer to when setting the cursor</B>.
 
 For the same reasons, calling the function when the cursor is not on the opening tag will not trigger the right behavior.
 
