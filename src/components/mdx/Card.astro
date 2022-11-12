@@ -1,0 +1,51 @@
+---
+// mostly from: https://github.com/natemoo-re/feed
+import { parse } from 'ultrahtml'
+import { querySelectorAll } from 'ultrahtml/selector'
+import { dset } from 'dset'
+interface Props {
+  href: string
+}
+const { href } = Astro.props
+const text = await fetch(href).then((res) => res.text())
+const html = await parse(text)
+const og = querySelectorAll(html, 'meta[property^="og:"]').reduce(
+  (acc, meta) => {
+    const { property, content: value } = meta.attributes
+    const key = property.replace('og:', '')
+    dset(acc, key === 'image' ? 'image.src' : key.replace(/\:/g, '.'), value)
+    return acc
+  },
+  {} as Record<string, any>
+)
+const {
+  image: { src, width = '1200', height = '630', alt },
+} = og
+---
+
+<a
+  class="not-prose rounded-3xl border border-gray-300 mt-4 mb-2 shadow-sm dark:border-slate-800 mx-auto w-full xs:w-4/5 sm:min-w-0 my-5 no-underline hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-[background-color] delay-100 ease-in-out"
+  target="_blank"
+  href={href}
+>
+  {
+    og.image && (
+      <span>
+        <img
+          class="rounded-t-3xl"
+          {...{ src, width, height, alt }}
+          loading="lazy"
+        />
+      </span>
+    )
+  }
+  <span class="flex flex-col gap-y-1 px-5 py-3 text-base">
+    <span class="text-gray-600 dark:text-neutral-400"
+      >{new URL(href).origin.replace(/^https?\:\/\//, '')}</span
+    >
+    <span class="font-semibold truncate">{og.title}</span>
+    <span class="text-gray-600 dark:text-neutral-400 line-clamp-2 text-sm"
+      >{og.description}</span
+    >
+  </span>
+</a>
