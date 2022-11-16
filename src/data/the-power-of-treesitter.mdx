@@ -156,13 +156,18 @@ There are three cases to handle.
 <p class="my-class ...">case 3</p>
 ```
 
-For the first case, I can capture the `tag_name` node and see if it has any children.
+For the first case, I can simply capture the `attribute_name` node and see if it is empty or not. In this case, I would also want to capture the `tag_name` node as a reference so that I can add a new class attribute next to the `tag_name` node's position.
 
 ```query
-((tag_name) @tag)
+((attribute_name) @attr_name)
 ```
 
-For the other two cases, I need to dig deeper and capture the `quoted_attribute_value` node. However, I don't really need to the values from other types of attributes like `src` or `href` because I only care about the class attribute. How can I write a query that matches only with the class attribute?
+```query
+# there are two types of tags in HTML
+([( start_tag ) ( self_closing_tag )] @tag)
+```
+
+For the other two cases, I need to check the `quoted_attribute_value` node for its value. However, I don't really need to get values from other types of attributes like `src` or `href` because I only care about the class attribute. How can I write a query that matches only with the class attribute?
 
 #### Predicates
 
