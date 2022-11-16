@@ -12,6 +12,7 @@
     "paths": {
       "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
+      "@mdx/*": ["src/components/mdx/*"],
       "@layouts/*": ["src/layouts/*"],
       "@data/*": ["src/data/*"],
       "@lib/*": ["src/lib/*"],
