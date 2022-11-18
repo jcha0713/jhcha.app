@@ -14,7 +14,7 @@ const { translated, lang } = Astro.props as Props
 {
   translated && (
     <div class="post-meta-item">
-      <span class="font-bold">Also available in:</span>
+      <span class="font-bold">🌐</span>
       {Object.entries(langs)
         .filter(([_, value]) => value !== lang)
         .map(([key, value]) => {
