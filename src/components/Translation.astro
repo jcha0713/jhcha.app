@@ -22,6 +22,7 @@ const { translated, lang } = Astro.props as Props
             <span>
               <a
                 class="text-blue-700 underline underline-offset-4 hover:no-underline focus:text-amber-800 dark:text-blue-300"
+                rel="prefetch"
                 href={getPathnameFromLanguage(value, pathname)}
               >
                 {key}
