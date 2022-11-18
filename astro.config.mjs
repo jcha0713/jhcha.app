@@ -34,7 +34,7 @@ export default defineConfig({
     extendDefaultPlugins: true,
     render: ['@astrojs/markdown-remark'],
     shikiConfig: {
-      theme: 'vitesse-dark',
+      theme: 'nord',
       langs: ['astro', 'javascript', 'html', 'lua'],
       wrap: false,
     },

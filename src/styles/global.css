@@ -169,7 +169,7 @@
   }
 
   .article {
-    @apply px-main prose prose-lg prose-light mx-auto flex max-w-[52ch] flex-1 flex-col overflow-x-auto  prose-headings:mb-5 prose-headings:mt-12 prose-headings:text-left prose-headings:font-heading prose-headings:text-xl prose-headings:font-medium prose-a:decoration-gray-600 prose-a:underline-offset-2 selection:prose-code:bg-code-selection prose-pre:break-all prose-pre:pl-4 dark:prose-invert dark:prose-headings:text-dark-text-light dark:prose-a:decoration-gray-400 dark:prose-pre:!bg-[#161515] md:prose-headings:text-3xl md:prose-p:leading-relaxed lg:overflow-x-visible xl:prose-xl 2xl:prose-pre:text-[1.15rem] xs:prose-pre:break-normal;
+    @apply px-main prose prose-lg prose-light mx-auto flex max-w-[52ch] flex-1 flex-col overflow-x-auto  prose-headings:mb-5 prose-headings:mt-12 prose-headings:text-left prose-headings:font-heading prose-headings:text-xl prose-headings:font-medium prose-a:decoration-gray-600 prose-a:underline-offset-2 prose-pre:break-all prose-pre:pl-4 dark:prose-invert dark:prose-headings:text-dark-text-light dark:prose-a:decoration-gray-400 dark:prose-pre:!bg-[#161515] md:prose-headings:text-3xl md:prose-p:leading-relaxed lg:overflow-x-visible xl:prose-xl 2xl:prose-pre:text-[1.15rem] xs:prose-pre:break-normal;
   }
 
   .post-meta-item {
