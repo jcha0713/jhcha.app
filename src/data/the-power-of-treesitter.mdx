@@ -201,7 +201,7 @@ local query = vim.treesitter.query.parse_query(lang, query_text)
   </span>
 </Toggle>
 
-This will return a query object that you can iterate using `iter_captures` method. `iter_captures` takes four parameters: a node you want to search through, a buffer number, and start / end line numbers for the search. It will return the id, captured node as a table, and a metadata table.
+This will return a query object that you can use when iterate a node using `iter_captures` method. `iter_captures` takes four parameters: a node you want to search through, a buffer number, and start / end line numbers for the search. It will return the id, captured node as a table, and a metadata table.
 
 ```lua
 -- for-loop pattern
@@ -221,7 +221,7 @@ end
 
 Everything looks good, right? You only need a starting node that will be handed over to the `iter_captures` function. Which node should I use? Obviously, I should start from the node under my cursor, so let me show you how it works.
 
-There is a built-in function called `get_node_at_cursor` in `vim.treesitter` module, but this function only returns the name of a node as a string, and not as a table. Luckily, `nvim-treesitter.ts_utils` provides a better one with the same name.
+There is a built-in function called `get_node_at_cursor` in `vim.treesitter` module, but this function only returns the name of a node as a string, and not as a `tsnode` instance. Luckily, `nvim-treesitter.ts_utils` provides a better one with the same name.
 
 ```lua
 local ts_utils = require("nvim-treesitter.ts_utils")
@@ -250,6 +250,7 @@ local cursor = vim.api.nvim_win_get_cursor(0)
 local cursor_row, cursor_col = unpack(cursor)
 
 for id, capture, metadata in query:iter_captures(node, bufnr, cursor_row - 1, cursor_row) do
+
   -- get range information from captured node
   local capture_start_row, capture_start_col, capture_end_row, capture_end_col = capture:range()
 
@@ -265,12 +266,11 @@ for id, capture, metadata in query:iter_captures(node, bufnr, cursor_row - 1, cu
     vim.api.nvim_feedkeys(" ", "n", false)
   end
 end
-
 ```
 
-## Handling multi-line element case
-
 Here, I'm looking for `attr_value` nodes and if it does match, I put the cursor using the row and column information, start the insert mode and manually add a space(`" "`).
+
+## Handling multi-line element case
 
 The solution above worked well until I tested on an element that has more than one line. This is problematic considering that multi-line element is common in JSX. It would not work as expected because we are <B>searching only on the line where the cursor is</B>, and because there is <B>no appropriate row number to refer to when setting the cursor</B>.
 
@@ -324,7 +324,7 @@ local _, class = get_value()
 local _, value = get_value()
 ```
 
-With this method, I cannot guarantee that the returned values are actually from the outermost element.
+If the `class` node is `nil`, it means that there is no class attribute at all. So I need to add a new class attribute. There is one more case to handle. With this method, I cannot guarantee that the returned values are actually from the outermost element.
 So I need to manually check if the row number of the attribute value matches the row number of the tag node. And also compared the column numbers.
 
 ```lua
@@ -343,6 +343,10 @@ if
       and ranges["value"].start_col > ranges["tag"].end_col
     )
 then
+  -- the captured node is not from the outermost tag
+  -- so add a new class attribute
+  -- it can be a multi-line element so use get/set_lines
+  -- instead of nvim_feedkeys
   local replace_line = function(line, start_col, end_col, insert_str)
     local new_line = line:sub(0, start_col) .. insert_str .. line:sub(end_col + 1)
     return new_line
@@ -361,7 +365,7 @@ end
 ```
 
 Lastly, if the `value` is not `nil`, then I simply add a new space and put the cursor at the end.
-If the `value` node was empty, I add `""` (no space, only the quotation marks) instead of `" "`.
+If the `value` node only contains a set of quotation marks (empty string), there's no need to add a space. Just put the cursor between the quotation marks.
 
 ```lua
 -- if the captured node has some values,
