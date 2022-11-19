@@ -49,7 +49,7 @@ import Twitter from '@mdx/Twitter.astro'
 
 <B>네오빔은 0.5 버전부터 트리시터를 기본적으로 지원한다</B>. 이는 기존 빔과
 네오빔의 가장 큰 차이점 중 하난데, 좀 더 강력한 기능을 쉽게 구현할 수 있도록
-도와주고 있다. 예를 들어 트리시터 도입 전의 구문 강조(syntax highlighting)와
+도와주고 있다. 일례로 트리시터 도입 전의 구문 강조(syntax highlighting)와
 들여쓰기(indentation)는 항상 까다로운 장애물처럼 여겨졌지만, 도입 후에는 몇 가지
 설치과정을 거치면 누구나 쉽게 설정할 수 있게 되었다. 특히 여러 가지 언어가 섞인
 (예: React, Astro) 언어 또는 프레임워크를 주로 사용하는 웹 개발자라면 트리시터
@@ -61,13 +61,13 @@ import Twitter from '@mdx/Twitter.astro'
 
 먼저 <Link href="https://github.com/nvim-treesitter/nvim-treesitter">nvim-treesitter</Link>를 통해 언어별 파서를 설치한다. `nvim-treesitter`는 트리시터 파서를 쉽게 설치하고 관리하도록 도와주는 인터페이스와 모듈을 제공하는 필수 플러그인이다. 예를 들어 `HTML` 파서를 `:TSInstall html`과 같은 식으로 쉽게 설치가 가능하다.
 
-추가로 빠른 트리시터 쿼리(Query) 작성을 위해 <Link href="https://github.com/nvim-treesitter/playground">nvim-treesitter/playground</Link>를 설치한다. 이 플러그인은 말 그대로 쿼리를 바로 테스트 해 볼 수 있는 플레이그라운드 인터페이스를 제공한다.
+추가로 빠른 트리시터 쿼리(query) 작성을 위해 <Link href="https://github.com/nvim-treesitter/playground">nvim-treesitter/playground</Link>를 설치한다. 이 플러그인은 말 그대로 쿼리를 바로 테스트 해 볼 수 있는 플레이그라운드 인터페이스를 제공한다.
 
 필요한 파서를 다 설치했다면 이제 쿼리를 작성해보자.
 
 ## 트리시터 쿼리 기초
 
-트리시터 설정을 마치고 파서가 지원되는 문서를 열면 트리시터는 문서를 곧바로 파싱해 구문 트리(syntax tree)를 만든다. 이제 쿼리를 작성함으로써 트리 내 원하는 노드에 접근하고 정보를 가져올 수 있게 된다.
+트리시터 설정을 마치고 파서가 지원되는 언어의 문서를 열면 트리시터는 곧바로 문서를 파싱해 구문 트리(syntax tree)를 만든다. 이제 쿼리를 작성함으로써 트리 내 원하는 노드에 접근하고 정보를 가져올 수 있게 된다.
 
 특정 노드에 접근해 캡처(capture)하기 위해서는 괄호 안에 노드의 이름을 적고 `@` 부호와 함께 이름을 부여해주면 된다.
 
@@ -101,7 +101,7 @@ import Twitter from '@mdx/Twitter.astro'
 
 (공식 문서의 <Link href="https://tree-sitter.github.io/tree-sitter/using-parsers#query-syntax">Query Syntax</Link>항목에 보다 자세한 설명이 있으니 관심이 있다면 더 읽어보는 것을 추천한다.)
 
-### `HTML` 구문 트리
+### HTML 구문 트리
 
 위에서 설명한 `nvim-treesitter/playground` 플러그인을 설치하고 커맨드 모드에서 `:TSPlaygroundToggle`을 입력하면 구문 트리의 모습을 살펴볼 수 있다. 만약 오류가 일어난다면 `HTML` 파서가 제대로 설치되었나 체크해보자.
 
@@ -173,7 +173,7 @@ element [1, 0] - [5, 7]
 ```
 
 ```query
-# HTML에는 두 종류의 태그가 있다
+# HTML에는 두 종류의 시작 태그가 있다
 ([( start_tag ) ( self_closing_tag )] @tag)
 ```
 
@@ -189,7 +189,7 @@ element [1, 0] - [5, 7]
 ((attribute_name) @attr_name (#eq? @attr_name "class") (quoted_attribute_value) @attr_value)
 ```
 
-이렇게 작성된 쿼리는 `attribute_name` 노드를 `@attr_name`이라는 이름으로 캡처하고 다시 캡처한 노드의 값이 `class`와 일치하는 노드만 골라낸다. 그리고 클래스 속성의 값이 들어있는 `quoted_attribute_value` 노드를 `@attr_value`라는 이름으로 가져온다.
+이 쿼리는 `attribute_name` 노드를 `@attr_name`이라는 이름으로 캡처하고 다시 캡처한 노드의 값이 `class`와 일치하는 노드만 골라낸다. 그리고 클래스 속성의 값이 들어있는 `quoted_attribute_value` 노드를 `@attr_value`라는 이름으로 가져온다.
 
 이 밖에도 네오빔에서 지원하는 다른 술어가 궁금하다면 <Link href="https://neovim.io/doc/user/treesitter.html#treesitter-predicates">공식 문서</Link>를 통해 확인해볼 수 있다.
 
@@ -213,7 +213,7 @@ local query = vim.treesitter.query.parse_query(lang, query_text)
   </span>
 </Toggle>
 
-마지막 줄의 함수는 쿼리 오브젝트를 리턴하는데, 이제 이 오브젝트와 `iter_captures` 함수를 가지고 원하는 노드를 탐색할 수 있다. `iter_captures` 함수는 총 네 개의 인자를 가진다. 탐색할 트리시터 노드, 버퍼(buffer) 번호, 그리고 탐색의 시작과 끝 행 정보를 넘겨주면 캡처된 노드와 아이디 번호, 그리고 그 밖의 정보를 담은 메타데이터(metadata)를 리턴한다.
+이제 `parse_query` 함수에서 반환된 쿼리 오브젝트와 `iter_captures` 함수를 가지고 원하는 노드를 탐색할 수 있다. `iter_captures` 함수는 총 네 개의 인자를 가진다. 탐색할 트리시터 노드, 버퍼(buffer) 번호, 그리고 탐색의 시작과 끝 행 정보를 넘겨주면 캡처된 노드와 아이디 번호, 그리고 그 밖의 정보를 담은 메타데이터(metadata)를 리턴한다.
 
 ```lua
 -- for-loop pattern
