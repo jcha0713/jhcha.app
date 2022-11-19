@@ -8,32 +8,35 @@
    */
   @font-face {
     font-family: Whyte;
-    src: url('/fonts/ABCWhyte-Medium.woff2') format('woff2'),
-      url('/fonts/ABCWhyte-Medium.woff') format('woff');
+    src: url('/fonts/ABCWhyte-Medium.woff2') format('woff2');
     font-weight: 500;
     font-display: swap;
   }
 
   @font-face {
-    font-family: WhyteMix;
-    src: url('/fonts/ABCWhyte-Medium.woff2') format('woff2'),
-      url('/fonts/ABCWhyte-Medium.woff') format('woff');
+    font-family: WhyteTitle;
+    src: url('/fonts/ABCWhyte-Medium.woff2') format('woff2');
     font-weight: 500;
     font-display: swap;
   }
 
   @font-face {
-    font-family: ObjectSans;
-    src: url('/fonts/PPObjectSans-Regular.woff2') format('woff2'),
-      url('/fonts/PPObjectSans-Regular.woff') format('woff');
+    font-family: WhyteHead;
+    src: url('/fonts/ABCWhyte-Regular.woff2') format('woff2');
     font-weight: 400;
     font-display: swap;
   }
 
   @font-face {
     font-family: ObjectSans;
-    src: url('/fonts/PPObjectSans-Slanted.woff2') format('woff2'),
-      url('/fonts/PPObjectSans-Slanted.woff') format('woff');
+    src: url('/fonts/PPObjectSans-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: ObjectSans;
+    src: url('/fonts/PPObjectSans-Slanted.woff2') format('woff2');
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -41,8 +44,7 @@
 
   @font-face {
     font-family: ObjectSans;
-    src: url('/fonts/PPObjectSans-Bold.woff2') format('woff2'),
-      url('/fonts/PPObjectSans-Bold.woff') format('woff');
+    src: url('/fonts/PPObjectSans-Bold.woff2') format('woff2');
     font-weight: 700;
     font-display: swap;
   }
@@ -50,23 +52,29 @@
   /* Mono */
   @font-face {
     font-family: FraktionMono;
-    src: url('/fonts/PPFraktionMono-Regular.woff2') format('woff2'),
-      url('/fonts/PPFraktionMono-Regular.woff') format('woff');
+    src: url('/fonts/PPFraktionMono-Regular.woff2') format('woff2');
     font-weight: 400;
     font-display: swap;
   }
 
   @font-face {
     font-family: FraktionMono;
-    src: url('/fonts/PPFraktionMono-Bold.woff2') format('woff2'),
-      url('/fonts/PPFraktionMono-Bold.woff') format('woff');
+    src: url('/fonts/PPFraktionMono-Bold.woff2') format('woff2');
     font-weight: 700;
     font-display: swap;
   }
 
   /* Korean */
   @font-face {
-    font-family: SuitMix;
+    font-family: SuitHead;
+    src: url('/fonts/SUIT-Variable.woff2') format('woff2');
+    font-weight: 430;
+    font-display: swap;
+    unicode-range: U+AC00-D7A3;
+  }
+
+  @font-face {
+    font-family: SuitTitle;
     src: url('/fonts/SUIT-Variable.woff2') format('woff2');
     font-weight: 600;
     font-display: swap;
@@ -169,7 +177,7 @@
   }
 
   .article {
-    @apply px-main prose prose-lg prose-light mx-auto flex max-w-[52ch] flex-1 flex-col overflow-x-auto  prose-headings:mb-5 prose-headings:mt-12 prose-headings:text-left prose-headings:font-heading prose-headings:text-2xl prose-headings:font-semibold prose-a:decoration-gray-600 prose-a:underline-offset-2 prose-pre:break-all prose-pre:pl-4 dark:prose-invert dark:prose-headings:text-dark-text-light dark:prose-a:decoration-gray-400 dark:prose-pre:!bg-[#161515] md:prose-headings:text-3xl md:prose-p:leading-relaxed lg:overflow-x-visible xl:prose-xl 2xl:prose-pre:text-[1.15rem] xs:prose-pre:break-normal;
+    @apply px-main prose prose-lg prose-light mx-auto flex max-w-[52ch] flex-1 flex-col overflow-x-auto prose-headings:mb-6 prose-headings:mt-12 prose-headings:text-left prose-headings:font-mix prose-headings:text-2xl prose-headings:font-semibold prose-a:decoration-gray-600 prose-a:underline-offset-2 prose-pre:break-all prose-pre:pl-4 dark:prose-invert dark:prose-headings:text-dark-text-light dark:prose-a:decoration-gray-400 dark:prose-pre:!bg-[#161515] md:prose-headings:text-3xl lg:overflow-x-visible xl:prose-xl xl:prose-headings:text-3xl xl:prose-p:leading-loose 2xl:prose-pre:text-[1.15rem] xs:prose-pre:break-normal;
   }
 
   .post-meta-item {

@@ -21,9 +21,9 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Suit', 'ObjectSans', ...defaultTheme.fontFamily.sans],
-        heading: ['Suit', 'Whyte', ...defaultTheme.fontFamily.sans],
         mono: ['FraktionMono', ...defaultTheme.fontFamily.mono],
-        mix: ['SuitMix', 'WhyteMix', defaultTheme.fontFamily.sans],
+        mix: ['SuitHead', 'WhyteHead', defaultTheme.fontFamily.sans],
+        title: ['SuitTitle', 'WhyteTitle', defaultTheme.fontFamily.sans],
       },
       colors: {
         // Background color
