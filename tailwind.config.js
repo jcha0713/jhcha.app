@@ -75,6 +75,12 @@ module.exports = {
               'font-size': '1rem',
               'line-height': '1.75rem',
             },
+            'ul > li:first-child': {
+              'margin-top': 0,
+            },
+            'ul > li:first-child > p': {
+              'margin-top': 0,
+            },
             'code:is(.astro-code > code) .line::before': {
               content: 'counter(step)',
               'counter-increment': 'step',
