@@ -24,16 +24,15 @@ I like to mess around with all the design choices I have and because of that, th
 
 ### TODO
 
-- [x] Add contents to the main landing page
-- [x] Add Footer component
-  - [x] add social media links
-- [x] Implement pagination
-- [x] Accessibility
-- [x] Add contents to the info page
 - [x] Support the dark mode
 - [x] Improve post layout (Tags, subtitle, etc.)
 - [x] Mobile-friendly navigation bar
-- [ ] Add page transition animation
-- [ ] Add resume
-- [ ] ios Reader mode configuration
-- [ ] Search function
+- [ ] RSS feed
+- [ ] Comments
+- [ ] Navigation bar UI
+- [ ] Add resume page
+- [ ] Micro blog feed
+- [ ] Image gallery
+- [ ] Translation
+- [ ] Search functionality
+- [ ] Move from XElement to another framework
