@@ -15,9 +15,7 @@ const { button: Button } = XElement
   @do={(el, store) => {
     const mobileNavMenu = document.querySelector('#mobilenav-menu')
 
-    store.isMobile = window.matchMedia(
-      'only screen and (max-width: 768px)'
-    ).matches
+    store.isMobile = window.matchMedia('(any-pointer: coarse)').matches
 
     if (store.isMobile) {
       el.classList.remove('hidden')
@@ -68,7 +66,7 @@ const { button: Button } = XElement
 </Button>
 
 <div
-  class="fixed bottom-0 bg-zinc-300 dark:bg-zinc-700 dark:text-dark-text justify-center w-screen rounded-t-3xl pt-8 pb-24 px-16 hidden"
+  class="fixed bottom-0 hidden w-screen justify-center rounded-t-3xl bg-zinc-300 px-16 pt-8 pb-24 dark:bg-zinc-700 dark:text-dark-text"
   id="mobilenav-menu"
   role="menu"
   aria-labelledby="menubutton"
