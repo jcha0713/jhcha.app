@@ -13,7 +13,7 @@ import solidJs from '@astrojs/solid-js'
 export default defineConfig({
   publicDir: './public',
   outDir: './dist',
-  site: 'https://jhcha.app',
+  site: 'https://jhcha.app/',
   integrations: [
     tailwind({
       config: {
@@ -33,7 +33,6 @@ export default defineConfig({
   },
   markdown: {
     remarkPlugins: [remarkReadingTime],
-    extendDefaultPlugins: true,
     render: ['@astrojs/markdown-remark'],
     shikiConfig: {
       theme: 'nord',
