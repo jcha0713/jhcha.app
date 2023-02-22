@@ -1,6 +1,9 @@
+const { content } = require('easy-tailwind/transform')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
+  content,
   mode: 'jit',
   darkMode: 'class',
   content: [
