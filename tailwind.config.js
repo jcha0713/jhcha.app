@@ -1,15 +1,17 @@
-const { content } = require('easy-tailwind/transform')
+const { replacer } = require('easy-tailwind/transform')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content,
   mode: 'jit',
   darkMode: 'class',
-  content: [
-    './public/**/*.html',
-    './src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}',
-  ],
+  content: {
+    files: [
+      './public/**/*.html',
+      './src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}',
+    ],
+    transform: { DEFAULT: replacer },
+  },
   future: {
     hoverOnlyWhenSupported: true,
   },
