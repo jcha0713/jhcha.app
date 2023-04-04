@@ -49,6 +49,14 @@ module.exports = {
         'light-selection': 'var(--light-selection)',
         'dark-selection': 'var(--dark-selection)',
         'code-selection': 'var(--code-selection)',
+        sunbeam: {
+          100: '#F7FFCC',
+          200: '#F2FF94',
+          300: '#EFFF66',
+          500: '#EBFF00',
+          700: '#C5E300',
+          900: '#AFC200',
+        },
       },
       gridTemplateRows: {
         tableRows: '50px minmax(0, 1fr)',
