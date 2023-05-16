@@ -31,6 +31,9 @@ dependencies:
   dset:
     specifier: ^3.1.2
     version: 3.1.2
+  easy-tailwind:
+    specifier: ^1.1.0
+    version: 1.1.0
   mdast-util-to-string:
     specifier: ^3.1.0
     version: 3.1.0
@@ -1523,6 +1526,10 @@ packages:
 
   /eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
+
+  /easy-tailwind@1.1.0:
+    resolution: {integrity: sha512-mfjV/9AX36pHnaGxjFQE27b9wvFGxGZmtB9lOo8iRvTeltHbieyS6aZxPpTvCulgqXjRqdVJe9t/48zhtM8JIg==}
+    dev: false
 
   /electron-to-chromium@1.4.284:
     resolution: {integrity: sha512-M8WEXFuKXMYMVr45fo8mq0wUrrJHheiKZf6BArTKk9ZBYCKJEOU5H8cdWgDT+qCVZf7Na4lVUaZsA+h6uA9+PA==}
