@@ -2,39 +2,23 @@
   "extends": "astro/tsconfigs/base",
   "moduleResolution": "node",
   "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
     "baseUrl": ".",
     "resolveJsonModule": true,
-    "types": [
-      "vite/client"
-    ],
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
+    "types": ["vite/client"],
+    "typeRoots": ["./node_modules/@types"],
     "importsNotUsedAsValues": "error",
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@mdx/*": [
-        "src/components/mdx/*"
-      ],
-      "@layouts/*": [
-        "src/layouts/*"
-      ],
-      "@data/*": [
-        "src/data/*"
-      ],
-      "@lib/*": [
-        "src/lib/*"
-      ],
-      "@utils/*": [
-        "src/utils/*"
-      ]
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@mdx/*": ["src/components/mdx/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@data/*": ["src/data/*"],
+      "@lib/*": ["src/lib/*"],
+      "@utils/*": ["src/utils/*"]
     }
   }
 }

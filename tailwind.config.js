@@ -17,15 +17,15 @@ module.exports = {
     hoverOnlyWhenSupported: true,
   },
   theme: {
-    colors: {
-      inherit: twColors.inherit,
-      transparent: twColors.transparent,
-      current: twColors.current,
-      black: twColors.black,
-      white: twColors.white,
-      gray: twColors.neutral,
-      stone: twColors.stone,
-    },
+    // colors: {
+    //   inherit: twColors.inherit,
+    //   transparent: twColors.transparent,
+    //   current: twColors.current,
+    //   black: twColors.black,
+    //   white: twColors.white,
+    //   gray: twColors.neutral,
+    //   stone: twColors.stone,
+    // },
     extend: {
       screens: {
         xs: '375px',

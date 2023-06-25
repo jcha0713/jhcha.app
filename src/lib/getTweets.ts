@@ -1,61 +1,50 @@
-import type { Tweet } from '@lib/types'
+import { PlaywrightCrawler, Dataset } from 'crawlee'
 
-export const getTweet = async (id: string): Promise<Tweet[]> => {
-  const queryParams = new URLSearchParams({
-    ids: id,
-    expansions:
-      'author_id,attachments.media_keys,referenced_tweets.id,referenced_tweets.id.author_id',
-    'tweet.fields':
-      'attachments,author_id,public_metrics,created_at,id,in_reply_to_user_id,referenced_tweets,text',
-    'user.fields': 'id,name,profile_image_url,protected,url,username,verified',
-    'media.fields':
-      'duration_ms,height,media_key,preview_image_url,type,url,width,public_metrics,variants',
+export const getTweet = async (id: string) => {
+  const crawler = new PlaywrightCrawler({
+    async requestHandler({ page }) {
+      //   await page.waitForSelector('div[data-testid="tweetText"]')
+      //
+      //   const text = await page.$eval(
+      //     'div[data-testid="tweetText"]',
+      //     (el) => el.textContent
+      //   )
+      //
+      //   await page.waitForSelector('div[data-testid="Tweet-User-Avatar"]')
+      //
+      //   const profile_image_url = await page.$eval(
+      //     'div[data-testid="Tweet-User-Avatar"] .css-9pa8cd',
+      //     (el) => el.getAttribute('src')
+      //   )
+      //
+      //   await Dataset.pushData({
+      //     text: text,
+      //     author: {
+      //       profile_image_url: profile_image_url,
+      //     },
+      //   })
+      // },
+
+      // await page.waitForSelector('div[data-testid="tweetText"]')
+      const text = await page
+        .locator('div[data-testid="tweetText"]')
+        .first()
+        .textContent()
+
+      const profile_image_url = await page
+        .locator('div[data-testid="Tweet-User-Avatar"] .css-9pa8cd')
+        .first()
+        .getAttribute('src')
+
+      await Dataset.pushData({
+        text,
+        author: {
+          profile_image_url,
+        },
+      })
+    },
+    // headless: false,
   })
 
-  const response = await fetch(
-    `https://api.twitter.com/2/tweets?${queryParams}`,
-    {
-      headers: {
-        Authorization: `Bearer ${import.meta.env.TWITTER_API_KEY}`,
-      },
-    }
-  )
-
-  const tweets = await response.json()
-
-  const getAuthorInfo = (author_id) => {
-    return tweets.includes.users.find((user) => user.id === author_id)
-  }
-
-  const getReferencedTweets = (mainTweet) => {
-    return (
-      mainTweet?.referenced_tweets?.map((referencedTweet) => {
-        const fullReferencedTweet = tweets.includes.tweets.find(
-          (tweet) => tweet.id === referencedTweet.id
-        )
-
-        return {
-          type: referencedTweet.type,
-          author: getAuthorInfo(fullReferencedTweet.author_id),
-          ...fullReferencedTweet,
-        }
-      }) || []
-    )
-  }
-
-  return (
-    tweets.data.reduce((allTweets, tweet) => {
-      const tweetWithAuthor = {
-        ...tweet,
-        media:
-          tweet?.attachments?.media_keys.map((key) =>
-            tweets.includes.media.find((media) => media.media_key === key)
-          ) || [],
-        referenced_tweets: getReferencedTweets(tweet),
-        author: getAuthorInfo(tweet.author_id),
-      }
-
-      return [tweetWithAuthor, ...allTweets]
-    }, []) || []
-  )
+  await crawler.run([`https://twitter.com/user/status/${id}`])
 }
