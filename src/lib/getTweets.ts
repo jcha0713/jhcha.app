@@ -3,10 +3,11 @@ import { PlaywrightCrawler, Dataset } from 'crawlee'
 export const getTweet = async (id: string) => {
   const crawler = new PlaywrightCrawler({
     async requestHandler({ page }) {
-      const text = await page
-        .locator('div[data-testid="tweetText"]')
-        .first()
-        .textContent()
+      const text =
+        (await page
+          .locator('div[data-testid="tweetText"]')
+          .first()
+          .textContent()) || ''
 
       const profile_image_url = await page
         .locator('div[data-testid="Tweet-User-Avatar"] .css-9pa8cd')
@@ -24,7 +25,15 @@ export const getTweet = async (id: string) => {
         .getByTestId('app-text-transition-container')
         .allInnerTexts()
 
+      const media = await page
+        .getByTestId('tweetPhoto')
+        .locator('img')
+        .getAttribute('src')
+
+      console.log(media)
+
       await Dataset.pushData({
+        media,
         text,
         created_at,
         author: {
