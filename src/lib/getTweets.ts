@@ -36,7 +36,10 @@ export const getTweet = async (id: string) => {
           .locator('img')
           .getAttribute('src')
 
-        console.log(media)
+        const video = await page
+          .getByTestId('videoComponent')
+          .locator('video')
+          .getAttribute('src')
 
         await Dataset.pushData({
           media,
