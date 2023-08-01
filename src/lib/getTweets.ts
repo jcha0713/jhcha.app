@@ -1,66 +1,99 @@
-import { PlaywrightCrawler, Dataset, Configuration } from 'crawlee'
+import { z } from 'zod'
 
-export const getTweet = async (id: string) => {
-  const config = new Configuration({
-    purgeOnStart: false,
-    persistStorage: false,
+const API_URL = 'https://cdn.syndication.twimg.com'
+
+const TweetResultSchema = z
+  .object({
+    id_str: z
+      .string()
+      .max(40)
+      .regex(/^[0-9]+$/),
+    text: z.string(),
+    user: z.object({
+      name: z.string(),
+      screen_name: z.string(),
+      profile_image_url_https: z.string().url(),
+    }),
+    created_at: z.string().datetime(),
+    photos: z
+      .array(
+        z.object({
+          url: z.string().url(),
+          width: z.number(),
+          height: z.number(),
+        })
+      )
+      .optional(),
+    video: z
+      .object({
+        variants: z.array(
+          z.object({
+            url: z.string().url(),
+          })
+        ),
+      })
+      .optional(),
+  })
+  .transform(({ id_str, user, photos, video, ...rest }) => {
+    return {
+      ...rest,
+      id: id_str,
+      author: {
+        name: user.name,
+        username: user.screen_name,
+        profile_image_url: user.profile_image_url_https,
+      },
+      media: photos?.map((image) => {
+        return {
+          url: image.url,
+          width: image.width,
+          height: image.height,
+        }
+      }),
+    }
   })
 
-  const crawler = new PlaywrightCrawler(
-    {
-      async requestHandler({ page }) {
-        const text =
-          (await page
-            .locator('div[data-testid="tweetText"]')
-            .first()
-            .textContent()) || ''
+export type Tweet = z.infer<typeof TweetResultSchema>
 
-        const profile_image_url = await page
-          .locator('div[data-testid="Tweet-User-Avatar"] .css-9pa8cd')
-          .first()
-          .getAttribute('src')
+export class TwitterApiError extends Error {
+  status: number
+  data: any
 
-        const username = await page
-          .locator('div[data-testid="User-Name"]')
-          .getByRole('link')
-          .allInnerTexts()
-
-        const created_at = await page.getByRole('time').first().textContent()
-
-        const public_metrics = await page
-          .getByTestId('app-text-transition-container')
-          .allInnerTexts()
-
-        const media = await page
-          .getByTestId('tweetPhoto')
-          .locator('img')
-          .getAttribute('src')
-
-        const video = await page
-          .getByTestId('videoComponent')
-          .locator('video')
-          .getAttribute('src')
-
-        await Dataset.pushData({
-          media,
-          text,
-          created_at,
-          author: {
-            name: username[0],
-            username: username[1],
-            profile_image_url,
-          },
-          public_metrics: {
-            retweet_count: public_metrics[0] || 0,
-            reply_count: public_metrics[1] || 0,
-            like_count: public_metrics[2] || 0,
-          },
-        })
-      },
-      // headless: false,
-    },
-    config
-  )
-
-  await crawler.run([`https://twitter.com/user/status/${id}`])
+  constructor({
+    message,
+    status,
+    data,
+  }: {
+    message: string
+    status: number
+    data: any
+  }) {
+    super(message)
+    this.name = 'TwitterApiError'
+    this.status = status
+    this.data = data
+  }
 }
+
+export async function getTweet(id: string): Promise<Tweet | undefined> {
+  const url = new URL(`${API_URL}/tweet-result`)
+
+  url.searchParams.set('id', id)
+  const res = await fetch(url.toString())
+  const isJson = res.headers.get('content-type')?.includes('application/json')
+  const data = isJson ? await res.json() : undefined
+
+  const parsedData = TweetResultSchema.parse(data)
+
+  if (res.ok) {
+    return parsedData
+  }
+
+  if (res.status === 404) {
+    return
+  }
+}
+
+getTweet('1588651428054458368').then((tweet) => {
+  console.log(tweet)
+})

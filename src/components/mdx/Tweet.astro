@@ -4,20 +4,12 @@ import { getTweet } from '@lib/getTweets'
 import { Temporal } from '@js-temporal/polyfill'
 import { Image } from '@astrojs/image/components'
 import { getLanguageFromURL } from '@utils/i18n'
-import { Dataset } from 'crawlee'
 
 export interface Props {
   id: string
   referenced?: boolean
   nestedLevel?: number
 }
-
-const data = await Dataset.open()
-data.map(tweet => {
-  console.log('HERE')
-  console.log(tweet.text)
-  console.log(tweet.author.profile_image_url)
-})
 
 const { id, referenced = false, nestedLevel = 0 } = Astro.props as Props
 
