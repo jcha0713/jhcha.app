@@ -13,11 +13,13 @@ export interface Props {
 
 const { id, referenced = false, nestedLevel = 0 } = Astro.props as Props
 
-const response = await getTweet(id)
-const tweet = response[0]
+const tweet = await getTweet(id)
+// console.log('HERE', response)
+// const tweet = response[0]
 
 const url = Astro.url
 const lang = getLanguageFromURL(url.pathname)
+
 
 const authorUrl = `https://twitter.com/${tweet.author.username}`
 const likeUrl = `https://twitter.com/intent/like?tweet_id=${id}`
@@ -126,22 +128,10 @@ const getImageStyle = (idx, imgs) => {
           </a>
           <span class="font-mono text-sm">@{tweet.author.username}</span>
         </div>
-
-        {!referenced && (
-          <div class="ml-auto">
-            <a href={tweetUrl} target="_blank" rel="noopener noreferrer">
-              <Icon
-                class="w-6 text-sky-500"
-                name={`mdi:twitter`}
-                aria-hidden="true"
-              />
-            </a>
-          </div>
-        )}
       </div>
       {/* prettier-ignore */}
       <div class={`${referenced ? 'my-2' : 'my-6 whitespace-pre-line'}`}>{formattedText}</div>
-      {tweet.media.length > 0 && (
+      {/*tweet.media.length > 0 && (
         <div class={getGridStyle(tweet.media.length)}>
           {tweet.media.map((img, i, imgs) => {
             return img?.variants?.length > 0 ? (
@@ -172,7 +162,7 @@ const getImageStyle = (idx, imgs) => {
             )
           })}
         </div>
-      )}
+      )*/}
 
       <div
         class={`font-sans text-sm text-gray-600 ${
@@ -181,70 +171,8 @@ const getImageStyle = (idx, imgs) => {
             : 'mb-4 border-b border-gray-200 py-3 dark:border-slate-700'
         }`}
       >
-        {tweet.referenced_tweets[0] &&
-          tweet.referenced_tweets[0].type === 'quoted' && (
-            <Astro.self
-              id={tweet.referenced_tweets[0].id}
-              referenced={true}
-              nestedLevel={nestedLevel + 1}
-            />
-          )}
-        {!referenced && (
-          <div>
-            <span>{tweetedTime}</span>
-            <span> ‧</span>
-            <span>{tweetedDate}</span>
-          </div>
-        )}
-      </div>
-      {!referenced && (
+      (
         <div class="flex flex-row gap-4 font-mono text-base text-gray-500 sm:gap-8">
-          <div>
-            <a
-              class="flex items-center gap-2"
-              href={replyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon
-                class="w-4 text-light-text sm:w-5"
-                name={`system-uicons:speech-bubble`}
-                aria-hidden="true"
-              />
-              <span>{tweet.public_metrics.reply_count}</span>
-            </a>
-          </div>
-
-          <div>
-            <a
-              class="flex items-center gap-2"
-              href={retweetUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon
-                class="w-4 text-light-text sm:w-5"
-                name={`system-uicons:retweet`}
-                aria-hidden="true"
-              />
-              <span>{tweet.public_metrics.retweet_count}</span>
-            </a>
-          </div>
-          <div>
-            <a
-              class="flex items-center gap-2"
-              href={likeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon
-                class="w-4 text-light-text sm:w-5"
-                name={`system-uicons:heart`}
-                aria-hidden="true"
-              />
-              <span>{tweet.public_metrics.like_count}</span>
-            </a>
-          </div>
         </div>
       )}
     </div>

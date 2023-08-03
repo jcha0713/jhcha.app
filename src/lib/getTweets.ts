@@ -14,6 +14,7 @@ const TweetResultSchema = z
       screen_name: z.string(),
       profile_image_url_https: z.string().url(),
     }),
+    favorite_count: z.number(),
     created_at: z.string().datetime(),
     photos: z
       .array(
@@ -27,14 +28,17 @@ const TweetResultSchema = z
     video: z
       .object({
         variants: z.array(
-          z.object({
-            url: z.string().url(),
-          })
+          z
+            .object({
+              type: z.string(),
+              src: z.string().url(),
+            })
+            .optional()
         ),
       })
       .optional(),
   })
-  .transform(({ id_str, user, photos, video, ...rest }) => {
+  .transform(({ id_str, user, favorite_count, photos, video, ...rest }) => {
     return {
       ...rest,
       id: id_str,
@@ -43,6 +47,7 @@ const TweetResultSchema = z
         username: user.screen_name,
         profile_image_url: user.profile_image_url_https,
       },
+      like_count: favorite_count,
       media: photos?.map((image) => {
         return {
           url: image.url,
@@ -50,6 +55,10 @@ const TweetResultSchema = z
           height: image.height,
         }
       }),
+      video: {
+        src: video?.variants[0].src,
+        content_type: video?.variants[0].type,
+      },
     }
   })
 
@@ -93,7 +102,3 @@ export async function getTweet(id: string): Promise<Tweet | undefined> {
     return
   }
 }
-
-getTweet('1588651428054458368').then((tweet) => {
-  console.log(tweet)
-})

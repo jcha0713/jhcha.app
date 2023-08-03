@@ -9,8 +9,8 @@ export interface Props {
 
 const { id } = Astro.props as Props
 
-const response = await getTweet(id)
-const tweet = response[0]
+const tweet = await getTweet(id)
+// const tweet = response[0]
 
 const authorUrl = `https://twitter.com/${tweet.author.username}`
 const tweetUrl = `https://twitter.com/${tweet.author.username}/status/${id}`
