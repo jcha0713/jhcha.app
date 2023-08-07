@@ -37,6 +37,8 @@ const tweetedDate = created_at.toLocaleString(lang, {
   dateStyle: 'long',
 })
 
+const isMediaTweet = tweet?.media?.length > 0 || tweet?.video?.src
+
 const getGridStyle = (totalImg) => {
   const gap = 'gap-[0.15rem]'
   const styles = {
@@ -141,7 +143,7 @@ const getImageStyle = (idx, imgs) => {
       </div>
       {/* prettier-ignore */}
       <div class={`${referenced ? 'my-2' : 'my-6 whitespace-pre-line'}`}>{formattedText}</div>
-      {tweet?.media?.length > 0 || tweet?.video?.src ? (
+      {isMediaTweet ? (
         tweet?.video?.src ? (
           <video
             controls
